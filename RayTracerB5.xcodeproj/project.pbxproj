@@ -10,7 +10,52 @@
 		D63840F121C12EA3002BB6C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63840F021C12EA3002BB6C6 /* AppDelegate.swift */; };
 		D63840F321C12EA6002BB6C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D63840F221C12EA6002BB6C6 /* Assets.xcassets */; };
 		D63840F621C12EA6002BB6C6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D63840F421C12EA6002BB6C6 /* MainMenu.xib */; };
-		D638410221C12EA6002BB6C6 /* RayTracerB5Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638410121C12EA6002BB6C6 /* RayTracerB5Tests.swift */; };
+		D638410221C12EA6002BB6C6 /* TupleFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638410121C12EA6002BB6C6 /* TupleFeatures.swift */; };
+		D638410F21C13005002BB6C6 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638410C21C13005002BB6C6 /* Point.swift */; };
+		D638411021C13005002BB6C6 /* Tuple.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638410D21C13005002BB6C6 /* Tuple.swift */; };
+		D638411121C13005002BB6C6 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638410E21C13005002BB6C6 /* Vector.swift */; };
+		D638411321C13168002BB6C6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638411221C13168002BB6C6 /* Color.swift */; };
+		D638411521C131BA002BB6C6 /* CanvasFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638411421C131BA002BB6C6 /* CanvasFeatures.swift */; };
+		D638411721C13243002BB6C6 /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638411621C13243002BB6C6 /* Canvas.swift */; };
+		D638411921C1328B002BB6C6 /* MatrixFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638411821C1328B002BB6C6 /* MatrixFeatures.swift */; };
+		D638411B21C13311002BB6C6 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638411A21C13311002BB6C6 /* Matrix.swift */; };
+		D638411D21C1338B002BB6C6 /* TransformationFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638411C21C1338B002BB6C6 /* TransformationFeatures.swift */; };
+		D638411F21C13492002BB6C6 /* RayFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638411E21C13492002BB6C6 /* RayFeatures.swift */; };
+		D638412221C1352D002BB6C6 /* Sphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638412021C1352D002BB6C6 /* Sphere.swift */; };
+		D638412321C1352D002BB6C6 /* Ray.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638412121C1352D002BB6C6 /* Ray.swift */; };
+		D638412821C135BA002BB6C6 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638412421C135BA002BB6C6 /* Shape.swift */; };
+		D638412921C135BA002BB6C6 /* Intersections.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638412521C135BA002BB6C6 /* Intersections.swift */; };
+		D638412A21C135BA002BB6C6 /* IntersectionComp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638412621C135BA002BB6C6 /* IntersectionComp.swift */; };
+		D638412B21C135BA002BB6C6 /* Intersection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638412721C135BA002BB6C6 /* Intersection.swift */; };
+		D638412D21C135E9002BB6C6 /* Material.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638412C21C135E9002BB6C6 /* Material.swift */; };
+		D638413521C1363C002BB6C6 /* PointLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638412E21C1363B002BB6C6 /* PointLight.swift */; };
+		D638413621C1363C002BB6C6 /* StripePattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638412F21C1363B002BB6C6 /* StripePattern.swift */; };
+		D638413721C1363C002BB6C6 /* GeneralPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638413021C1363B002BB6C6 /* GeneralPattern.swift */; };
+		D638413821C1363C002BB6C6 /* ThreeDCheckerPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638413121C1363B002BB6C6 /* ThreeDCheckerPattern.swift */; };
+		D638413921C1363C002BB6C6 /* GradientPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638413221C1363B002BB6C6 /* GradientPattern.swift */; };
+		D638413A21C1363C002BB6C6 /* RingPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638413321C1363B002BB6C6 /* RingPattern.swift */; };
+		D638413B21C1363C002BB6C6 /* Intersect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638413421C1363B002BB6C6 /* Intersect.swift */; };
+		D638413D21C13673002BB6C6 /* SphereFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638413C21C13673002BB6C6 /* SphereFeatures.swift */; };
+		D638413F21C13704002BB6C6 /* IntersectionFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638413E21C13704002BB6C6 /* IntersectionFeatures.swift */; };
+		D638414121C1390F002BB6C6 /* LightFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638414021C1390F002BB6C6 /* LightFeatures.swift */; };
+		D638414321C13971002BB6C6 /* MaterialFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638414221C13971002BB6C6 /* MaterialFeatures.swift */; };
+		D638414521C13B3A002BB6C6 /* WorldFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638414421C13B3A002BB6C6 /* WorldFeatures.swift */; };
+		D638414721C13C0E002BB6C6 /* World.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638414621C13C0E002BB6C6 /* World.swift */; };
+		D638414921C13FF1002BB6C6 /* CameraFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638414821C13FF1002BB6C6 /* CameraFeatures.swift */; };
+		D638414B21C1401A002BB6C6 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638414A21C1401A002BB6C6 /* Camera.swift */; };
+		D638414D21C14197002BB6C6 /* ShapeFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638414C21C14197002BB6C6 /* ShapeFeatures.swift */; };
+		D638414F21C1422F002BB6C6 /* PlaneFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638414E21C1422F002BB6C6 /* PlaneFeatures.swift */; };
+		D638415121C14282002BB6C6 /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638415021C14282002BB6C6 /* Plane.swift */; };
+		D638415321C142CB002BB6C6 /* PatternFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638415221C142CB002BB6C6 /* PatternFeatures.swift */; };
+		D638415521C149B6002BB6C6 /* TestScenes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638415421C149B6002BB6C6 /* TestScenes.swift */; };
+		D638415721C16465002BB6C6 /* CubeFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638415621C16465002BB6C6 /* CubeFeatures.swift */; };
+		D638415921C16572002BB6C6 /* CylinderFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638415821C16572002BB6C6 /* CylinderFeatures.swift */; };
+		D638415C21C16617002BB6C6 /* Cube.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638415A21C16617002BB6C6 /* Cube.swift */; };
+		D638415D21C16617002BB6C6 /* Cylinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638415B21C16617002BB6C6 /* Cylinder.swift */; };
+		D638415F21C1692C002BB6C6 /* ConeFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638415E21C1692C002BB6C6 /* ConeFeatures.swift */; };
+		D638416121C16AF6002BB6C6 /* GroupFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638416021C16AF6002BB6C6 /* GroupFeatures.swift */; };
+		D638416321C16DF1002BB6C6 /* TriangleFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638416221C16DF1002BB6C6 /* TriangleFeatures.swift */; };
+		D638416521C16FF0002BB6C6 /* ObjFileFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638416421C16FF0002BB6C6 /* ObjFileFeatures.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,8 +76,53 @@
 		D63840F721C12EA6002BB6C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D63840F821C12EA6002BB6C6 /* RayTracerB5.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RayTracerB5.entitlements; sourceTree = "<group>"; };
 		D63840FD21C12EA6002BB6C6 /* RayTracerB5Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RayTracerB5Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D638410121C12EA6002BB6C6 /* RayTracerB5Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RayTracerB5Tests.swift; sourceTree = "<group>"; };
+		D638410121C12EA6002BB6C6 /* TupleFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TupleFeatures.swift; sourceTree = "<group>"; };
 		D638410321C12EA6002BB6C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D638410C21C13005002BB6C6 /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+		D638410D21C13005002BB6C6 /* Tuple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tuple.swift; sourceTree = "<group>"; };
+		D638410E21C13005002BB6C6 /* Vector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
+		D638411221C13168002BB6C6 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		D638411421C131BA002BB6C6 /* CanvasFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasFeatures.swift; sourceTree = "<group>"; };
+		D638411621C13243002BB6C6 /* Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
+		D638411821C1328B002BB6C6 /* MatrixFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixFeatures.swift; sourceTree = "<group>"; };
+		D638411A21C13311002BB6C6 /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
+		D638411C21C1338B002BB6C6 /* TransformationFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformationFeatures.swift; sourceTree = "<group>"; };
+		D638411E21C13492002BB6C6 /* RayFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RayFeatures.swift; sourceTree = "<group>"; };
+		D638412021C1352D002BB6C6 /* Sphere.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sphere.swift; sourceTree = "<group>"; };
+		D638412121C1352D002BB6C6 /* Ray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ray.swift; sourceTree = "<group>"; };
+		D638412421C135BA002BB6C6 /* Shape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
+		D638412521C135BA002BB6C6 /* Intersections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Intersections.swift; sourceTree = "<group>"; };
+		D638412621C135BA002BB6C6 /* IntersectionComp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntersectionComp.swift; sourceTree = "<group>"; };
+		D638412721C135BA002BB6C6 /* Intersection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Intersection.swift; sourceTree = "<group>"; };
+		D638412C21C135E9002BB6C6 /* Material.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Material.swift; sourceTree = "<group>"; };
+		D638412E21C1363B002BB6C6 /* PointLight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointLight.swift; sourceTree = "<group>"; };
+		D638412F21C1363B002BB6C6 /* StripePattern.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripePattern.swift; sourceTree = "<group>"; };
+		D638413021C1363B002BB6C6 /* GeneralPattern.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralPattern.swift; sourceTree = "<group>"; };
+		D638413121C1363B002BB6C6 /* ThreeDCheckerPattern.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreeDCheckerPattern.swift; sourceTree = "<group>"; };
+		D638413221C1363B002BB6C6 /* GradientPattern.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientPattern.swift; sourceTree = "<group>"; };
+		D638413321C1363B002BB6C6 /* RingPattern.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RingPattern.swift; sourceTree = "<group>"; };
+		D638413421C1363B002BB6C6 /* Intersect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Intersect.swift; sourceTree = "<group>"; };
+		D638413C21C13673002BB6C6 /* SphereFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SphereFeatures.swift; sourceTree = "<group>"; };
+		D638413E21C13704002BB6C6 /* IntersectionFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntersectionFeatures.swift; sourceTree = "<group>"; };
+		D638414021C1390F002BB6C6 /* LightFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightFeatures.swift; sourceTree = "<group>"; };
+		D638414221C13971002BB6C6 /* MaterialFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialFeatures.swift; sourceTree = "<group>"; };
+		D638414421C13B3A002BB6C6 /* WorldFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldFeatures.swift; sourceTree = "<group>"; };
+		D638414621C13C0E002BB6C6 /* World.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = World.swift; sourceTree = "<group>"; };
+		D638414821C13FF1002BB6C6 /* CameraFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFeatures.swift; sourceTree = "<group>"; };
+		D638414A21C1401A002BB6C6 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		D638414C21C14197002BB6C6 /* ShapeFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeFeatures.swift; sourceTree = "<group>"; };
+		D638414E21C1422F002BB6C6 /* PlaneFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaneFeatures.swift; sourceTree = "<group>"; };
+		D638415021C14282002BB6C6 /* Plane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
+		D638415221C142CB002BB6C6 /* PatternFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternFeatures.swift; sourceTree = "<group>"; };
+		D638415421C149B6002BB6C6 /* TestScenes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestScenes.swift; sourceTree = "<group>"; };
+		D638415621C16465002BB6C6 /* CubeFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubeFeatures.swift; sourceTree = "<group>"; };
+		D638415821C16572002BB6C6 /* CylinderFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CylinderFeatures.swift; sourceTree = "<group>"; };
+		D638415A21C16617002BB6C6 /* Cube.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cube.swift; sourceTree = "<group>"; };
+		D638415B21C16617002BB6C6 /* Cylinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cylinder.swift; sourceTree = "<group>"; };
+		D638415E21C1692C002BB6C6 /* ConeFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConeFeatures.swift; sourceTree = "<group>"; };
+		D638416021C16AF6002BB6C6 /* GroupFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupFeatures.swift; sourceTree = "<group>"; };
+		D638416221C16DF1002BB6C6 /* TriangleFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriangleFeatures.swift; sourceTree = "<group>"; };
+		D638416421C16FF0002BB6C6 /* ObjFileFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjFileFeatures.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +164,31 @@
 		D63840EF21C12EA3002BB6C6 /* RayTracerB5 */ = {
 			isa = PBXGroup;
 			children = (
+				D638415A21C16617002BB6C6 /* Cube.swift */,
+				D638415B21C16617002BB6C6 /* Cylinder.swift */,
+				D638415021C14282002BB6C6 /* Plane.swift */,
+				D638414A21C1401A002BB6C6 /* Camera.swift */,
+				D638414621C13C0E002BB6C6 /* World.swift */,
+				D638413021C1363B002BB6C6 /* GeneralPattern.swift */,
+				D638413221C1363B002BB6C6 /* GradientPattern.swift */,
+				D638413421C1363B002BB6C6 /* Intersect.swift */,
+				D638412E21C1363B002BB6C6 /* PointLight.swift */,
+				D638413321C1363B002BB6C6 /* RingPattern.swift */,
+				D638412F21C1363B002BB6C6 /* StripePattern.swift */,
+				D638413121C1363B002BB6C6 /* ThreeDCheckerPattern.swift */,
+				D638412C21C135E9002BB6C6 /* Material.swift */,
+				D638412721C135BA002BB6C6 /* Intersection.swift */,
+				D638412621C135BA002BB6C6 /* IntersectionComp.swift */,
+				D638412521C135BA002BB6C6 /* Intersections.swift */,
+				D638412421C135BA002BB6C6 /* Shape.swift */,
+				D638412121C1352D002BB6C6 /* Ray.swift */,
+				D638412021C1352D002BB6C6 /* Sphere.swift */,
+				D638411A21C13311002BB6C6 /* Matrix.swift */,
+				D638411621C13243002BB6C6 /* Canvas.swift */,
+				D638411221C13168002BB6C6 /* Color.swift */,
+				D638410C21C13005002BB6C6 /* Point.swift */,
+				D638410D21C13005002BB6C6 /* Tuple.swift */,
+				D638410E21C13005002BB6C6 /* Vector.swift */,
 				D63840F021C12EA3002BB6C6 /* AppDelegate.swift */,
 				D63840F221C12EA6002BB6C6 /* Assets.xcassets */,
 				D63840F421C12EA6002BB6C6 /* MainMenu.xib */,
@@ -86,7 +201,27 @@
 		D638410021C12EA6002BB6C6 /* RayTracerB5Tests */ = {
 			isa = PBXGroup;
 			children = (
-				D638410121C12EA6002BB6C6 /* RayTracerB5Tests.swift */,
+				D638410121C12EA6002BB6C6 /* TupleFeatures.swift */,
+				D638411421C131BA002BB6C6 /* CanvasFeatures.swift */,
+				D638411821C1328B002BB6C6 /* MatrixFeatures.swift */,
+				D638411C21C1338B002BB6C6 /* TransformationFeatures.swift */,
+				D638411E21C13492002BB6C6 /* RayFeatures.swift */,
+				D638413C21C13673002BB6C6 /* SphereFeatures.swift */,
+				D638413E21C13704002BB6C6 /* IntersectionFeatures.swift */,
+				D638414021C1390F002BB6C6 /* LightFeatures.swift */,
+				D638414221C13971002BB6C6 /* MaterialFeatures.swift */,
+				D638414421C13B3A002BB6C6 /* WorldFeatures.swift */,
+				D638414821C13FF1002BB6C6 /* CameraFeatures.swift */,
+				D638414C21C14197002BB6C6 /* ShapeFeatures.swift */,
+				D638414E21C1422F002BB6C6 /* PlaneFeatures.swift */,
+				D638415221C142CB002BB6C6 /* PatternFeatures.swift */,
+				D638415421C149B6002BB6C6 /* TestScenes.swift */,
+				D638415621C16465002BB6C6 /* CubeFeatures.swift */,
+				D638415821C16572002BB6C6 /* CylinderFeatures.swift */,
+				D638415E21C1692C002BB6C6 /* ConeFeatures.swift */,
+				D638416021C16AF6002BB6C6 /* GroupFeatures.swift */,
+				D638416221C16DF1002BB6C6 /* TriangleFeatures.swift */,
+				D638416421C16FF0002BB6C6 /* ObjFileFeatures.swift */,
 				D638410321C12EA6002BB6C6 /* Info.plist */,
 			);
 			path = RayTracerB5Tests;
@@ -192,7 +327,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D638413521C1363C002BB6C6 /* PointLight.swift in Sources */,
+				D638413B21C1363C002BB6C6 /* Intersect.swift in Sources */,
+				D638412D21C135E9002BB6C6 /* Material.swift in Sources */,
+				D638411B21C13311002BB6C6 /* Matrix.swift in Sources */,
+				D638413621C1363C002BB6C6 /* StripePattern.swift in Sources */,
+				D638410F21C13005002BB6C6 /* Point.swift in Sources */,
+				D638411021C13005002BB6C6 /* Tuple.swift in Sources */,
+				D638413821C1363C002BB6C6 /* ThreeDCheckerPattern.swift in Sources */,
+				D638412A21C135BA002BB6C6 /* IntersectionComp.swift in Sources */,
+				D638411121C13005002BB6C6 /* Vector.swift in Sources */,
+				D638412921C135BA002BB6C6 /* Intersections.swift in Sources */,
+				D638415C21C16617002BB6C6 /* Cube.swift in Sources */,
+				D638413921C1363C002BB6C6 /* GradientPattern.swift in Sources */,
+				D638415D21C16617002BB6C6 /* Cylinder.swift in Sources */,
+				D638411321C13168002BB6C6 /* Color.swift in Sources */,
+				D638412821C135BA002BB6C6 /* Shape.swift in Sources */,
 				D63840F121C12EA3002BB6C6 /* AppDelegate.swift in Sources */,
+				D638413A21C1363C002BB6C6 /* RingPattern.swift in Sources */,
+				D638412221C1352D002BB6C6 /* Sphere.swift in Sources */,
+				D638411721C13243002BB6C6 /* Canvas.swift in Sources */,
+				D638414B21C1401A002BB6C6 /* Camera.swift in Sources */,
+				D638414721C13C0E002BB6C6 /* World.swift in Sources */,
+				D638412B21C135BA002BB6C6 /* Intersection.swift in Sources */,
+				D638412321C1352D002BB6C6 /* Ray.swift in Sources */,
+				D638415121C14282002BB6C6 /* Plane.swift in Sources */,
+				D638413721C1363C002BB6C6 /* GeneralPattern.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,7 +360,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D638410221C12EA6002BB6C6 /* RayTracerB5Tests.swift in Sources */,
+				D638414321C13971002BB6C6 /* MaterialFeatures.swift in Sources */,
+				D638411521C131BA002BB6C6 /* CanvasFeatures.swift in Sources */,
+				D638416521C16FF0002BB6C6 /* ObjFileFeatures.swift in Sources */,
+				D638413F21C13704002BB6C6 /* IntersectionFeatures.swift in Sources */,
+				D638411D21C1338B002BB6C6 /* TransformationFeatures.swift in Sources */,
+				D638415521C149B6002BB6C6 /* TestScenes.swift in Sources */,
+				D638410221C12EA6002BB6C6 /* TupleFeatures.swift in Sources */,
+				D638414F21C1422F002BB6C6 /* PlaneFeatures.swift in Sources */,
+				D638416121C16AF6002BB6C6 /* GroupFeatures.swift in Sources */,
+				D638415F21C1692C002BB6C6 /* ConeFeatures.swift in Sources */,
+				D638414921C13FF1002BB6C6 /* CameraFeatures.swift in Sources */,
+				D638415321C142CB002BB6C6 /* PatternFeatures.swift in Sources */,
+				D638414D21C14197002BB6C6 /* ShapeFeatures.swift in Sources */,
+				D638414521C13B3A002BB6C6 /* WorldFeatures.swift in Sources */,
+				D638415721C16465002BB6C6 /* CubeFeatures.swift in Sources */,
+				D638416321C16DF1002BB6C6 /* TriangleFeatures.swift in Sources */,
+				D638413D21C13673002BB6C6 /* SphereFeatures.swift in Sources */,
+				D638414121C1390F002BB6C6 /* LightFeatures.swift in Sources */,
+				D638411F21C13492002BB6C6 /* RayFeatures.swift in Sources */,
+				D638415921C16572002BB6C6 /* CylinderFeatures.swift in Sources */,
+				D638411921C1328B002BB6C6 /* MatrixFeatures.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
