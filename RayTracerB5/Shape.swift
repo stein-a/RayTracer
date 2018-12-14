@@ -12,6 +12,7 @@ class Shape: CustomStringConvertible, Equatable {
 
     var transform: Matrix
     var material: Material
+    var parent: Group?
     
     var description: String {
         return "transform: \(transform), material: \(material)"
@@ -32,10 +33,27 @@ class Shape: CustomStringConvertible, Equatable {
     }
     
     func normalAt(p: Point) -> Vector {
-        let local_point = (self.transform.inverse() * p).asPoint()
+        let local_point = self.worldToObject(p: p)
         let local_normal = self.local_normal_at(p: local_point)
-        let world_normal = (self.transform.inverse()^ * local_normal).asVector()
-        return world_normal.normalize()
+        return normalToWorld(normal: local_normal)
+    }
+    
+    func worldToObject(p: Point) -> Point {
+        var pOut = p
+        if let parent = self.parent {
+            pOut = parent.worldToObject(p: p)
+        }
+        return (self.transform.inverse() * pOut).asPoint()
+    }
+    
+    func normalToWorld(normal: Vector) -> Vector {
+        var normOut = (self.transform.inverse()^ * normal).asVector()
+        normOut = normOut.normalize()
+        
+        if let parent = self.parent {
+            normOut = parent.normalToWorld(normal: normOut)
+        }
+        return normOut
     }
     
     // For testing

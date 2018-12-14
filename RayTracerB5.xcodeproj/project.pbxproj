@@ -57,6 +57,7 @@
 		D638416321C16DF1002BB6C6 /* TriangleFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638416221C16DF1002BB6C6 /* TriangleFeatures.swift */; };
 		D638416521C16FF0002BB6C6 /* ObjFileFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638416421C16FF0002BB6C6 /* ObjFileFeatures.swift */; };
 		D638416A21C3C0F6002BB6C6 /* Cone.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638416921C3C0F6002BB6C6 /* Cone.swift */; };
+		D638416C21C3E46E002BB6C6 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638416B21C3E46E002BB6C6 /* Group.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,7 @@
 		D638416221C16DF1002BB6C6 /* TriangleFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriangleFeatures.swift; sourceTree = "<group>"; };
 		D638416421C16FF0002BB6C6 /* ObjFileFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjFileFeatures.swift; sourceTree = "<group>"; };
 		D638416921C3C0F6002BB6C6 /* Cone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cone.swift; sourceTree = "<group>"; };
+		D638416B21C3E46E002BB6C6 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 				D638410C21C13005002BB6C6 /* Point.swift */,
 				D638410D21C13005002BB6C6 /* Tuple.swift */,
 				D638410E21C13005002BB6C6 /* Vector.swift */,
+				D638416B21C3E46E002BB6C6 /* Group.swift */,
 				D63840F021C12EA3002BB6C6 /* AppDelegate.swift */,
 				D63840F221C12EA6002BB6C6 /* Assets.xcassets */,
 				D63840F421C12EA6002BB6C6 /* MainMenu.xib */,
@@ -361,6 +364,7 @@
 				D638413621C1363C002BB6C6 /* StripePattern.swift in Sources */,
 				D638410F21C13005002BB6C6 /* Point.swift in Sources */,
 				D638411021C13005002BB6C6 /* Tuple.swift in Sources */,
+				D638416C21C3E46E002BB6C6 /* Group.swift in Sources */,
 				D638413821C1363C002BB6C6 /* ThreeDCheckerPattern.swift in Sources */,
 				D638412A21C135BA002BB6C6 /* IntersectionComp.swift in Sources */,
 				D638416A21C3C0F6002BB6C6 /* Cone.swift in Sources */,

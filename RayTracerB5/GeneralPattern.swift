@@ -21,7 +21,8 @@ class GeneralPattern {
     }
     
     func color(at object: Shape, point: Point) -> Color {
-        let object_point = (object.transform.inverse() * point).asPoint()
+        let object_point = object.worldToObject(p: point)
+//        let object_point = (object.transform.inverse() * point).asPoint()
         let pattern_point = (self.transform.inverse() * object_point).asPoint()
         return color(at: pattern_point)
     }

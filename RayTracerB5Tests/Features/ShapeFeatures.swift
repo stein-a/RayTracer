@@ -99,6 +99,10 @@ class ShapeFeatures: XCTestCase {
     
     // Scenario: A shape has a parent attribute
     // Given s ← test_shape() Then s.parent is nothing
+    func testAShapeHasAParentAttribute() {
+        let s = Shape.testShape()
+        XCTAssertTrue(s.parent == nil)
+    }
 
     // Scenario: Converting a point from world to object space
     // Given g1 ← group() And set_transform(g1, rotation_y(π/2))
@@ -107,6 +111,18 @@ class ShapeFeatures: XCTestCase {
     // And s ← sphere() And set_transform(s, translation(5, 0, 0))
     // And add_child(g2, s)
     // When p ← world_to_object(s, point(-2, 0, -10)) Then p = point(0, 0, -1)
+    func testConvertingAPointFromWorldToObjectSpace() {
+        let g1 = Group()
+        g1.transform = Matrix.rotation_y(r: .pi/2)
+        let g2 = Group()
+        g2.transform = Matrix.scaling(x: 2, y: 2, z: 2)
+        g1.addChild(shape: g2)
+        let s = Sphere()
+        s.transform = Matrix.translation(x: 5, y: 0, z: 0)
+        g2.addChild(shape: s)
+        XCTAssertEqual(s.worldToObject(p: Point(x: -2, y: 0, z: -10)),
+                       Point(x: 0, y: 0, z: -1))
+    }
     
     // Scenario: Converting a normal from object to world space
     // Given g1 ← group() And set_transform(g1, rotation_y(π/2))
@@ -116,6 +132,19 @@ class ShapeFeatures: XCTestCase {
     // And add_child(g2, s)
     // When n ← normal_to_world(s, vector(√3/3, √3/3, √3/3))
     // Then n = vector(0.2857, 0.4286, -0.8571)
+    func testConvertingANormalFromObjectToWorldSpace() {
+        let g1 = Group()
+        g1.transform = Matrix.rotation_y(r: .pi/2)
+        let g2 = Group()
+        g2.transform = Matrix.scaling(x: 1, y: 2, z: 3)
+        g1.addChild(shape: g2)
+        let s = Sphere()
+        s.transform = Matrix.translation(x: 5, y: 0, z: 0)
+        g2.addChild(shape: s)
+        let n = Vector(x: sqrtf(3)/3, y: sqrtf(3)/3, z: sqrtf(3)/3)
+        XCTAssertEqual(s.normalToWorld(normal: n),
+                       Vector(x: 0.2857, y: 0.4286, z: -0.8571))
+    }
     
     // Scenario: Finding the normal on a child object
     // Given g1 ← group() And set_transform(g1, rotation_y(π/2))
@@ -125,4 +154,16 @@ class ShapeFeatures: XCTestCase {
     // And add_child(g2, s)
     // When n ← normal_at(s, point(1.7321, 1.1547, -5.5774))
     // Then n = vector(0.2857, 0.4286, -0.8571)
+    func testFindingTheNormalOnAChildObject() {
+        let g1 = Group()
+        g1.transform = Matrix.rotation_y(r: .pi/2)
+        let g2 = Group()
+        g2.transform = Matrix.scaling(x: 1, y: 2, z: 3)
+        g1.addChild(shape: g2)
+        let s = Sphere()
+        s.transform = Matrix.translation(x: 5, y: 0, z: 0)
+        g2.addChild(shape: s)
+        let n = s.normalAt(p: Point(x: 1.7321, y: 1.1547, z: -5.5774))
+        XCTAssertEqual(n, Vector(x: 0.2857, y: 0.4286, z: -0.8571))
+    }
 }
