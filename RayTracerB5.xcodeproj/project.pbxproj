@@ -56,6 +56,7 @@
 		D638416121C16AF6002BB6C6 /* GroupFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638416021C16AF6002BB6C6 /* GroupFeatures.swift */; };
 		D638416321C16DF1002BB6C6 /* TriangleFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638416221C16DF1002BB6C6 /* TriangleFeatures.swift */; };
 		D638416521C16FF0002BB6C6 /* ObjFileFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638416421C16FF0002BB6C6 /* ObjFileFeatures.swift */; };
+		D638416A21C3C0F6002BB6C6 /* Cone.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638416921C3C0F6002BB6C6 /* Cone.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,7 @@
 		D638416021C16AF6002BB6C6 /* GroupFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupFeatures.swift; sourceTree = "<group>"; };
 		D638416221C16DF1002BB6C6 /* TriangleFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriangleFeatures.swift; sourceTree = "<group>"; };
 		D638416421C16FF0002BB6C6 /* ObjFileFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjFileFeatures.swift; sourceTree = "<group>"; };
+		D638416921C3C0F6002BB6C6 /* Cone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cone.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 			children = (
 				D638415A21C16617002BB6C6 /* Cube.swift */,
 				D638415B21C16617002BB6C6 /* Cylinder.swift */,
+				D638416921C3C0F6002BB6C6 /* Cone.swift */,
 				D638415021C14282002BB6C6 /* Plane.swift */,
 				D638414A21C1401A002BB6C6 /* Camera.swift */,
 				D638414621C13C0E002BB6C6 /* World.swift */,
@@ -360,6 +363,7 @@
 				D638411021C13005002BB6C6 /* Tuple.swift in Sources */,
 				D638413821C1363C002BB6C6 /* ThreeDCheckerPattern.swift in Sources */,
 				D638412A21C135BA002BB6C6 /* IntersectionComp.swift in Sources */,
+				D638416A21C3C0F6002BB6C6 /* Cone.swift in Sources */,
 				D638411121C13005002BB6C6 /* Vector.swift in Sources */,
 				D638412921C135BA002BB6C6 /* Intersections.swift in Sources */,
 				D638415C21C16617002BB6C6 /* Cube.swift in Sources */,

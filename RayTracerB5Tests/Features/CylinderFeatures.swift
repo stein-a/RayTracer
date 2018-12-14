@@ -102,6 +102,11 @@ class CylinderFeatures: XCTestCase {
     // Scenario: The default minimum and maximum for a cylinder
     // Given cyl ← cylinder()
     // Then cyl.minimum = -infinity And cyl.maximum = infinity
+    func testTheDefaultMinimumAndMaximumForACylinder() {
+        let cyl = Cylinder()
+        XCTAssertEqual(cyl.minimum, -cyl.infinity)
+        XCTAssertEqual(cyl.maximum, cyl.infinity)
+    }
     
     // Scenario Outline: Intersecting a constrained cylinder
     // Given cyl ← cylinder() And cyl.minimum ← 1 And cyl.maximum ← 2
@@ -116,9 +121,42 @@ class CylinderFeatures: XCTestCase {
     // | 4 | point(0, 2, -5)   | vector(0, 0, 1)   | 0     |
     // | 5 | point(0, 1, -5)   | vector(0, 0, 1)   | 0     |
     // | 6 | point(0, 1.5, -2) | vector(0, 0, 1)   | 2     |
+    func testIntersectingAConstrainedCylinder() {
+        let cyl = Cylinder()
+        cyl.minimum = 1
+        cyl.maximum = 2
+        let dir1 = Vector(x: 0.1, y: 1, z: 0).normalize()
+        let r1 = Ray(orig: Point(x: 0, y: 1.5, z: 0), dir: dir1)
+        let xs1 = cyl.local_intersect(ray: r1)
+        XCTAssertEqual(xs1.count, 0)
+        let dir2 = Vector(x: 0, y: 0, z: 1).normalize()
+        let r2 = Ray(orig: Point(x: 0, y: 3, z: -5), dir: dir2)
+        let xs2 = cyl.local_intersect(ray: r2)
+        XCTAssertEqual(xs2.count, 0)
+        let dir3 = Vector(x: 0, y: 0, z: 1).normalize()
+        let r3 = Ray(orig: Point(x: 0, y: 0, z: -5), dir: dir3)
+        let xs3 = cyl.local_intersect(ray: r3)
+        XCTAssertEqual(xs3.count, 0)
+        let dir4 = Vector(x: 0, y: 0, z: 1).normalize()
+        let r4 = Ray(orig: Point(x: 0, y: 2, z: -5), dir: dir4)
+        let xs4 = cyl.local_intersect(ray: r4)
+        XCTAssertEqual(xs4.count, 0)
+        let dir5 = Vector(x: 0, y: 0, z: 1).normalize()
+        let r5 = Ray(orig: Point(x: 0, y: 1, z: -5), dir: dir5)
+        let xs5 = cyl.local_intersect(ray: r5)
+        XCTAssertEqual(xs5.count, 0)
+        let dir6 = Vector(x: 0, y: 0, z: 1).normalize()
+        let r6 = Ray(orig: Point(x: 0, y: 1.5, z: -2), dir: dir6)
+        let xs6 = cyl.local_intersect(ray: r6)
+        XCTAssertEqual(xs6.count, 2)
+    }
     
     // Scenario: The default closed value for a cylinder
     // Given cyl ← cylinder() Then cyl.closed = false
+    func testTheDefaultClosedValueForACylinder() {
+        let cyl = Cylinder()
+        XCTAssertFalse(cyl.closed)
+    }
     
     // Scenario Outline: Intersecting the caps of a closed cylinder
     // Given cyl ← cylinder() And cyl.minimum ← 1 And cyl.maximum ← 2
@@ -133,6 +171,32 @@ class CylinderFeatures: XCTestCase {
     // | 3 | point(0, 4, -2)  | vector(0, -1, 1) | 2     | # corner case
     // | 4 | point(0, 0, -2)  | vector(0, 1, 2)  | 2     |
     // | 5 | point(0, -1, -2) | vector(0, 1, 1)  | 2     | # corner case
+    func testIntersectingTheCapsOfAClosedCylinder() {
+        let cyl = Cylinder()
+        cyl.minimum = 1
+        cyl.maximum = 2
+        cyl.closed = true
+        let dir1 = Vector(x: 0, y: -1, z: 0).normalize()
+        let r1 = Ray(orig: Point(x: 0, y: 3, z: 0), dir: dir1)
+        let xs1 = cyl.local_intersect(ray: r1)
+        XCTAssertEqual(xs1.count, 2)
+        let dir2 = Vector(x: 0, y: -1, z: 2).normalize()
+        let r2 = Ray(orig: Point(x: 0, y: 3, z: -2), dir: dir2)
+        let xs2 = cyl.local_intersect(ray: r2)
+        XCTAssertEqual(xs2.count, 2)
+        let dir3 = Vector(x: 0, y: -1, z: 1).normalize()
+        let r3 = Ray(orig: Point(x: 0, y: 4, z: -2), dir: dir3)
+        let xs3 = cyl.local_intersect(ray: r3)
+        XCTAssertEqual(xs3.count, 2)
+        let dir4 = Vector(x: 0, y: 1, z: 2).normalize()
+        let r4 = Ray(orig: Point(x: 0, y: 0, z: -2), dir: dir4)
+        let xs4 = cyl.local_intersect(ray: r4)
+        XCTAssertEqual(xs4.count, 2)
+        let dir5 = Vector(x: 0, y: 1, z: 1).normalize()
+        let r5 = Ray(orig: Point(x: 0, y: -1, z: -2), dir: dir5)
+        let xs5 = cyl.local_intersect(ray: r5)
+        XCTAssertEqual(xs5.count, 2)
+    }
     
     // Scenario Outline: The normal vector on a cylinder's end caps
     // Given cyl ← cylinder() And cyl.minimum ← 1 And cyl.maximum ← 2
@@ -146,4 +210,22 @@ class CylinderFeatures: XCTestCase {
     // | point(0, 2, 0)   | vector(0, 1, 0)  |
     // | point(0.5, 2, 0) | vector(0, 1, 0)  |
     // | point(0, 2, 0.5) | vector(0, 1, 0)  |
+    func testTheNormalVectorOnACylindersEndCaps() {
+        let cyl = Cylinder()
+        cyl.minimum = 1
+        cyl.maximum = 2
+        cyl.closed = true
+        XCTAssertEqual(cyl.normalAt(p: Point(x: 0, y: 1, z: 0)),
+                       Vector(x: 0, y: -1, z: 0))
+        XCTAssertEqual(cyl.normalAt(p: Point(x: 0.5, y: 1, z: 0)),
+                       Vector(x: 0, y: -1, z: 0))
+        XCTAssertEqual(cyl.normalAt(p: Point(x: 0, y: 1, z: 0.5)),
+                       Vector(x: 0, y: -1, z: 0))
+        XCTAssertEqual(cyl.normalAt(p: Point(x: 0, y: 2, z: 0)),
+                       Vector(x: 0, y: 1, z: 0))
+        XCTAssertEqual(cyl.normalAt(p: Point(x: 0.5, y: 2, z: 0)),
+                       Vector(x: 0, y: 1, z: 0))
+        XCTAssertEqual(cyl.normalAt(p: Point(x: 0, y: 2, z: 0.5)),
+                       Vector(x: 0, y: 1, z: 0))
+    }
 }
