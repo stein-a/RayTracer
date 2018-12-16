@@ -32,9 +32,9 @@ class Shape: CustomStringConvertible, Equatable {
         return local_intersect(ray: local_ray)
     }
     
-    func normalAt(p: Point) -> Vector {
+    func normalAt(p: Point, hit: Intersection) -> Vector {
         let local_point = self.worldToObject(p: p)
-        let local_normal = self.local_normal_at(p: local_point)
+        let local_normal = self.local_normal_at(p: local_point, hit: hit)
         return normalToWorld(normal: local_normal)
     }
     
@@ -69,7 +69,7 @@ class Shape: CustomStringConvertible, Equatable {
         return Intersections([])
     }
     
-    func local_normal_at(p: Point) -> Vector {
+    func local_normal_at(p: Point, hit: Intersection) -> Vector {
         return Vector(x: p.x, y: p.y, z: p.z)
     }
 }

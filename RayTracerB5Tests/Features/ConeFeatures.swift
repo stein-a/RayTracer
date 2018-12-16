@@ -96,11 +96,12 @@ class ConeFeatures: XCTestCase {
     // | point(-1, -1, 0) | vector(-1, 1, 0)
     func testComputingTheNormalVectorOnACone() {
         let shape = Cone()
-        XCTAssertEqual(shape.local_normal_at(p: Point(x: 0, y: 0, z: 0)),
+        let i = Intersection(t: 0, object: shape)
+        XCTAssertEqual(shape.local_normal_at(p: Point(x: 0, y: 0, z: 0), hit: i),
                        Vector(x: 0, y: 0, z: 0))
-        XCTAssertEqual(shape.local_normal_at(p: Point(x: 1, y: 1, z: 1)),
+        XCTAssertEqual(shape.local_normal_at(p: Point(x: 1, y: 1, z: 1), hit: i),
                        Vector(x: 1, y: -sqrtf(2), z: 1))
-        XCTAssertEqual(shape.local_normal_at(p: Point(x: -1, y: -1, z: 0)),
+        XCTAssertEqual(shape.local_normal_at(p: Point(x: -1, y: -1, z: 0), hit: i),
                        Vector(x: -1, y: 1, z: 0))
     }
 }

@@ -60,7 +60,7 @@ class Cylinder: Shape {
         return Intersections(xs)
     }
     
-    override func local_normal_at(p: Point) -> Vector {
+    override func local_normal_at(p: Point, hit: Intersection) -> Vector {
         let dist = (p.x * p.x) + (p.z * p.z)
         
         if (dist < 1) && (p.y >= self.maximum - 0.0001) {

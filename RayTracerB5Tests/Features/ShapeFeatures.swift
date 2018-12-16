@@ -81,7 +81,7 @@ class ShapeFeatures: XCTestCase {
     func testComputingTheNormalOnATranslatedShape() {
         let s = Shape.testShape()
         s.transform = Matrix.translation(x: 0, y: 1, z: 0)
-        let n = s.normalAt(p: Point(x: 0, y: 1.70711, z: -0.70711))
+        let n = s.normalAt(p: Point(x: 0, y: 1.70711, z: -0.70711), hit: Intersection(t: 0, object: s))
         XCTAssertEqual(n, Vector(x: 0, y: 0.70711, z: -0.70711))
     }
     
@@ -93,7 +93,7 @@ class ShapeFeatures: XCTestCase {
         let s = Shape.testShape()
         let m = Matrix.scaling(x: 1, y: 0.5, z: 1) * Matrix.rotation_z(r: .pi/5)
         s.transform = m
-        let n = s.normalAt(p: Point(x: 0, y: sqrtf(2)/2, z: -sqrtf(2)/2))
+        let n = s.normalAt(p: Point(x: 0, y: sqrtf(2)/2, z: -sqrtf(2)/2), hit: Intersection(t: 0, object: s))
         XCTAssertEqual(n, Vector(x: 0, y: 0.97014, z: -0.24254))
     }
     
@@ -163,7 +163,7 @@ class ShapeFeatures: XCTestCase {
         let s = Sphere()
         s.transform = Matrix.translation(x: 5, y: 0, z: 0)
         g2.addChild(shape: s)
-        let n = s.normalAt(p: Point(x: 1.7321, y: 1.1547, z: -5.5774))
+        let n = s.normalAt(p: Point(x: 1.7321, y: 1.1547, z: -5.5774), hit: Intersection(t: 0, object: s))
         XCTAssertEqual(n, Vector(x: 0.2857, y: 0.4286, z: -0.8571))
     }
 }

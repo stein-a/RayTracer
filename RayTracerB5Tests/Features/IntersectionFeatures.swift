@@ -292,4 +292,16 @@ class IntersectionFeatures: XCTestCase {
         XCTAssertEqual(reflectance, 0.48873, accuracy: 0.0001)
     }
 
+    // Scenario: An intersection can encapsulate `u` and `v`
+    // Given s ← triangle(point(0, 1, 0), point(-1, 0, 0), point(1, 0, 0))
+    // When i ← intersection_with_uv(3.5, s, 0.2, 0.4)
+    // Then i.u = 0.2 And i.v = 0.4
+    func testAnIntersectionCanEncapsulateUAndV() {
+        let s = Triangle(p1: Point(x: 0, y: 1, z: 0),
+                         p2: Point(x: -1, y: 0, z: 0),
+                         p3: Point(x: 1, y: 0, z: 0))
+        let i = s.intersectionWithUV(t: 3.5, object: s, u: 0.2, v: 0.4)
+        XCTAssertEqual(i.u, 0.2)
+        XCTAssertEqual(i.v, 0.4)
+    }
 }

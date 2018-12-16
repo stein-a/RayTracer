@@ -20,6 +20,8 @@ class Intersection: Equatable, Comparable, CustomStringConvertible {
     
     var t: Float
     var object: Shape
+    var u: Float
+    var v: Float
     
     var description: String {
         return "t=\(t), object=\(object)"
@@ -28,13 +30,15 @@ class Intersection: Equatable, Comparable, CustomStringConvertible {
     init(t: Float, object: Shape) {
         self.t = t
         self.object = object
+        self.u = 0
+        self.v = 0
     }
     
     func prepare(with ray: Ray, xs: Intersections? = nil) -> IntersectionComp {
         let comp = IntersectionComp(t: self.t, object: self.object)
         
         comp.point = ray.position(time: self.t)
-        comp.normal = comp.object.normalAt(p: comp.point)
+        comp.normal = comp.object.normalAt(p: comp.point, hit: self)
         
         comp.eyeVector = -ray.direction
         

@@ -32,7 +32,7 @@ class Sphere: Shape {
         }
     }
     
-    override func local_normal_at(p: Point) -> Vector {
+    override func local_normal_at(p: Point, hit: Intersection) -> Vector {
         return p - Point(x: 0, y: 0, z: 0)
     }
     

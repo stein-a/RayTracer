@@ -9,9 +9,17 @@
 import Foundation
 
 class Group: Shape {
+    var name: String
     var shapes: [Shape]
     
     override init() {
+        self.shapes = [Shape]()
+        self.name = "DefaultGroup"
+        super.init()
+    }
+    
+    init(name: String) {
+        self.name = name
         self.shapes = [Shape]()
         super.init()
     }
@@ -40,7 +48,7 @@ class Group: Shape {
         return xsOut
     }
     
-    override func local_normal_at(p: Point) -> Vector {
+    override func local_normal_at(p: Point, hit: Intersection) -> Vector {
         print("ERROR : You have called local_normal_at on a Group")
         return Vector(x: 57, y: 57, z: 57)
     }

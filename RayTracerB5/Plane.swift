@@ -10,7 +10,7 @@ import Foundation
 
 class Plane : Shape {
     
-    override func local_normal_at(p: Point) -> Vector {
+    override func local_normal_at(p: Point, hit: Intersection) -> Vector {
         return Vector(x: 0, y: 1, z: 0)
     }
     

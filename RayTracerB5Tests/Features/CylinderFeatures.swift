@@ -85,18 +85,19 @@ class CylinderFeatures: XCTestCase {
     // | point(-1, 1, 0) | vector(-1, 0, 0) |
     func testNormalVectorOnACylinder() {
         let cyl = Cylinder()
+        let i = Intersection(t: 0, object: cyl)
         let p1 = Point(x: 1, y: 0, z: 0)
         let n1 = Vector(x: 1, y: 0, z: 0)
-        XCTAssertEqual(cyl.local_normal_at(p: p1), n1)
+        XCTAssertEqual(cyl.local_normal_at(p: p1, hit: i), n1)
         let p2 = Point(x: 0, y: 5, z: -1)
         let n2 = Vector(x: 0, y: 0, z: -1)
-        XCTAssertEqual(cyl.local_normal_at(p: p2), n2)
+        XCTAssertEqual(cyl.local_normal_at(p: p2, hit: i), n2)
         let p3 = Point(x: 0, y: -2, z: 1)
         let n3 = Vector(x: 0, y: 0, z: 1)
-        XCTAssertEqual(cyl.local_normal_at(p: p3), n3)
+        XCTAssertEqual(cyl.local_normal_at(p: p3, hit: i), n3)
         let p4 = Point(x: -1, y: 1, z: 0)
         let n4 = Vector(x: -1, y: 0, z: 0)
-        XCTAssertEqual(cyl.local_normal_at(p: p4), n4)
+        XCTAssertEqual(cyl.local_normal_at(p: p4, hit: i), n4)
     }
 
     // Scenario: The default minimum and maximum for a cylinder
@@ -212,20 +213,21 @@ class CylinderFeatures: XCTestCase {
     // | point(0, 2, 0.5) | vector(0, 1, 0)  |
     func testTheNormalVectorOnACylindersEndCaps() {
         let cyl = Cylinder()
+        let i = Intersection(t: 0, object: cyl)
         cyl.minimum = 1
         cyl.maximum = 2
         cyl.closed = true
-        XCTAssertEqual(cyl.normalAt(p: Point(x: 0, y: 1, z: 0)),
+        XCTAssertEqual(cyl.normalAt(p: Point(x: 0, y: 1, z: 0), hit: i),
                        Vector(x: 0, y: -1, z: 0))
-        XCTAssertEqual(cyl.normalAt(p: Point(x: 0.5, y: 1, z: 0)),
+        XCTAssertEqual(cyl.normalAt(p: Point(x: 0.5, y: 1, z: 0), hit: i),
                        Vector(x: 0, y: -1, z: 0))
-        XCTAssertEqual(cyl.normalAt(p: Point(x: 0, y: 1, z: 0.5)),
+        XCTAssertEqual(cyl.normalAt(p: Point(x: 0, y: 1, z: 0.5), hit: i),
                        Vector(x: 0, y: -1, z: 0))
-        XCTAssertEqual(cyl.normalAt(p: Point(x: 0, y: 2, z: 0)),
+        XCTAssertEqual(cyl.normalAt(p: Point(x: 0, y: 2, z: 0), hit: i),
                        Vector(x: 0, y: 1, z: 0))
-        XCTAssertEqual(cyl.normalAt(p: Point(x: 0.5, y: 2, z: 0)),
+        XCTAssertEqual(cyl.normalAt(p: Point(x: 0.5, y: 2, z: 0), hit: i),
                        Vector(x: 0, y: 1, z: 0))
-        XCTAssertEqual(cyl.normalAt(p: Point(x: 0, y: 2, z: 0.5)),
+        XCTAssertEqual(cyl.normalAt(p: Point(x: 0, y: 2, z: 0.5), hit: i),
                        Vector(x: 0, y: 1, z: 0))
     }
 }

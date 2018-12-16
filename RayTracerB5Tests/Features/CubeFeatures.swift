@@ -137,14 +137,15 @@ class CubeFeatures: XCTestCase {
         let n6 = Vector(x: 0, y: 0, z: -1)
         let n7 = Vector(x: 1, y: 0, z: 0)
         let n8 = Vector(x: -1, y: 0, z: 0)
-        XCTAssertEqual(c.local_normal_at(p: p1), n1)
-        XCTAssertEqual(c.local_normal_at(p: p2), n2)
-        XCTAssertEqual(c.local_normal_at(p: p3), n3)
-        XCTAssertEqual(c.local_normal_at(p: p4), n4)
-        XCTAssertEqual(c.local_normal_at(p: p5), n5)
-        XCTAssertEqual(c.local_normal_at(p: p6), n6)
-        XCTAssertEqual(c.local_normal_at(p: p7), n7)
-        XCTAssertEqual(c.local_normal_at(p: p8), n8)
+        let i = Intersection(t: 0, object: c)
+        XCTAssertEqual(c.local_normal_at(p: p1, hit: i), n1)
+        XCTAssertEqual(c.local_normal_at(p: p2, hit: i), n2)
+        XCTAssertEqual(c.local_normal_at(p: p3, hit: i), n3)
+        XCTAssertEqual(c.local_normal_at(p: p4, hit: i), n4)
+        XCTAssertEqual(c.local_normal_at(p: p5, hit: i), n5)
+        XCTAssertEqual(c.local_normal_at(p: p6, hit: i), n6)
+        XCTAssertEqual(c.local_normal_at(p: p7, hit: i), n7)
+        XCTAssertEqual(c.local_normal_at(p: p8, hit: i), n8)
     }
 
 }

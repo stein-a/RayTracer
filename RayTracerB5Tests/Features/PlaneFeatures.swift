@@ -18,9 +18,10 @@ class PlaneFeatures: XCTestCase {
     // Then n1 = vector(0, 1, 0) And n2 = vector(0, 1, 0) And n3 = vector(0, 1, 0)
     func testTheNormalOfAPlaneIsConstantEverywhere() {
         let p = Plane()
-        let n1 = p.local_normal_at(p: Point(x: 0, y: 0, z: 0))
-        let n2 = p.local_normal_at(p: Point(x: 10, y: 0, z: -10))
-        let n3 = p.local_normal_at(p: Point(x: -5, y: 0, z: 150))
+        let i = Intersection(t: 0, object: p)
+        let n1 = p.local_normal_at(p: Point(x: 0, y: 0, z: 0), hit: i)
+        let n2 = p.local_normal_at(p: Point(x: 10, y: 0, z: -10), hit: i)
+        let n3 = p.local_normal_at(p: Point(x: -5, y: 0, z: 150), hit: i)
         XCTAssertEqual(n1, Vector(x: 0, y: 1, z: 0))
         XCTAssertEqual(n2, Vector(x: 0, y: 1, z: 0))
         XCTAssertEqual(n3, Vector(x: 0, y: 1, z: 0))

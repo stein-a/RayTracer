@@ -10,7 +10,7 @@ import Foundation
 
 class Cube: Shape {
 
-    override func local_normal_at(p: Point) -> Vector {
+    override func local_normal_at(p: Point, hit: Intersection) -> Vector {
         let maxc = max(abs(p.x), abs(p.y), abs(p.z))
         
         if maxc == abs(p.x) {
