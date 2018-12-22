@@ -238,7 +238,7 @@ class TestScenes: XCTestCase {
         
         let world = World()
             
-        let camera = Camera(hsize: 400, vsize: 300, field_of_view: .pi * 66/180)
+        let camera = Camera(hsize: 400, vsize: 200, field_of_view: 1.152)
         camera.transform = Matrix.viewTransform(from: Point(x: -2.6, y: 1.5, z: -3.9),
                                                 to: Point(x: -0.6, y: 1, z: -0.8),
                                                 up: Vector(x: 0, y: 1, z: 0))
@@ -265,7 +265,6 @@ class TestScenes: XCTestCase {
         westWall.transform = Matrix.translation(x: -5, y: 0, z: 0) *
                                 Matrix.rotation_z(r: .pi/2) *
                                 Matrix.rotation_y(r: .pi/2)
-        westWall.material = Material()
         westWall.material.pattern =
             StripePattern(a: Color(r: 0.45, g: 0.45, b: 0.45),
                           b: Color(r: 0.55, g: 0.55, b: 0.55))
@@ -281,7 +280,6 @@ class TestScenes: XCTestCase {
         eastWall.transform = Matrix.translation(x: 5, y: 0, z: 0) *
                                 Matrix.rotation_z(r: .pi/2) *
                                 Matrix.rotation_y(r: .pi/2)
-        eastWall.material = Material()
         eastWall.material.pattern =
             StripePattern(a: Color(r: 0.45, g: 0.45, b: 0.45),
                           b: Color(r: 0.55, g: 0.55, b: 0.55))
@@ -296,7 +294,6 @@ class TestScenes: XCTestCase {
         let northWall = Plane()
         northWall.transform = Matrix.translation(x: 0, y: 0, z: 5) *
                                 Matrix.rotation_x(r: .pi/2)
-        northWall.material = Material()
         northWall.material.pattern =
             StripePattern(a: Color(r: 0.45, g: 0.45, b: 0.45),
                           b: Color(r: 0.55, g: 0.55, b: 0.55))
@@ -311,7 +308,6 @@ class TestScenes: XCTestCase {
         let southWall = Plane()
         southWall.transform = Matrix.translation(x: 0, y: 0, z: -5) *
                                 Matrix.rotation_x(r: .pi/2)
-        southWall.material = Material()
         southWall.material.pattern =
             StripePattern(a: Color(r: 0.45, g: 0.45, b: 0.45),
                           b: Color(r: 0.55, g: 0.55, b: 0.55))
@@ -361,7 +357,7 @@ class TestScenes: XCTestCase {
         let blue = Sphere()
         blue.transform = Matrix.translation(x: 0.6, y: 0.7, z: -0.6) *
                             Matrix.scaling(x: 0.7, y: 0.7, z: 0.7)
-        blue.material.color = Color(r: 0, g: 0, b: 0.4)
+        blue.material.color = Color(r: 0, g: 0, b: 0.2)
         blue.material.ambient = 0
         blue.material.diffuse = 0.4
         blue.material.specular = 0.9
@@ -374,7 +370,7 @@ class TestScenes: XCTestCase {
         let green = Sphere()
         green.transform = Matrix.translation(x: -0.7, y: 0.5, z: -0.8) *
                             Matrix.scaling(x: 0.5, y: 0.5, z: 0.5)
-        green.material.color = Color(r: 0, g: 0.4, b: 0)
+        green.material.color = Color(r: 0, g: 0.2, b: 0)
         green.material.ambient = 0
         green.material.diffuse = 0.4
         green.material.specular = 0.9
@@ -390,4 +386,5 @@ class TestScenes: XCTestCase {
         try! ppm.write(to: URL(fileURLWithPath: "B5Reflect.ppm"),
                        atomically: true, encoding: .utf8)
     }
+    
 }
