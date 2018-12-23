@@ -54,7 +54,7 @@ class World {
         
         let xs = self.intersect(with: ray)
         if let hit = xs.hit() {
-            let comps = hit.prepare(with: ray)
+            let comps = hit.prepare(with: ray, xs: xs)
             color = self.shade(hit: comps, remaining: remaining)
         } else {
             color = Color(r: 0, g: 0, b: 0)
