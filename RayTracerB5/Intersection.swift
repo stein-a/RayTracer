@@ -64,12 +64,15 @@ class Intersection: Equatable, Comparable, CustomStringConvertible {
                     } else {
                         comp.n1 = containers.last!.material.refractiveIndex
                     }
+//                    print("prepare - n1 = \(comp.n1)")
                 }
                 
                 if containers.contains(i.object) {
                     containers = containers.filter() { $0 != i.object }
-                } else {
+//                    print("prepare - removed shape = \(i.object)")
+               } else {
                     containers.append(i.object)
+//                    print("prepare - added shape = \(i.object)")
                 }
                 
                 if i == self {
@@ -78,6 +81,7 @@ class Intersection: Equatable, Comparable, CustomStringConvertible {
                     } else {
                         comp.n2 = containers.last!.material.refractiveIndex
                     }
+//                    print("prepare - n2 = \(comp.n2)")
                     break
                 }
             }
