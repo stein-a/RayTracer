@@ -49,8 +49,8 @@ class Intersection: Equatable, Comparable, CustomStringConvertible {
             comp.isInside = false
         }
 
-        comp.overPoint = (comp.point + comp.normal * 0.0001).asPoint()
-        comp.underPoint = (comp.point - comp.normal * 0.0001).asPoint()
+        comp.overPoint = (comp.point + comp.normal * 0.000099).asPoint()
+        comp.underPoint = (comp.point - comp.normal * 0.000099).asPoint()
 
         comp.reflectv = ray.direction.reflect(normal: comp.normal)
         
@@ -64,15 +64,12 @@ class Intersection: Equatable, Comparable, CustomStringConvertible {
                     } else {
                         comp.n1 = containers.last!.material.refractiveIndex
                     }
-//                    print("prepare - n1 = \(comp.n1)")
                 }
                 
                 if containers.contains(i.object) {
                     containers = containers.filter() { $0 != i.object }
-//                    print("prepare - removed shape = \(i.object)")
                } else {
                     containers.append(i.object)
-//                    print("prepare - added shape = \(i.object)")
                 }
                 
                 if i == self {
@@ -81,7 +78,6 @@ class Intersection: Equatable, Comparable, CustomStringConvertible {
                     } else {
                         comp.n2 = containers.last!.material.refractiveIndex
                     }
-//                    print("prepare - n2 = \(comp.n2)")
                     break
                 }
             }

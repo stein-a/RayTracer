@@ -19,6 +19,12 @@ class Parser {
     var groupNames: [String]
     var currentGroupName: String
     var currentGroup: Group
+    var minX: Float
+    var maxX: Float
+    var minY: Float
+    var maxY: Float
+    var minZ: Float
+    var maxZ: Float
     
     init() {
         self.vertices = [Point]()
@@ -32,21 +38,50 @@ class Parser {
         self.groupNames = [String]()
         self.currentGroupName = "DefaultGroup"
         self.currentGroup = self.defaultGroup
+        self.minX = 10.0
+        self.minY = 10.0
+        self.minZ = 10.0
+        self.maxX = -10.0
+        self.maxY = -10.0
+        self.maxZ = -10.0
     }
     
     func parseObj(file: String) {
         let lines = file.components(separatedBy: CharacterSet.newlines)
         for line in lines {
-            let symbols = line.components(separatedBy: CharacterSet.whitespaces)
+            var symbols = line.components(separatedBy: CharacterSet.whitespaces)
             let command = symbols.first
             
             switch command {
             case "v":
+                if symbols[1] == " " || symbols[1] == "" {
+                    symbols[1] = symbols[2]
+                    symbols[2] = symbols[3]
+                    symbols[3] = symbols[4]
+                }
                 if let x = Float(symbols[1]), let y = Float(symbols[2]),
                     let z = Float(symbols[3]) {
                     let p = Point(x: x, y: y, z: z)
                     self.vertices.append(p)
                     self.processedLines = self.processedLines + 1
+                    if x < minX {
+                        minX = x
+                    }
+                    if x > maxX {
+                        maxX = x
+                    }
+                    if y < minY {
+                        minY = y
+                    }
+                    if y > maxY {
+                        maxY = y
+                    }
+                    if z < minZ {
+                        minZ = z
+                    }
+                    if z > maxZ {
+                        maxZ = z
+                    }
                 } else {
                     self.ignoredLines = self.ignoredLines + 1
                     break
@@ -58,39 +93,21 @@ class Parser {
                     // format:
                     // f 1/2/3 2/3/4 3/4/5
                     // f 1//3 2//4 3//5
-                    var p1: Point = Point(x: 0, y: 0, z: 0)
-                    var p2: Point = Point(x: 0, y: 0, z: 0)
-                    var p3: Point = Point(x: 0, y: 0, z: 0)
-                    var n1: Vector = Vector(x: 0, y: 0, z: 0)
-                    var n2: Vector = Vector(x: 0, y: 0, z: 0)
-                    var n3: Vector = Vector(x: 0, y: 0, z: 0)
-                    let numbers1 = symbols[1].components(separatedBy: "/")
-                    if let ix = Int(numbers1[0]) {
-                        p1 = self.vertices[ix]
+                    var points = [Point]()
+                    var normals = [Vector]()
+                    for i in 1..<symbols.count {
+                        let numbers = symbols[i].components(separatedBy: "/")
+                        if let vi = Int(numbers[0]), let ni = Int(numbers[2]) {
+                            let p = self.vertices[vi]
+                            let n = self.normals[ni]
+                            points.append(p)
+                            normals.append(n)
+                        }
                     }
-                    if let ix = Int(numbers1[2]) {
-                        n1 = self.normals[ix]
-                    }
-                    let numbers2 = symbols[2].components(separatedBy: "/")
-                    if let ix = Int(numbers2[0]) {
-                        p2 = self.vertices[ix]
-                    }
-                    if let ix = Int(numbers2[2]) {
-                        n2 = self.normals[ix]
-                    }
-                    let numbers3 = symbols[3].components(separatedBy: "/")
-                    if let ix = Int(numbers3[0]) {
-                        p3 = self.vertices[ix]
-                    }
-                    if let ix = Int(numbers3[2]) {
-                        n3 = self.normals[ix]
-                    }
-                    let tri = SmoothTriangle(p1: p1, p2: p2, p3: p3,
-                                             n1: n1, n2: n2, n3: n3)
-                    self.currentGroup.addChild(shape: tri)
+                    self.smoothFanTriangulation(vertices: points, normals: normals)
                     self.processedLines = self.processedLines + 1
                 } else {
-                    // Simple format f 1 2 3
+                    // Simple format f 1 2 3 4 5 ...
                     var points = [Point]()
                     for i in 1..<symbols.count {
                         if let ix = Int(symbols[i]) {
@@ -126,6 +143,9 @@ class Parser {
                 self.ignoredLines = self.ignoredLines + 1
             }
         }
+        print("X - min \(minX) - max \(maxX) - sx = \(maxX - minX)")
+        print("Y - min \(minY) - max \(maxY) - sy = \(maxY - minY)")
+        print("Z - min \(minZ) - max \(maxZ) - sz = \(maxZ - minZ)")
     }
     
     func ObjToGroup() -> Group {
@@ -145,6 +165,18 @@ class Parser {
             let tri = Triangle(p1: vertices[0],
                                p2: vertices[index],
                                p3: vertices[index + 1])
+            self.currentGroup.addChild(shape: tri)
+        }
+    }
+    
+    func smoothFanTriangulation(vertices: [Point], normals: [Vector]) {
+        for index in 1..<(vertices.count - 1) {
+            let tri = SmoothTriangle(p1: vertices[0],
+                                     p2: vertices[index],
+                                     p3: vertices[index + 1],
+                                     n1: normals[0],
+                                     n2: normals[index],
+                                     n3: normals[index + 1])
             self.currentGroup.addChild(shape: tri)
         }
     }

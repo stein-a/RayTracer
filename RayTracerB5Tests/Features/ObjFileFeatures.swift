@@ -266,4 +266,15 @@ f 1/0/3 2/102/1 3/14/2
         XCTAssertEqual(g1.name, "Teapot001")
     }
 
+    // Processing a big obj-file with a teapot
+    func testProcessingAnOBJFileWithABigTeapot() {
+        let file = try! String.init(contentsOfFile: "/Users/salver/Development/RayTracerB5/RayTracerB5Tests/OBJfiles/bigteapot.obj")
+        let parser = Parser()
+        parser.parseObj(file: file)
+        XCTAssertEqual(parser.processedLines, 9684)
+        let g = parser.ObjToGroup()
+        let g1 = g.shapes[0] as! Group
+        XCTAssertEqual(g1.name, "Teapot001")
+    }
+    
 }
