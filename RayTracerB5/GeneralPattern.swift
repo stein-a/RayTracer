@@ -9,11 +9,17 @@
 import Foundation
 
 class GeneralPattern {
-    
-    var transform: Matrix
+ 
+    var invTransform: Matrix
+    var transform: Matrix {
+        didSet {
+            invTransform = transform.inverse()
+        }
+    }
     
     init() {
         self.transform = Matrix.identity()
+        self.invTransform = Matrix.identity()
     }
     
     func color(at point: Point) -> Color {
@@ -22,8 +28,7 @@ class GeneralPattern {
     
     func color(at object: Shape, point: Point) -> Color {
         let object_point = object.worldToObject(p: point)
-//        let object_point = (object.transform.inverse() * point).asPoint()
-        let pattern_point = (self.transform.inverse() * object_point).asPoint()
+        let pattern_point = (self.invTransform * object_point).asPoint()
         return color(at: pattern_point)
     }
 }

@@ -55,46 +55,9 @@ class Canvas {
     }
     
     func canvas_to_ppm() -> String {
-        writeStatistics()
         var ppm = self.header + PPMPixels()
         ppm.append("\n")
         return ppm
-    }
-    
-    func writeStatistics() -> Void {
-        var max_red: Float = 0.0
-        var min_red: Float = 1.0
-        var max_green: Float = 0.0
-        var min_green: Float = 1.0
-        var max_blue: Float = 0.0
-        var min_blue: Float = 1.0
-        
-        for x in 0..<self.width {
-            for y in 0..<self.height {
-                let color = pixel_at(x: x, y: y)
-                if color.red > max_red {
-                    max_red = color.red
-                }
-                if color.red < min_red {
-                    min_red = color.red
-                }
-                if color.green > max_green {
-                    max_green = color.green
-                }
-                if color.green < min_green {
-                    min_green = color.green
-                }
-                if color.blue > max_blue {
-                    max_blue = color.blue
-                }
-                if color.blue < min_blue {
-                    min_blue = color.blue
-                }
-            }
-        }
-        print("Color red - Max: \(max_red), Min: \(min_red)")
-        print("Color green - Max: \(max_green), Min: \(min_green)")
-        print("Color blue - Max: \(max_blue), Min: \(min_blue)")
     }
     
     // Private functions

@@ -17,7 +17,12 @@ class Camera {
     var half_width : Float
     var half_height : Float
     
-    var transform : Matrix
+    var invTransform : Matrix
+    var transform : Matrix {
+        didSet {
+            invTransform = transform.inverse()
+        }
+    }
     
     init(hsize: Float, vsize: Float, field_of_view: Float) {
         self.hsize = hsize
@@ -36,6 +41,7 @@ class Camera {
         }
         self.pixel_size = (half_width * 2) / hsize
         self.transform = Matrix.identity()
+        self.invTransform = Matrix.identity()
     }
     
     func ray_for_pixel(px: Int, py: Int) -> Ray {
@@ -45,8 +51,8 @@ class Camera {
         let world_x = self.half_width - xoffset
         let world_y = self.half_height - yoffset
         
-        let pixel = self.transform.inverse() * Point(x: world_x, y: world_y, z: -1)
-        let origin = (self.transform.inverse() * Point(x: 0, y: 0, z: 0)).asPoint()
+        let pixel = self.invTransform * Point(x: world_x, y: world_y, z: -1)
+        let origin = (self.invTransform * Point(x: 0, y: 0, z: 0)).asPoint()
         let direction = (pixel - origin).asVector()
         
         return Ray(orig: origin, dir: direction.normalize())
@@ -56,27 +62,29 @@ class Camera {
         let image = Canvas(w: Int(self.hsize), h: Int(self.vsize))
         
         for y in 0..<Int(self.vsize) {
+            
             for x in 0..<Int(self.hsize) {
-//                print("y = \(y) - x = \(x)")
                 let ray = self.ray_for_pixel(px: x, py: y)
-                let color = world.colorAt(ray: ray)
+                let color = world.colorAt(ray: ray, remaining: 4)
                 image.write_pixel(x: x, y: y, color: color)
             }
+
+//            let _ = DispatchQueue.global(qos: .utility)
+//            DispatchQueue.concurrentPerform(iterations: Int(self.hsize)) { x in
+//                let ray = self.ray_for_pixel(px: x, py: y)
+//                let color = world.colorAt(ray: ray, remaining: 4)
+//                DispatchQueue.global(qos: .utility).sync {
+//                    image.write_pixel(x: x, y: y, color: color)
+//                }
+//            }
         }
         return image
     }
     
-    func render(world: World, externalCanvas: Canvas) -> Int {
-
-        for y in 0..<Int(self.vsize) {
-            for x in 0..<Int(self.hsize) {
-                //                print("y = \(y) - x = \(x)")
-                let ray = self.ray_for_pixel(px: x, py: y)
-                let color = world.colorAt(ray: ray)
-                externalCanvas.write_pixel(x: x, y: y, color: color)
-            }
-        }
-        return Int(self.vsize * self.hsize)
+    func renderDebug(x: Int, y: Int, world: World) {
+        let ray = self.ray_for_pixel(px: x, py: y)
+        let color = world.colorAt(ray: ray, remaining: 3)
+        print("color at \(x),\(y) = \(color)")
     }
 }
 

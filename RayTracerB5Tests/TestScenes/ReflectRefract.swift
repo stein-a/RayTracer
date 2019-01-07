@@ -14,10 +14,11 @@ class ReflectRefract: XCTestCase {
     func testReflectRefract() {
         let world = World()
         
-        let camera = Camera(hsize: 400, vsize: 200, field_of_view: 1.152)
-        camera.transform = Matrix.viewTransform(from: Point(x: -2.6, y: 1.5, z: -3.9),
-                                                to: Point(x: -0.6, y: 1, z: -0.8),
-                                                up: Vector(x: 0, y: 1, z: 0))
+        let camera = Camera(hsize: 800, vsize: 400, field_of_view: 1.152)
+        camera.transform = Matrix.viewTransform(
+                            from: Point(x: -2.6, y: 1.5, z: -3.9),
+                            to: Point(x: -0.6, y: 1, z: -0.8),
+                            up: Vector(x: 0, y: 1, z: 0))
         
         let light = PointLight(pos: Point(x: -4.9, y: 4.9, z: -1),
                                int: Color(r: 1, g: 1, b: 1))
@@ -155,7 +156,9 @@ class ReflectRefract: XCTestCase {
         green.material.transparency = 0.9
         green.material.refractiveIndex = 1.5
         world.objects.append(green)
-        
+
+//        camera.renderDebug(x: 120, y: 46, world: world)
+
         let image = camera.render(world: world)
         
         let ppm = image.canvas_to_ppm()

@@ -14,7 +14,7 @@ class ShadowPuppets: XCTestCase {
     func testShadowPuppets() {
         let world = World()
         
-        let camera = Camera(hsize: 400, vsize: 200, field_of_view: .pi/6)
+        let camera = Camera(hsize: 800, vsize: 400, field_of_view: .pi/6)
         camera.transform = Matrix.viewTransform(from: Point(x: 40, y: 0, z: -70),
                                                 to: Point(x: 0, y: 0, z: -5),
                                                 up: Vector(x: 0, y: 1, z: 0))
