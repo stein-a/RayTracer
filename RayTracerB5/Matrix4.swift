@@ -28,12 +28,7 @@ class Matrix4: CustomStringConvertible, Equatable {
     }
     
     class func identity() -> Matrix4 {
-        let row0 = simd_double4(1, 0, 0, 0)
-        let row1 = simd_double4(0, 1, 0, 0)
-        let row2 = simd_double4(0, 0, 1, 0)
-        let row3 = simd_double4(0, 0, 0, 1)
-        let I = Matrix4(row0: row0, row1: row1, row2: row2, row3: row3)
-        return I
+        return Matrix4(matrix: matrix_identity_double4x4)
     }
     
     subscript(row: Int, col: Int) -> Double {
