@@ -10,10 +10,12 @@ import Foundation
 
 class Shape: CustomStringConvertible, Equatable {
 
+    var transpInvTransform: Matrix
     var invTransform: Matrix
     var transform: Matrix {
         didSet {
             invTransform = transform.inverse()
+            transpInvTransform = invTransform^
         }
     }
     var material: Material
@@ -31,6 +33,7 @@ class Shape: CustomStringConvertible, Equatable {
         self.transform = Matrix.identity()
         self.material = Material()
         self.invTransform = Matrix.identity()
+        self.transpInvTransform = Matrix.identity()
     }
     
     func intersect(ray: Ray) -> Intersections {
@@ -53,7 +56,7 @@ class Shape: CustomStringConvertible, Equatable {
     }
     
     func normalToWorld(normal: Vector) -> Vector {
-        var normOut = (self.invTransform^ * normal).asVector()
+        var normOut = (self.transpInvTransform * normal).asVector()
         normOut = normOut.normalize()
         
         if let parent = self.parent {

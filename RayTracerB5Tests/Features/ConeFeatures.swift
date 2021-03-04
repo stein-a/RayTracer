@@ -100,7 +100,7 @@ class ConeFeatures: XCTestCase {
         XCTAssertEqual(shape.local_normal_at(p: Point(x: 0, y: 0, z: 0), hit: i),
                        Vector(x: 0, y: 0, z: 0))
         XCTAssertEqual(shape.local_normal_at(p: Point(x: 1, y: 1, z: 1), hit: i),
-                       Vector(x: 1, y: -sqrtf(2), z: 1))
+                       Vector(x: 1, y: -sqrt(2), z: 1))
         XCTAssertEqual(shape.local_normal_at(p: Point(x: -1, y: -1, z: 0), hit: i),
                        Vector(x: -1, y: 1, z: 0))
     }

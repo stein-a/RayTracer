@@ -20,7 +20,7 @@ class StripePattern: GeneralPattern {
     }
     
     override func color(at point: Point) -> Color {
-        let i = Int(floorf(point.x))
+        let i = Int(floor(point.x))
         
         if ( i % 2 == 0) {
             return self.a

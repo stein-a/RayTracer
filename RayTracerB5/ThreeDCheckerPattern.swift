@@ -19,7 +19,7 @@ class ThreeDCheckerPattern: GeneralPattern {
     }
     
     override func color(at point: Point) -> Color {
-        let i = (Int(floorf(point.x)) + Int(floorf(point.y)) + Int(floorf(point.z)))
+        let i = (Int(floor(point.x)) + Int(floor(point.y)) + Int(floor(point.z)))
         
         if ( i % 2 == 0) {
             return self.a

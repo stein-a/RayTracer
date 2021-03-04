@@ -9,7 +9,7 @@
 import XCTest
 @testable import RayTracerB5
 
-let epsilon: Float = 0.0001
+let epsilon: Double = 0.0001
 
 class TransformationFeatures: XCTestCase {
 
@@ -88,7 +88,7 @@ class TransformationFeatures: XCTestCase {
         let p = Point(x: 0, y: 1, z: 0)
         let half_quarter = Matrix.rotation_x(r: .pi/4)
         let full_quarter = Matrix.rotation_x(r: .pi/2)
-        XCTAssertEqual(half_quarter * p, Point(x: 0, y: sqrtf(2)/2, z: sqrtf(2)/2))
+        XCTAssertEqual(half_quarter * p, Point(x: 0, y: sqrt(2)/2, z: sqrt(2)/2))
         XCTAssertEqual(full_quarter * p, Point(x: 0, y: 0, z: 1))
     }
     
@@ -99,7 +99,7 @@ class TransformationFeatures: XCTestCase {
         let p = Point(x: 0, y: 1, z: 0)
         let half_quarter = Matrix.rotation_x(r: .pi/4)
         let inv = half_quarter.inverse()
-        XCTAssertEqual(inv * p, Point(x: 0, y: sqrtf(2)/2, z: -sqrtf(2)/2))
+        XCTAssertEqual(inv * p, Point(x: 0, y: sqrt(2)/2, z: -sqrt(2)/2))
     }
     
     // Scenario: Rotating a point around the y axis
@@ -111,7 +111,7 @@ class TransformationFeatures: XCTestCase {
         let p = Point(x: 0, y: 0, z: 1)
         let half_quarter = Matrix.rotation_y(r: .pi/4)
         let full_quarter = Matrix.rotation_y(r: .pi/2)
-        XCTAssertEqual(half_quarter * p, Point(x: sqrtf(2)/2, y: 0, z: sqrtf(2)/2))
+        XCTAssertEqual(half_quarter * p, Point(x: sqrt(2)/2, y: 0, z: sqrt(2)/2))
         XCTAssertEqual(full_quarter * p, Point(x: 1, y: 0, z: 0))
     }
     
@@ -124,7 +124,7 @@ class TransformationFeatures: XCTestCase {
         let p = Point(x: 0, y: 1, z: 0)
         let half_quarter = Matrix.rotation_z(r: .pi/4)
         let full_quarter = Matrix.rotation_z(r: .pi/2)
-        XCTAssertEqual(half_quarter * p, Point(x: -sqrtf(2)/2, y: sqrtf(2)/2, z: 0))
+        XCTAssertEqual(half_quarter * p, Point(x: -sqrt(2)/2, y: sqrt(2)/2, z: 0))
         XCTAssertEqual(full_quarter * p, Point(x: -1, y: 0, z: 0))
     }
     

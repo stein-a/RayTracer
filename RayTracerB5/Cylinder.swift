@@ -10,9 +10,9 @@ import Foundation
 
 class Cylinder: Shape {
     
-    var minimum : Float
-    var maximum : Float
-    var infinity : Float = 999999999.99
+    var minimum : Double
+    var maximum : Double
+    var infinity : Double = 999999999.99
     var closed : Bool
     
     override init() {
@@ -23,7 +23,7 @@ class Cylinder: Shape {
     }
  
     override func local_intersect(ray: Ray) -> Intersections {
-        let a = powf(ray.direction.x, 2) + powf(ray.direction.z, 2)
+        let a = pow(ray.direction.x, 2) + pow(ray.direction.z, 2)
         if abs(a) < 0.0001 {
             // Ray is parallel to the y axis
             return Intersections(intersectCaps(ray: ray))
@@ -31,8 +31,8 @@ class Cylinder: Shape {
         
         let b = 2 * ray.origin.x * ray.direction.x +
                 2 * ray.origin.z * ray.direction.z
-        let c = powf(ray.origin.x, 2) + powf(ray.origin.z, 2) - 1
-        let disc = powf(b, 2) - 4 * a * c
+        let c = pow(ray.origin.x, 2) + pow(ray.origin.z, 2) - 1
+        let disc = pow(b, 2) - 4 * a * c
         if disc < 0 {
             // ray does not intersect the cylinder, just check Caps
             return Intersections(intersectCaps(ray: ray))
@@ -40,8 +40,8 @@ class Cylinder: Shape {
 
         var xs = [Intersection]()
         
-        var t0 = (-b - sqrtf(disc)) / (2 * a)
-        var t1 = (-b + sqrtf(disc)) / (2 * a)
+        var t0 = (-b - sqrt(disc)) / (2 * a)
+        var t1 = (-b + sqrt(disc)) / (2 * a)
         if t0 > t1 { swap(&t0, &t1) }
 
         let y0 = ray.origin.y + t0 * ray.direction.y
@@ -77,7 +77,7 @@ class Cylinder: Shape {
     // a helper function to reduce duplication.
     // checks to see if the intersection at `t` is within a radius
     // of 1 (the radius of your cylinders) from the y axis.
-    func checkCap(ray: Ray, t: Float) -> Bool {
+    func checkCap(ray: Ray, t: Double) -> Bool {
         let x = ray.origin.x + t * ray.direction.x
         let z = ray.origin.z + t * ray.direction.z
 

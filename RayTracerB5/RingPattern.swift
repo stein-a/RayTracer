@@ -20,7 +20,7 @@ class RingPattern: GeneralPattern {
     }
     
     override func color(at point: Point) -> Color {
-        let i = Int(floorf(sqrtf((point.x * point.x) + (point.z * point.z))))
+        let i = Int(floor(sqrt((point.x * point.x) + (point.z * point.z))))
         
         if ( i % 2 == 0) {
             return self.a

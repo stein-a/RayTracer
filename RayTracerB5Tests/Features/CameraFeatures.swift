@@ -16,9 +16,9 @@ class CameraFeatures: XCTestCase {
     // When c ← camera(hsize, vsize, field_of_view)
     // Then c.hsize = 160 And c.vsize = 120 And c.field_of_view = π/2 And c.transform = identity_matrix
     func testConstructingACamera() {
-        let hsize : Float = 160
-        let vsize : Float = 120
-        let field_of_view : Float = .pi/Float(2)
+        let hsize : Double = 160
+        let vsize : Double = 120
+        let field_of_view : Double = .pi/Double(2)
         
         let c = Camera(hsize: hsize, vsize: vsize, field_of_view: field_of_view)
         
@@ -32,7 +32,7 @@ class CameraFeatures: XCTestCase {
     // Given c ← camera(200, 125, π/2) Then c.pixel_size = 0.01
     func testThePixelSizeForAHorisontalCanvas() {
         let c = Camera(hsize: 200, vsize: 125, field_of_view: .pi/2)
-        XCTAssert(c.pixel_size == 0.01)
+        XCTAssertEqual(c.pixel_size, 0.01, accuracy: epsilon)
     }
     
     // Scenario: The pixel size for a vertical canvas
@@ -73,9 +73,9 @@ class CameraFeatures: XCTestCase {
         c.transform = Matrix.rotation_y(r: .pi/4) * Matrix.translation(x: 0, y: -2, z: 5)
         let r = c.ray_for_pixel(px: 100, py: 50)
         XCTAssertEqual(r.origin, Point(x: 0, y: 2, z: -5))
-        XCTAssertEqual(r.direction.x, (sqrtf(2))/2, accuracy: epsilon)
+        XCTAssertEqual(r.direction.x, (sqrt(2))/2, accuracy: epsilon)
         XCTAssertEqual(r.direction.y, 0, accuracy: epsilon)
-        XCTAssertEqual(r.direction.z, -(sqrtf(2))/2, accuracy: epsilon)
+        XCTAssertEqual(r.direction.z, -(sqrt(2))/2, accuracy: epsilon)
     }
     
     // Scenario: Rendering a world with a camera

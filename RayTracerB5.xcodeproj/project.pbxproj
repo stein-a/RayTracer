@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D609511321D02FA3006B4A48 /* teapot.obj in Resources */ = {isa = PBXBuildFile; fileRef = D609511221D02FA3006B4A48 /* teapot.obj */; };
+		D60FBFDB21E009B3007CFBFB /* Cubes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D60FBFDA21E009B3007CFBFB /* Cubes.swift */; };
 		D63840F121C12EA3002BB6C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63840F021C12EA3002BB6C6 /* AppDelegate.swift */; };
 		D63840F321C12EA6002BB6C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D63840F221C12EA6002BB6C6 /* Assets.xcassets */; };
 		D63840F621C12EA6002BB6C6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D63840F421C12EA6002BB6C6 /* MainMenu.xib */; };
@@ -60,9 +61,8 @@
 		D638416C21C3E46E002BB6C6 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638416B21C3E46E002BB6C6 /* Group.swift */; };
 		D638416E21C3FF5F002BB6C6 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638416D21C3FF5F002BB6C6 /* Triangle.swift */; };
 		D638417621C45F33002BB6C6 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638417521C45F33002BB6C6 /* Parser.swift */; };
+		D64E33F42586C10200AC8A08 /* Fresnel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64E33F32586C10200AC8A08 /* Fresnel.swift */; };
 		D65AA69D21D24153001C1F02 /* Ch01.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65AA69C21D24153001C1F02 /* Ch01.swift */; };
-		D65AA6A021D24233001C1F02 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65AA69E21D24233001C1F02 /* Environment.swift */; };
-		D65AA6A121D24233001C1F02 /* Projectile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65AA69F21D24233001C1F02 /* Projectile.swift */; };
 		D65AA6A321D2428D001C1F02 /* Ch02.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65AA6A221D2428D001C1F02 /* Ch02.swift */; };
 		D65AA6A521D24325001C1F02 /* Ch04.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65AA6A421D24325001C1F02 /* Ch04.swift */; };
 		D65AA6A721D243A2001C1F02 /* Ch05.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65AA6A621D243A2001C1F02 /* Ch05.swift */; };
@@ -74,6 +74,12 @@
 		D65AA6B321D24A10001C1F02 /* ReflectRefract.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65AA6B221D24A10001C1F02 /* ReflectRefract.swift */; };
 		D65AA6B521D24D24001C1F02 /* teapot.obj in Resources */ = {isa = PBXBuildFile; fileRef = D609511221D02FA3006B4A48 /* teapot.obj */; };
 		D65AA6B821D24DBF001C1F02 /* triangles.obj in Resources */ = {isa = PBXBuildFile; fileRef = D65AA6B721D24DBF001C1F02 /* triangles.obj */; };
+		D68121AC258F9E3A00AD12CF /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68121AB258F9E3A00AD12CF /* Environment.swift */; };
+		D68121B0258F9E4700AD12CF /* Projectile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68121AF258F9E4700AD12CF /* Projectile.swift */; };
+		D698DFCE21DE16250057E604 /* Cylinders.swift in Sources */ = {isa = PBXBuildFile; fileRef = D698DFCD21DE16250057E604 /* Cylinders.swift */; };
+		D6D0472623D5B59B00B08576 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D0472523D5B59B00B08576 /* Test.swift */; };
+		D6D74ED621E356F100FD3CB7 /* ObjFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D74ED521E356F100FD3CB7 /* ObjFiles.swift */; };
+		D6D74EDA21E382CF00FD3CB7 /* bigteapot.obj in Resources */ = {isa = PBXBuildFile; fileRef = D6D74ED921E382CF00FD3CB7 /* bigteapot.obj */; };
 		D6F4282921C6F8ED0045C236 /* SmoothTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F4282821C6F8ED0045C236 /* SmoothTriangle.swift */; };
 		D6F4282B21C6F9BB0045C236 /* SmoothTriangleFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F4282A21C6F9BB0045C236 /* SmoothTriangleFeatures.swift */; };
 		D6F4282D21C803CB0045C236 /* CSGFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F4282C21C803CB0045C236 /* CSGFeatures.swift */; };
@@ -92,6 +98,7 @@
 
 /* Begin PBXFileReference section */
 		D609511221D02FA3006B4A48 /* teapot.obj */ = {isa = PBXFileReference; lastKnownFileType = text; path = teapot.obj; sourceTree = "<group>"; };
+		D60FBFDA21E009B3007CFBFB /* Cubes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cubes.swift; sourceTree = "<group>"; };
 		D63840ED21C12EA3002BB6C6 /* RayTracerB5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RayTracerB5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D63840F021C12EA3002BB6C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D63840F221C12EA6002BB6C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -149,6 +156,7 @@
 		D638416B21C3E46E002BB6C6 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		D638416D21C3FF5F002BB6C6 /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
 		D638417521C45F33002BB6C6 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		D64E33F32586C10200AC8A08 /* Fresnel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fresnel.swift; sourceTree = "<group>"; };
 		D65AA69C21D24153001C1F02 /* Ch01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ch01.swift; sourceTree = "<group>"; };
 		D65AA69E21D24233001C1F02 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		D65AA69F21D24233001C1F02 /* Projectile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Projectile.swift; sourceTree = "<group>"; };
@@ -162,6 +170,12 @@
 		D65AA6B021D2490D001C1F02 /* ShadowPuppets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowPuppets.swift; sourceTree = "<group>"; };
 		D65AA6B221D24A10001C1F02 /* ReflectRefract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectRefract.swift; sourceTree = "<group>"; };
 		D65AA6B721D24DBF001C1F02 /* triangles.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = triangles.obj; sourceTree = "<group>"; };
+		D68121AB258F9E3A00AD12CF /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		D68121AF258F9E4700AD12CF /* Projectile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Projectile.swift; sourceTree = "<group>"; };
+		D698DFCD21DE16250057E604 /* Cylinders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cylinders.swift; sourceTree = "<group>"; };
+		D6D0472523D5B59B00B08576 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		D6D74ED521E356F100FD3CB7 /* ObjFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjFiles.swift; sourceTree = "<group>"; };
+		D6D74ED921E382CF00FD3CB7 /* bigteapot.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bigteapot.obj; sourceTree = "<group>"; };
 		D6F4282821C6F8ED0045C236 /* SmoothTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmoothTriangle.swift; sourceTree = "<group>"; };
 		D6F4282A21C6F9BB0045C236 /* SmoothTriangleFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmoothTriangleFeatures.swift; sourceTree = "<group>"; };
 		D6F4282C21C803CB0045C236 /* CSGFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSGFeatures.swift; sourceTree = "<group>"; };
@@ -213,6 +227,8 @@
 				D638415B21C16617002BB6C6 /* Cylinder.swift */,
 				D638416921C3C0F6002BB6C6 /* Cone.swift */,
 				D638415021C14282002BB6C6 /* Plane.swift */,
+				D68121AB258F9E3A00AD12CF /* Environment.swift */,
+				D68121AF258F9E4700AD12CF /* Projectile.swift */,
 				D638414A21C1401A002BB6C6 /* Camera.swift */,
 				D638414621C13C0E002BB6C6 /* World.swift */,
 				D638413021C1363B002BB6C6 /* GeneralPattern.swift */,
@@ -295,6 +311,11 @@
 			children = (
 				D65AA6B021D2490D001C1F02 /* ShadowPuppets.swift */,
 				D65AA6B221D24A10001C1F02 /* ReflectRefract.swift */,
+				D6D0472523D5B59B00B08576 /* Test.swift */,
+				D698DFCD21DE16250057E604 /* Cylinders.swift */,
+				D60FBFDA21E009B3007CFBFB /* Cubes.swift */,
+				D6D74ED521E356F100FD3CB7 /* ObjFiles.swift */,
+				D64E33F32586C10200AC8A08 /* Fresnel.swift */,
 			);
 			path = TestScenes;
 			sourceTree = "<group>";
@@ -317,6 +338,7 @@
 		D65AA6B421D24AF8001C1F02 /* OBJfiles */ = {
 			isa = PBXGroup;
 			children = (
+				D6D74ED921E382CF00FD3CB7 /* bigteapot.obj */,
 				D65AA6B721D24DBF001C1F02 /* triangles.obj */,
 				D609511221D02FA3006B4A48 /* teapot.obj */,
 			);
@@ -368,14 +390,16 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = "Stein Alver";
 				TargetAttributes = {
 					D63840EC21C12EA3002BB6C6 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1030;
 					};
 					D63840FC21C12EA6002BB6C6 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = D63840EC21C12EA3002BB6C6;
 					};
 				};
@@ -415,6 +439,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D65AA6B521D24D24001C1F02 /* teapot.obj in Resources */,
+				D6D74EDA21E382CF00FD3CB7 /* bigteapot.obj in Resources */,
 				D65AA6B821D24DBF001C1F02 /* triangles.obj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,7 +458,6 @@
 				D638412D21C135E9002BB6C6 /* Material.swift in Sources */,
 				D638411B21C13311002BB6C6 /* Matrix.swift in Sources */,
 				D638413621C1363C002BB6C6 /* StripePattern.swift in Sources */,
-				D65AA6A021D24233001C1F02 /* Environment.swift in Sources */,
 				D638410F21C13005002BB6C6 /* Point.swift in Sources */,
 				D638411021C13005002BB6C6 /* Tuple.swift in Sources */,
 				D638416C21C3E46E002BB6C6 /* Group.swift in Sources */,
@@ -448,8 +472,9 @@
 				D638415D21C16617002BB6C6 /* Cylinder.swift in Sources */,
 				D638411321C13168002BB6C6 /* Color.swift in Sources */,
 				D638412821C135BA002BB6C6 /* Shape.swift in Sources */,
-				D65AA6A121D24233001C1F02 /* Projectile.swift in Sources */,
 				D63840F121C12EA3002BB6C6 /* AppDelegate.swift in Sources */,
+				D68121B0258F9E4700AD12CF /* Projectile.swift in Sources */,
+				D68121AC258F9E3A00AD12CF /* Environment.swift in Sources */,
 				D638413A21C1363C002BB6C6 /* RingPattern.swift in Sources */,
 				D638412221C1352D002BB6C6 /* Sphere.swift in Sources */,
 				D638411721C13243002BB6C6 /* Canvas.swift in Sources */,
@@ -478,27 +503,32 @@
 				D638413F21C13704002BB6C6 /* IntersectionFeatures.swift in Sources */,
 				D638411D21C1338B002BB6C6 /* TransformationFeatures.swift in Sources */,
 				D638410221C12EA6002BB6C6 /* TupleFeatures.swift in Sources */,
+				D64E33F42586C10200AC8A08 /* Fresnel.swift in Sources */,
 				D638414F21C1422F002BB6C6 /* PlaneFeatures.swift in Sources */,
 				D638416121C16AF6002BB6C6 /* GroupFeatures.swift in Sources */,
 				D638415F21C1692C002BB6C6 /* ConeFeatures.swift in Sources */,
 				D638414921C13FF1002BB6C6 /* CameraFeatures.swift in Sources */,
 				D638415321C142CB002BB6C6 /* PatternFeatures.swift in Sources */,
+				D6D74ED621E356F100FD3CB7 /* ObjFiles.swift in Sources */,
 				D6F4282B21C6F9BB0045C236 /* SmoothTriangleFeatures.swift in Sources */,
 				D6F4282D21C803CB0045C236 /* CSGFeatures.swift in Sources */,
 				D65AA6AD21D24665001C1F02 /* Ch08.swift in Sources */,
 				D65AA6A721D243A2001C1F02 /* Ch05.swift in Sources */,
 				D65AA6AB21D244E3001C1F02 /* Ch07.swift in Sources */,
 				D65AA6A521D24325001C1F02 /* Ch04.swift in Sources */,
+				D60FBFDB21E009B3007CFBFB /* Cubes.swift in Sources */,
 				D638414D21C14197002BB6C6 /* ShapeFeatures.swift in Sources */,
 				D638414521C13B3A002BB6C6 /* WorldFeatures.swift in Sources */,
 				D638415721C16465002BB6C6 /* CubeFeatures.swift in Sources */,
 				D638416321C16DF1002BB6C6 /* TriangleFeatures.swift in Sources */,
 				D638413D21C13673002BB6C6 /* SphereFeatures.swift in Sources */,
+				D6D0472623D5B59B00B08576 /* Test.swift in Sources */,
 				D638414121C1390F002BB6C6 /* LightFeatures.swift in Sources */,
 				D638411F21C13492002BB6C6 /* RayFeatures.swift in Sources */,
 				D638415921C16572002BB6C6 /* CylinderFeatures.swift in Sources */,
 				D65AA6A921D24423001C1F02 /* Ch06.swift in Sources */,
 				D638411921C1328B002BB6C6 /* MatrixFeatures.swift in Sources */,
+				D698DFCE21DE16250057E604 /* Cylinders.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,6 +580,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -575,7 +606,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -611,6 +642,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -630,7 +662,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -644,17 +676,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RayTracerB5/RayTracerB5.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = WPZ25T3522;
+				DEVELOPMENT_TEAM = 3PH8WYUFZR;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = RayTracerB5/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
 				PRODUCT_BUNDLE_IDENTIFIER = no.salver.RayTracerB5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -663,17 +698,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RayTracerB5/RayTracerB5.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = WPZ25T3522;
+				DEVELOPMENT_TEAM = 3PH8WYUFZR;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = RayTracerB5/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.1;
 				PRODUCT_BUNDLE_IDENTIFIER = no.salver.RayTracerB5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -684,7 +722,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = WPZ25T3522;
+				DEVELOPMENT_TEAM = 3PH8WYUFZR;
 				INFOPLIST_FILE = RayTracerB5Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -693,7 +731,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = no.salver.RayTracerB5Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RayTracerB5.app/Contents/MacOS/RayTracerB5";
 			};
 			name = Debug;
@@ -705,7 +743,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = WPZ25T3522;
+				DEVELOPMENT_TEAM = 3PH8WYUFZR;
 				INFOPLIST_FILE = RayTracerB5Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -714,7 +752,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = no.salver.RayTracerB5Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RayTracerB5.app/Contents/MacOS/RayTracerB5";
 			};
 			name = Release;

@@ -9,7 +9,7 @@
 import Foundation
 
 class Sphere: Shape {
-    
+        
     override func local_intersect(ray: Ray) -> Intersections {
         // the vector from the sphere's center, to the ray origin
         // remember: the sphere is centered at the world origin
@@ -23,8 +23,8 @@ class Sphere: Shape {
         if discriminant < 0 {
             return Intersections([])
         } else {
-            let t1 = (-b - sqrtf(discriminant)) / (2 * a)
-            let t2 = (-b + sqrtf(discriminant)) / (2 * a)
+            let t1 = (-b - sqrt(discriminant)) / (2 * a)
+            let t2 = (-b + sqrt(discriminant)) / (2 * a)
             
             let i1 = Intersection(t: t1, object: self)
             let i2 = Intersection(t: t2, object: self)

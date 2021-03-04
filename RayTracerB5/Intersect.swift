@@ -16,7 +16,7 @@ class Intersect {
     var sphere: Sphere
     var ray: Ray
     var count: Int
-    var hits: [Float]
+    var hits: [Double]
     
     init(sphere: Sphere, ray: Ray) {
         self.sphere = sphere
@@ -35,14 +35,14 @@ class Intersect {
         let b = 2 * (ray.direction.dot(sphere_to_ray))
         let c = sphere_to_ray.dot(sphere_to_ray) - 1
         
-        let discriminant = b * b - 4 * a * c
+        let discriminant = b * b - 4.0 * a * c
         
         if discriminant < 0 {
             self.count = 0
             self.hits = []
         } else {
-            let t1 = (-b - sqrtf(discriminant)) / (2 * a)
-            let t2 = (-b + sqrtf(discriminant)) / (2 * a)
+            let t1 = (-b - sqrt(discriminant)) / (2.0 * a)
+            let t2 = (-b + sqrt(discriminant)) / (2.0 * a)
             self.count = 2
             self.hits = [t1, t2]
         }

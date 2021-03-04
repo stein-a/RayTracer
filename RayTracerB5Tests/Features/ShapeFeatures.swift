@@ -93,7 +93,7 @@ class ShapeFeatures: XCTestCase {
         let s = Shape.testShape()
         let m = Matrix.scaling(x: 1, y: 0.5, z: 1) * Matrix.rotation_z(r: .pi/5)
         s.transform = m
-        let n = s.normalAt(p: Point(x: 0, y: sqrtf(2)/2, z: -sqrtf(2)/2), hit: Intersection(t: 0, object: s))
+        let n = s.normalAt(p: Point(x: 0, y: sqrt(2)/2, z: -sqrt(2)/2), hit: Intersection(t: 0, object: s))
         XCTAssertEqual(n, Vector(x: 0, y: 0.97014, z: -0.24254))
     }
     
@@ -141,7 +141,7 @@ class ShapeFeatures: XCTestCase {
         let s = Sphere()
         s.transform = Matrix.translation(x: 5, y: 0, z: 0)
         g2.addChild(shape: s)
-        let n = Vector(x: sqrtf(3)/3, y: sqrtf(3)/3, z: sqrtf(3)/3)
+        let n = Vector(x: sqrt(3)/3, y: sqrt(3)/3, z: sqrt(3)/3)
         XCTAssertEqual(s.normalToWorld(normal: n),
                        Vector(x: 0.2857, y: 0.4286, z: -0.8571))
     }

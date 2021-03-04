@@ -214,8 +214,8 @@ class WorldFeatures: XCTestCase {
         shape.material.reflectivity = 0.5
         shape.transform = Matrix.translation(x: 0, y: -1, z: 0)
         w.objects.append(shape)
-        let r = Ray(orig: Point(x: 0, y: 0, z: -3), dir: Vector(x: 0, y: -sqrtf(2)/2, z: sqrtf(2)/2))
-        let i = Intersection(t: sqrtf(2), object: shape)
+        let r = Ray(orig: Point(x: 0, y: 0, z: -3), dir: Vector(x: 0, y: -sqrt(2)/2, z: sqrt(2)/2))
+        let i = Intersection(t: sqrt(2), object: shape)
         let comps = i.prepare(with: r)
         let color = w.reflectedColor(comps: comps)
         XCTAssertEqual(color, Color(r: 0.19034, g: 0.23793, b: 0.14275))
@@ -227,8 +227,8 @@ class WorldFeatures: XCTestCase {
         shape.material.reflectivity = 0.5
         shape.transform = Matrix.translation(x: 0, y: -1, z: 0)
         w.objects.append(shape)
-        let r = Ray(orig: Point(x: 0, y: 0, z: -3), dir: Vector(x: 0, y: -sqrtf(2)/2, z: sqrtf(2)/2))
-        let i = Intersection(t: sqrtf(2), object: shape)
+        let r = Ray(orig: Point(x: 0, y: 0, z: -3), dir: Vector(x: 0, y: -sqrt(2)/2, z: sqrt(2)/2))
+        let i = Intersection(t: sqrt(2), object: shape)
         let comps = i.prepare(with: r)
         let color = w.shade(hit: comps)
         XCTAssertEqual(color, Color(r: 0.87677, g: 0.92436, b: 0.82918))
@@ -272,8 +272,8 @@ class WorldFeatures: XCTestCase {
         shape.transform = Matrix.translation(x: 0, y: -1, z: 0)
         w.objects.append(shape)
         let r = Ray(orig: Point(x: 0, y: 0, z: -3),
-                    dir: Vector(x: 0, y: -sqrtf(2)/2, z: sqrtf(2)/2))
-        let i = Intersection(t: sqrtf(2), object: shape)
+                    dir: Vector(x: 0, y: -sqrt(2)/2, z: sqrt(2)/2))
+        let i = Intersection(t: sqrt(2), object: shape)
         let comps = i.prepare(with: r)
         let color = w.reflectedColor(comps: comps, remaining: 0)
         XCTAssertEqual(color, Color(r: 0, g: 0, b: 0))
@@ -334,10 +334,10 @@ class WorldFeatures: XCTestCase {
         let shape = w.objects[0]
         shape.material.transparency = 1.0
         shape.material.refractiveIndex = 1.5
-        let r = Ray(orig: Point(x: 0, y: 0, z: sqrtf(2)/2),
+        let r = Ray(orig: Point(x: 0, y: 0, z: sqrt(2)/2),
                     dir: Vector(x: 0, y: 1, z: 0))
-        let i0 = Intersection(t: -sqrtf(2)/2, object: shape)
-        let i1 = Intersection(t: sqrtf(2)/2, object: shape)
+        let i0 = Intersection(t: -sqrt(2)/2, object: shape)
+        let i1 = Intersection(t: sqrt(2)/2, object: shape)
         let xs = Intersections([i0, i1])
         let comps = i1.prepare(with: r, xs: xs)
         let c = w.refractedColor(comps: comps)
@@ -398,8 +398,8 @@ class WorldFeatures: XCTestCase {
         ball.transform = Matrix.translation(x: 0, y: -3.5, z: -0.5)
         w.objects.append(ball)
         let r = Ray(orig: Point(x: 0, y: 0, z: -3),
-                    dir: Vector(x: 0, y: -sqrtf(2)/2, z: sqrtf(2)/2))
-        let i0 = Intersection(t: sqrtf(2), object: floor)
+                    dir: Vector(x: 0, y: -sqrt(2)/2, z: sqrt(2)/2))
+        let i0 = Intersection(t: sqrt(2), object: floor)
         let xs = Intersections([i0])
         let comps = i0.prepare(with: r, xs: xs)
         let color = w.shade(hit: comps, remaining: 5)
@@ -421,7 +421,7 @@ class WorldFeatures: XCTestCase {
     func testShadeHitWithAreflectiveTransparentMaterial() {
         let w = World.defaultWorld()
         let r = Ray(orig: Point(x: 0, y: 0, z: -3),
-                    dir: Vector(x: 0, y: -sqrtf(2)/2, z: sqrtf(2)/2))
+                    dir: Vector(x: 0, y: -sqrt(2)/2, z: sqrt(2)/2))
         let floor = Plane()
         floor.transform = Matrix.translation(x: 0, y: -1, z: 0)
         floor.material.reflectivity = 0.5
@@ -433,7 +433,7 @@ class WorldFeatures: XCTestCase {
         ball.material.ambient = 0.5
         ball.transform = Matrix.translation(x: 0, y: -3.5, z: -0.5)
         w.objects.append(ball)
-        let i0 = Intersection(t: sqrtf(2), object: floor)
+        let i0 = Intersection(t: sqrt(2), object: floor)
         let xs = Intersections([i0])
         let comps = i0.prepare(with: r, xs: xs)
         let color = w.shade(hit: comps, remaining: 5)

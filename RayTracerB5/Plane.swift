@@ -18,7 +18,7 @@ class Plane : Shape {
         if (abs(ray.direction.y) < 0.0001) {
             return Intersections([])
         } else {
-            let t = -Float(ray.origin.y) / Float(ray.direction.y)
+            let t = -Double(ray.origin.y) / Double(ray.direction.y)
             let intersect = Intersection(t: t, object: self)
             return Intersections([intersect])
         }

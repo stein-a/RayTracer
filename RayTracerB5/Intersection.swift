@@ -18,16 +18,16 @@ class Intersection: Equatable, Comparable, CustomStringConvertible {
     }
     
     
-    var t: Float
+    var t: Double
     var object: Shape
-    var u: Float
-    var v: Float
+    var u: Double
+    var v: Double
     
     var description: String {
         return "t=\(t), object=\(object)"
     }
     
-    init(t: Float, object: Shape) {
+    init(t: Double, object: Shape) {
         self.t = t
         self.object = object
         self.u = 0

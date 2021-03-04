@@ -57,7 +57,7 @@ class Triangle : Shape {
         return Intersections([Intersection(t: t, object: self)])
     }
     
-    func intersectionWithUV(t: Float, object: Shape, u: Float, v: Float) -> Intersection {
+    func intersectionWithUV(t: Double, object: Shape, u: Double, v: Double) -> Intersection {
         let i = Intersection(t: t, object: object)
         i.u = u
         i.v = v

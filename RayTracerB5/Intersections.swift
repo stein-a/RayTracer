@@ -19,7 +19,7 @@ class Intersections {
     }
     
     func hit() -> Intersection? {
-        var lowest : Float = 999.9
+        var lowest : Double = 999.9
         var low_intersect : Intersection? = nil
         
         for intersect in self.list {

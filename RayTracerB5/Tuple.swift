@@ -10,17 +10,17 @@ import Foundation
 
 class Tuple : Equatable, CustomStringConvertible {
 
-    var x: Float
-    var y: Float
-    var z: Float
-    var w: Float
+    var x: Double
+    var y: Double
+    var z: Double
+    var w: Double
 
     var description: String {
         return "x=\(x), y=\(y), z=\(z), w=\(w)"
     }
     
 
-    init(x: Float, y: Float, z: Float, w: Float) {
+    init(x: Double, y: Double, z: Double, w: Double) {
         self.x = x
         self.y = y
         self.z = z
@@ -58,7 +58,7 @@ class Tuple : Equatable, CustomStringConvertible {
     }
 
     static func == (lhs: Tuple, rhs: Tuple) -> Bool {
-        let epsilon : Float = 0.0002
+        let epsilon : Double = 0.0002
         if  abs(lhs.x - rhs.x) < epsilon &&
             abs(lhs.y - rhs.y) < epsilon &&
             abs(lhs.z - rhs.z) < epsilon &&
@@ -85,7 +85,7 @@ class Tuple : Equatable, CustomStringConvertible {
         return Tuple(x: x, y: y, z: z, w: w)
     }
 
-    static func * (lhs: Tuple, rhs: Float) -> Tuple {
+    static func * (lhs: Tuple, rhs: Double) -> Tuple {
         let x = lhs.x * rhs
         let y = lhs.y * rhs
         let z = lhs.z * rhs
@@ -93,7 +93,7 @@ class Tuple : Equatable, CustomStringConvertible {
         return Tuple(x: x, y: y, z: z, w: w)
     }
 
-    static func / (lhs: Tuple, rhs: Float) -> Tuple {
+    static func / (lhs: Tuple, rhs: Double) -> Tuple {
         let x = lhs.x / rhs
         let y = lhs.y / rhs
         let z = lhs.z / rhs

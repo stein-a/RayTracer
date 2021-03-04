@@ -1,17 +1,17 @@
 //
-//  ReflectRefract.swift
+//  Test.swift
 //  RayTracerB5Tests
 //
-//  Created by Stein Alver on 25/12/2018.
-//  Copyright © 2018 Stein Alver. All rights reserved.
+//  Created by Stein Alver on 20/01/2020.
+//  Copyright © 2020 Stein Alver. All rights reserved.
 //
 
 import XCTest
 @testable import RayTracerB5
 
-class ReflectRefract: XCTestCase {
+class Test: XCTestCase {
 
-    func testReflectRefract() {
+    func testTest() {
         let world = World()
         
         let camera = Camera(hsize: 800, vsize: 400, field_of_view: 1.152)
@@ -23,7 +23,7 @@ class ReflectRefract: XCTestCase {
         let light = PointLight(pos: Point(x: -4.9, y: 4.9, z: -1),
                                int: Color(r: 1, g: 1, b: 1))
         world.light = light
-        
+
         let floor = Plane()
         floor.transform = Matrix.rotation_y(r: .pi/10)
         floor.material.pattern = ThreeDCheckerPattern(a: Color(r: 0.35, g: 0.35, b: 0.35), b: Color(r: 0.65, g: 0.65, b: 0.65))
@@ -37,36 +37,6 @@ class ReflectRefract: XCTestCase {
         ceiling.material.ambient = 0.3
         ceiling.material.specular = 0
         world.objects.append(ceiling)
-        
-        let westWall = Plane()
-        westWall.transform = Matrix.translation(x: -5, y: 0, z: 0) *
-            Matrix.rotation_z(r: .pi/2) *
-            Matrix.rotation_y(r: .pi/2)
-        westWall.material.pattern =
-            StripePattern(a: Color(r: 0.45, g: 0.45, b: 0.45),
-                          b: Color(r: 0.55, g: 0.55, b: 0.55))
-        westWall.material.pattern?.transform = Matrix.rotation_y(r: .pi/2) *
-            Matrix.scaling(x: 0.25, y: 0.25, z: 0.25)
-        westWall.material.ambient = 0
-        westWall.material.diffuse = 0.4
-        westWall.material.specular = 0
-        westWall.material.reflectivity = 0.3
-        world.objects.append(westWall)
-        
-        let eastWall = Plane()
-        eastWall.transform = Matrix.translation(x: 5, y: 0, z: 0) *
-            Matrix.rotation_z(r: .pi/2) *
-            Matrix.rotation_y(r: .pi/2)
-        eastWall.material.pattern =
-            StripePattern(a: Color(r: 0.45, g: 0.45, b: 0.45),
-                          b: Color(r: 0.55, g: 0.55, b: 0.55))
-        eastWall.material.pattern?.transform = Matrix.rotation_y(r: .pi/2) *
-            Matrix.scaling(x: 0.25, y: 0.25, z: 0.25)
-        eastWall.material.ambient = 0
-        eastWall.material.diffuse = 0.4
-        eastWall.material.specular = 0
-        eastWall.material.reflectivity = 0.3
-        world.objects.append(eastWall)
         
         let northWall = Plane()
         northWall.transform = Matrix.translation(x: 0, y: 0, z: 5) *
@@ -157,13 +127,11 @@ class ReflectRefract: XCTestCase {
         green.material.refractiveIndex = 1.5
         world.objects.append(green)
 
-//        camera.renderDebug(x: 120, y: 46, world: world)
-
-//        let image = camera.renderParallell(world: world)
-        let image = camera.render(world: world)
-
+        let image = camera.renderParallell(world: world)
+        
         let ppm = image.canvas_to_ppm()
-        try! ppm.write(to: URL(fileURLWithPath: "B5Reflect.ppm"),
+        try! ppm.write(to: URL(fileURLWithPath: "B5Test.ppm"),
                        atomically: true, encoding: .utf8)
     }
+
 }

@@ -125,7 +125,7 @@ class World {
         // the correct direction, and return it’s color.
         
         // Find cos(theta_t) via trigonometric identity
-        let cos_t = sqrtf(1.0 - sin2_t)
+        let cos_t = sqrt(1.0 - sin2_t)
         
         // Compute the direction of the refracted ray
         let direction = (comps.normal * (n_ratio * cos_i - cos_t) -

@@ -12,21 +12,21 @@ import XCTest
 class Ch05: XCTestCase {
 
     func testPuttingItTogether() {
-        let canvas_pixels : Float = 100
-        let wall_size : Float = 7.0
-        let half : Float = wall_size / 2
-        let pixel_size : Float = wall_size / canvas_pixels
-        let wall_z : Float = 10
+        let canvas_pixels : Double = 100
+        let wall_size : Double = 7.0
+        let half : Double = wall_size / 2
+        let pixel_size : Double = wall_size / canvas_pixels
+        let wall_z : Double = 10
         let ray_origin = Point(x: 0, y: 0, z: -5)
         
         let canvas = Canvas(w: Int(canvas_pixels), h: Int(canvas_pixels))
         let color = Color(r: 1, g: 0, b: 0)
         
         for y in 0..<Int(canvas_pixels) {
-            let world_y = half - pixel_size * Float(y)
+            let world_y = half - pixel_size * Double(y)
             
             for x in 0..<Int(canvas_pixels) {
-                let world_x = -half + pixel_size * Float(x)
+                let world_x = -half + pixel_size * Double(x)
                 
                 let position = Point(x: world_x, y: world_y, z: wall_z)
                 let dir = (position - ray_origin).normalize()

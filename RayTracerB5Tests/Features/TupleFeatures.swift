@@ -161,14 +161,14 @@ class TupleFeatures: XCTestCase {
     // Given v ← vector(1, 2, 3) Then magnitude(v) = √14
     func testComputingTheMagnitudeOfVector123() {
         let v = Vector(x: 1, y: 2, z: 3)
-        XCTAssertEqual(v.magnitude(), sqrtf(14))
+        XCTAssertEqual(v.magnitude(), sqrt(14))
     }
     
     // Scenario: Computing the magnitude of vector(-1, -2, -3)
     // Given v ← vector(-1, -2, -3) Then magnitude(v) = √14
     func testComputingTheMagnitudeOfVectorMinus123() {
         let v = Vector(x: -1, y: -2, z: -3)
-        XCTAssertEqual(v.magnitude(), sqrtf(14))
+        XCTAssertEqual(v.magnitude(), sqrt(14))
     }
     
     // Scenario: Normalizing vector(4, 0, 0) gives (1, 0, 0)
@@ -294,7 +294,7 @@ class TupleFeatures: XCTestCase {
     // When r ← reflect(v, n) Then r = vector(1, 0, 0)
     func testReflectingAVectorOffASlantedSurface() {
         let v = Vector(x: 0, y: -1, z: 0)
-        let n = Vector(x: sqrtf(2)/2, y: sqrtf(2)/2, z: 0)
+        let n = Vector(x: sqrt(2)/2, y: sqrt(2)/2, z: 0)
         let r = v.reflect(normal: n)
         XCTAssertEqual(r, Vector(x: 1, y: 0, z: 0))
     }

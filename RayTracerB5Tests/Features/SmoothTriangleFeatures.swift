@@ -51,8 +51,8 @@ class SmoothTriangleFeatures: XCTestCase {
         let r = Ray(orig: Point(x: -0.2, y: 0.3, z: -2),
                     dir: Vector(x: 0, y: 0, z: 1))
         let xs = tri.local_intersect(ray: r)
-        XCTAssertEqual(xs.list[0].u, 0.45)
-        XCTAssertEqual(xs.list[0].v, 0.25)
+        XCTAssertEqual(xs.list[0].u, 0.45, accuracy: epsilon)
+        XCTAssertEqual(xs.list[0].v, 0.25, accuracy: epsilon)
     }
     
     // Scenario: A smooth triangle uses u/v to interpolate the normal

@@ -19,13 +19,13 @@ class Material: Equatable {
     
     
     var color: Color
-    var ambient: Float
-    var diffuse: Float
-    var specular: Float
-    var shininess: Float
-    var reflectivity: Float
-    var transparency: Float
-    var refractiveIndex: Float
+    var ambient: Double
+    var diffuse: Double
+    var specular: Double
+    var shininess: Double
+    var reflectivity: Double
+    var transparency: Double
+    var refractiveIndex: Double
     var pattern: GeneralPattern?
     
     init() {
@@ -65,7 +65,7 @@ class Material: Equatable {
             if (reflect_dot_eye <= 0) {
 
             } else {
-                let factor = powf(reflect_dot_eye, object.material.shininess)
+                let factor = pow(reflect_dot_eye, object.material.shininess)
                 specular_c = light.intensity * object.material.specular * factor
             }
         }

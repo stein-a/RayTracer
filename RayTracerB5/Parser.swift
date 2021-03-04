@@ -19,12 +19,12 @@ class Parser {
     var groupNames: [String]
     var currentGroupName: String
     var currentGroup: Group
-    var minX: Float
-    var maxX: Float
-    var minY: Float
-    var maxY: Float
-    var minZ: Float
-    var maxZ: Float
+    var minX: Double
+    var maxX: Double
+    var minY: Double
+    var maxY: Double
+    var minZ: Double
+    var maxZ: Double
     
     init() {
         self.vertices = [Point]()
@@ -59,8 +59,8 @@ class Parser {
                     symbols[2] = symbols[3]
                     symbols[3] = symbols[4]
                 }
-                if let x = Float(symbols[1]), let y = Float(symbols[2]),
-                    let z = Float(symbols[3]) {
+                if let x = Double(symbols[1]), let y = Double(symbols[2]),
+                    let z = Double(symbols[3]) {
                     let p = Point(x: x, y: y, z: z)
                     self.vertices.append(p)
                     self.processedLines = self.processedLines + 1
@@ -129,8 +129,8 @@ class Parser {
                 self.processedLines = self.processedLines + 1
 
             case "vn":
-                if let x = Float(symbols[1]), let y = Float(symbols[2]),
-                    let z = Float(symbols[3]) {
+                if let x = Double(symbols[1]), let y = Double(symbols[2]),
+                    let z = Double(symbols[3]) {
                     let v = Vector(x: x, y: y, z: z)
                     self.normals.append(v)
                     self.processedLines = self.processedLines + 1

@@ -21,7 +21,7 @@ class GradientPattern: GeneralPattern {
     
     override func color(at point: Point) -> Color {
         let distance = self.b - self.a
-        let fraction = point.x - floorf(point.x)
+        let fraction = point.x - floor(point.x)
         return self.a + distance * fraction
     }
 }

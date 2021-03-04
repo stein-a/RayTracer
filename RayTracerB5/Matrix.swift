@@ -11,7 +11,7 @@ import Accelerate
 
 class Matrix: CustomStringConvertible, Equatable {
     
-    internal var data:Array<Float>
+    internal var data:Array<Double>
     
     var rows: Int
     var columns: Int
@@ -38,14 +38,14 @@ class Matrix: CustomStringConvertible, Equatable {
         return d
     }
     
-    init(_ data:Array<Float>, rows:Int, columns:Int) {
+    init(_ data:Array<Double>, rows:Int, columns:Int) {
         self.data = data
         self.rows = rows
         self.columns = columns
     }
     
     init(rows:Int, columns:Int) {
-        self.data = [Float](repeating: 0.0, count: rows*columns)
+        self.data = [Double](repeating: 0.0, count: rows*columns)
         self.rows = rows
         self.columns = columns
     }
@@ -56,7 +56,7 @@ class Matrix: CustomStringConvertible, Equatable {
     }
     
     
-    subscript(row: Int, col: Int) -> Float {
+    subscript(row: Int, col: Int) -> Double {
         get {
             precondition(row >= 0 && col >= 0 && row < self.rows && col < self.columns, "Index out of bounds")
             return data[(row * columns) + col]
@@ -69,9 +69,9 @@ class Matrix: CustomStringConvertible, Equatable {
     }
     
     
-    func row(index:Int) -> [Float] {
+    func row(index:Int) -> [Double] {
         
-        var r = [Float]()
+        var r = [Double]()
         for col in 0..<columns {
             r.append(self[index,col])
         }
@@ -79,8 +79,8 @@ class Matrix: CustomStringConvertible, Equatable {
     }
     
     
-    func col(index:Int) -> [Float] {
-        var c = [Float]()
+    func col(index:Int) -> [Double] {
+        var c = [Double]()
         for row in 0..<rows {
             c.append(self[row,index])
         }
@@ -88,7 +88,7 @@ class Matrix: CustomStringConvertible, Equatable {
     }
     
     func clear() {
-        self.data = [Float](repeating: 0.0, count: self.rows * self.columns)
+        self.data = [Double](repeating: 0.0, count: self.rows * self.columns)
         self.rows = 0
         self.columns = 0
     }
@@ -100,8 +100,8 @@ class Matrix: CustomStringConvertible, Equatable {
     
     func submatrix(rowToOmit: Int, colToOmit: Int) -> Matrix {
         
-        var data : Array<Float> = Array()
-        var rowdata : Array<Float> = Array()
+        var data : Array<Double> = Array()
+        var rowdata : Array<Double> = Array()
         
         for idx in 0..<rows {
             rowdata = self.row(index: idx)
@@ -118,8 +118,8 @@ class Matrix: CustomStringConvertible, Equatable {
         return sub
     }
     
-    func determinant() -> Float {
-        var det : Float = 0
+    func determinant() -> Double {
+        var det : Double = 0
         
         if (self.columns == 2) && (self.rows == 2) {
             det = self[0,0] * self[1,1] - self[0,1] * self[1,0]
@@ -134,12 +134,12 @@ class Matrix: CustomStringConvertible, Equatable {
         return det
     }
     
-    func minor(row: Int, column: Int) -> Float {
+    func minor(row: Int, column: Int) -> Double {
         let sub = self.submatrix(rowToOmit: row, colToOmit: column)
         return sub.determinant()
     }
     
-    func cofactor(row: Int, column: Int) -> Float {
+    func cofactor(row: Int, column: Int) -> Double {
         let sub = self.submatrix(rowToOmit: row, colToOmit: column)
         var cofact = sub.determinant()
         
@@ -183,7 +183,7 @@ class Matrix: CustomStringConvertible, Equatable {
         return i
     }
     
-    class func translation(x: Float, y: Float, z: Float) -> Matrix {
+    class func translation(x: Double, y: Double, z: Double) -> Matrix {
         let M = Matrix.identity()
         M[0,3] = x
         M[1,3] = y
@@ -191,7 +191,7 @@ class Matrix: CustomStringConvertible, Equatable {
         return M
     }
     
-    class func scaling(x: Float, y: Float, z: Float) -> Matrix {
+    class func scaling(x: Double, y: Double, z: Double) -> Matrix {
         let M = Matrix.identity()
         M[0,0] = x
         M[1,1] = y
@@ -199,7 +199,7 @@ class Matrix: CustomStringConvertible, Equatable {
         return M
     }
     
-    class func rotation_x(r: Float) -> Matrix {
+    class func rotation_x(r: Double) -> Matrix {
         let M = Matrix.identity()
         M[1,1] = cos(r)
         M[1,2] = -sin(r)
@@ -208,7 +208,7 @@ class Matrix: CustomStringConvertible, Equatable {
         return M
     }
     
-    class func rotation_y(r: Float) -> Matrix {
+    class func rotation_y(r: Double) -> Matrix {
         let M = Matrix.identity()
         M[0,0] = cos(r)
         M[0,2] = sin(r)
@@ -217,7 +217,7 @@ class Matrix: CustomStringConvertible, Equatable {
         return M
     }
     
-    class func rotation_z(r: Float) -> Matrix {
+    class func rotation_z(r: Double) -> Matrix {
         let M = Matrix.identity()
         M[0,0] = cos(r)
         M[0,1] = -sin(r)
@@ -226,7 +226,7 @@ class Matrix: CustomStringConvertible, Equatable {
         return M
     }
     
-    class func shearing(xy: Float, xz: Float, yx: Float, yz: Float, zx: Float, zy: Float) -> Matrix {
+    class func shearing(xy: Double, xz: Double, yx: Double, yz: Double, zx: Double, zy: Double) -> Matrix {
         let M = Matrix.identity()
         M[0,1] = xy
         M[0,2] = xz
@@ -292,11 +292,11 @@ func *(lhs: Matrix, rhs: Tuple) -> Tuple {
 }
 
 
-func *(left:Matrix, right:Float) -> Matrix {
+func *(left:Matrix, right:Double) -> Matrix {
     return Matrix(left.data * right, rows: left.rows, columns: left.columns)
 }
 
-func *(left:Float, right:Matrix) -> Matrix {
+func *(left:Double, right:Matrix) -> Matrix {
     return right * left
 }
 
@@ -348,44 +348,42 @@ postfix func ^(m:Matrix) -> Matrix {
     return transposed
 }
 
-typealias SAVector = [Float]
+typealias SAVector = [Double]
 
 func *(left:SAVector, right:SAVector) -> SAVector {
-    var d = [Float]()
+    var d = [Double]()
     for i in 0..<left.count {
         d.append(left[i] * right[i])
     }
     return d
 }
 
-func *(left:SAVector, right:Float) -> SAVector {
-    var d = [Float]()
+func *(left:SAVector, right:Double) -> SAVector {
+    var d = [Double]()
     for i in 0..<left.count {
         d.append(left[i] * right)
     }
     return d
 }
 
-func *(left:Float, right:SAVector) -> SAVector {
+func *(left:Double, right:SAVector) -> SAVector {
     return right * left
 }
 
 infix operator **
 
-func **(left:SAVector, right:SAVector) -> Float {
+func **(left:SAVector, right:SAVector) -> Double {
     
     precondition(left.count == right.count)
     
-    var d : Float = 0
-    for i in 0..<left.count {
-        d += left[i] * right[i]
-    }
-    return d
-    /* Comment out for Accelerated
+//    var d : Double = 0
+//    for i in 0..<left.count {
+//        d += left[i] * right[i]
+//    }
+//    return d
      var d: Double = 0.0
      vDSP_dotprD(left, 1, right, 1, &d, vDSP_Length(left.count))
      return d
-     */
 }
 
 

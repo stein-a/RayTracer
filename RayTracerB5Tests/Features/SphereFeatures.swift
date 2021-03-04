@@ -161,8 +161,8 @@ class SphereFeatures: XCTestCase {
     func testTheNormalOnASphereAtANonAxialPoint() {
         let s = Sphere()
         let i = Intersection(t: 0, object: s)
-        let n = s.normalAt(p: Point(x: sqrtf(3)/3, y: sqrtf(3)/3, z: sqrtf(3)/3), hit: i)
-        XCTAssertEqual(n, Vector(x: sqrtf(3)/3, y: sqrtf(3)/3, z: sqrtf(3)/3))
+        let n = s.normalAt(p: Point(x: sqrt(3)/3, y: sqrt(3)/3, z: sqrt(3)/3), hit: i)
+        XCTAssertEqual(n, Vector(x: sqrt(3)/3, y: sqrt(3)/3, z: sqrt(3)/3))
     }
     
     // Scenario: The normal is a normalized vector
@@ -171,7 +171,7 @@ class SphereFeatures: XCTestCase {
     func testTheNormalIsANormalizedVector() {
         let s = Sphere()
         let i = Intersection(t: 0, object: s)
-        let n = s.normalAt(p: Point(x: sqrtf(3)/3, y: sqrtf(3)/3, z: sqrtf(3)/3), hit: i)
+        let n = s.normalAt(p: Point(x: sqrt(3)/3, y: sqrt(3)/3, z: sqrt(3)/3), hit: i)
         XCTAssertEqual(n, n.normalize())
     }
     
@@ -196,7 +196,7 @@ class SphereFeatures: XCTestCase {
         let i = Intersection(t: 0, object: s)
         let m = Matrix.scaling(x: 1, y: 0.5, z: 1) * Matrix.rotation_z(r: .pi/5)
         s.transform = m
-        let n = s.normalAt(p: Point(x: 0, y: sqrtf(2)/2, z: -sqrtf(2)/2), hit: i)
+        let n = s.normalAt(p: Point(x: 0, y: sqrt(2)/2, z: -sqrt(2)/2), hit: i)
         XCTAssertEqual(n, Vector(x: 0, y: 0.97014, z: -0.24254))
     }
 

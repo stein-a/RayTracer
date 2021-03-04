@@ -10,7 +10,7 @@ import Foundation
 
 class Color : Equatable, CustomStringConvertible {
     static func == (lhs: Color, rhs: Color) -> Bool {
-        let epsilon : Float = 0.00001
+        let epsilon : Double = 0.00001
         if abs(lhs.red - rhs.red) < epsilon &&
            abs(lhs.green - rhs.green) < epsilon &&
            abs(lhs.blue - rhs.blue) < epsilon {
@@ -34,7 +34,7 @@ class Color : Equatable, CustomStringConvertible {
         return Color(r: red, g: green, b: blue)
     }
  
-    static func * (lhs: Color, scalar: Float) -> Color {
+    static func * (lhs: Color, scalar: Double) -> Color {
         let red = lhs.red * scalar
         let green = lhs.green * scalar
         let blue = lhs.blue * scalar
@@ -49,9 +49,9 @@ class Color : Equatable, CustomStringConvertible {
         return Color(r: red, g: green, b: blue)
     }
     
-    var red : Float
-    var green : Float
-    var blue : Float
+    var red : Double
+    var green : Double
+    var blue : Double
 
     var description: String {
         return "red=\(red), green=\(green), blue=\(blue)"
@@ -59,7 +59,7 @@ class Color : Equatable, CustomStringConvertible {
     
 
     
-    init(r: Float, g: Float, b: Float) {
+    init(r: Double, g: Double, b: Double) {
         self.red = r
         self.green = g
         self.blue = b

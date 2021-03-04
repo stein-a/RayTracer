@@ -17,7 +17,7 @@ class Ray {
         self.direction = dir
     }
     
-    func position(time: Float) -> Point {
+    func position(time: Double) -> Point {
         return (self.origin + self.direction * time).asPoint()
     }
     

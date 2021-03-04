@@ -159,7 +159,7 @@ f 1 2 3 4 5
     // And t1.p3 = parser.vertices[3] And t2.p1 = parser.vertices[1]
     // And t2.p2 = parser.vertices[3] And t2.p3 = parser.vertices[4]
     func testTrianglesInGroups() {
-        let file = try! String.init(contentsOfFile: "/Users/salver/Development/RayTracerB5/RayTracerB5Tests/OBJfiles/triangles.obj")
+        let file = try! String.init(contentsOfFile: "/Users/salver/development/Raytracing/RayTracerB5/RayTracerB5Tests/OBJfiles/triangles.obj")
         let parser = Parser()
         parser.parseObj(file: file)
         XCTAssertEqual(parser.processedLines, 8)
@@ -183,7 +183,7 @@ f 1 2 3 4 5
     // Then g includes "FirstGroup" from parser
     // And g includes "SecondGroup" from parser
     func testConvertingAnOBJFileToAGroup() {
-        let file = try! String.init(contentsOfFile: "/Users/salver/Development/RayTracerB5/RayTracerB5Tests/OBJfiles/triangles.obj")
+        let file = try! String.init(contentsOfFile: "/Users/salver/development/Raytracing/RayTracerB5/RayTracerB5Tests/OBJfiles/triangles.obj")
         let parser = Parser()
         parser.parseObj(file: file)
         XCTAssertEqual(parser.processedLines, 8)
@@ -256,7 +256,7 @@ f 1/0/3 2/102/1 3/14/2
     
     // Processing an obj-file with a teapot
     func testProcessingAnOBJFileWithATeapot() {
-        let file = try! String.init(contentsOfFile: "/Users/salver/Development/RayTracerB5/RayTracerB5Tests/OBJfiles/teapot.obj")
+        let file = try! String.init(contentsOfFile: "/Users/salver/development/Raytracing/RayTracerB5/RayTracerB5Tests/OBJfiles/teapot.obj")
         let parser = Parser()
         parser.parseObj(file: file)
         XCTAssertEqual(parser.processedLines, 404)
@@ -268,7 +268,7 @@ f 1/0/3 2/102/1 3/14/2
 
     // Processing a big obj-file with a teapot
     func testProcessingAnOBJFileWithABigTeapot() {
-        let file = try! String.init(contentsOfFile: "/Users/salver/Development/RayTracerB5/RayTracerB5Tests/OBJfiles/bigteapot.obj")
+        let file = try! String.init(contentsOfFile: "/Users/salver/development/Raytracing/RayTracerB5/RayTracerB5Tests/OBJfiles/bigteapot.obj")
         let parser = Parser()
         parser.parseObj(file: file)
         XCTAssertEqual(parser.processedLines, 9684)

@@ -9,7 +9,7 @@
 import Foundation
 
 class Vector: Tuple {
-    init(x: Float, y: Float, z: Float) {
+    init(x: Double, y: Double, z: Double) {
         super.init(x: x, y: y, z: z, w: 0.0)
     }
     
@@ -24,8 +24,8 @@ class Vector: Tuple {
         return Vector(x: x, y: y, z: z)
     }
     
-    func magnitude() -> Float {
-        return sqrtf((self.x * self.x) + (self.y * self.y) + (self.z * self.z) + (self.w * self.w))
+    func magnitude() -> Double {
+        return sqrt((self.x * self.x) + (self.y * self.y) + (self.z * self.z) + (self.w * self.w))
     }
 
     func normalize() -> Vector {
@@ -35,7 +35,7 @@ class Vector: Tuple {
         return Vector(x: x, y: y, z: z)
     }
     
-    func dot(_ other: Vector) -> Float {
+    func dot(_ other: Vector) -> Double {
         return  self.x * other.x +
                 self.y * other.y +
                 self.z * other.z +

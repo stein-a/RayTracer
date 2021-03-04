@@ -152,7 +152,7 @@ class IntersectionFeatures: XCTestCase {
         shape.transform = Matrix.translation(x: 0, y: 0, z: 1)
         let i = Intersection(t: 5, object: shape)
         let comps = i.prepare(with: r)
-        XCTAssertLessThan(comps.overPoint.z, Float(-EPSILON/2))
+        XCTAssertLessThan(comps.overPoint.z, Double(-EPSILON/2))
         XCTAssertGreaterThan(comps.point.z, comps.overPoint.z)
     }
 
@@ -163,10 +163,10 @@ class IntersectionFeatures: XCTestCase {
     // Then comps.reflectv = vector(0, √2/2, √2/2)
     func testPrecomputingTheReflectionVector() {
         let shape = Plane()
-        let r = Ray(orig: Point(x: 0, y: 1, z: -1), dir: Vector(x: 0, y: -sqrtf(2)/2, z: sqrtf(2)/2))
-        let i = Intersection(t: sqrtf(2), object: shape)
+        let r = Ray(orig: Point(x: 0, y: 1, z: -1), dir: Vector(x: 0, y: -sqrt(2)/2, z: sqrt(2)/2))
+        let i = Intersection(t: sqrt(2), object: shape)
         let comps = i.prepare(with: r)
-        XCTAssertEqual(comps.reflectv, Vector(x: 0, y: sqrtf(2)/2, z: sqrtf(2)/2))
+        XCTAssertEqual(comps.reflectv, Vector(x: 0, y: sqrt(2)/2, z: sqrt(2)/2))
     }
 
     // Scenario Outline: Finding n1 and n2 at various intersections
@@ -251,10 +251,10 @@ class IntersectionFeatures: XCTestCase {
     // And reflectance ← schlick(comps) Then reflectance = 1.0
     func testTheSchlickApproximationUnderTotalInternalReflection() {
         let shape = Sphere.glassSphere()
-        let r = Ray(orig: Point(x: 0, y: 0, z: sqrtf(2)/2),
+        let r = Ray(orig: Point(x: 0, y: 0, z: sqrt(2)/2),
                     dir: Vector(x: 0, y: 1, z: 0))
-        let i0 = Intersection(t: -sqrtf(2)/2, object: shape)
-        let i1 = Intersection(t: sqrtf(2)/2, object: shape)
+        let i0 = Intersection(t: -sqrt(2)/2, object: shape)
+        let i1 = Intersection(t: sqrt(2)/2, object: shape)
         let xs = Intersections([i0, i1])
         let comps = i1.prepare(with: r, xs: xs)
         let reflectance = comps.schlick()

@@ -40,15 +40,15 @@ class Cube: Shape {
         return Intersections([i0, i1])
     }
     
-    func checkAxis(origin: Float, direction: Float) -> (Float, Float) {
-        let EPSILON : Float = 0.00001
-        let INFINITY: Float = 9999999999
+    func checkAxis(origin: Double, direction: Double) -> (Double, Double) {
+        let EPSILON : Double = 0.00001
+        let INFINITY: Double = 10000000000
         
         let tmin_num = (-1 - origin)
         let tmax_num = (1 - origin)
         
-        var tmin : Float = 0
-        var tmax : Float = 0
+        var tmin : Double = 0
+        var tmax : Double = 0
         
         
         if abs(direction) >= EPSILON {
