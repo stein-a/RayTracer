@@ -7,49 +7,46 @@
 //
 
 import Foundation
+import simd
 
 class Vector: Tuple {
+    var vector3: simd_double3
+    
     init(x: Double, y: Double, z: Double) {
+        self.vector3 = simd_double3(x, y, z)
         super.init(x: x, y: y, z: z, w: 0.0)
     }
     
+    init(vector: simd_double3) {
+        self.vector3 = vector
+        super.init(vector: simd_make_double4(vector, 0.0))
+    }
+    
     static func - (lhs: Vector, rhs: Vector) -> Vector {
-        return (Tuple(v: lhs) - Tuple(v: rhs)).asVector()
+        return Vector(vector: lhs.vector3 - rhs.vector3)
     }
     
     static prefix func -(_ v: Vector) -> Vector {
-        let x = -v.x
-        let y = -v.y
-        let z = -v.z
-        return Vector(x: x, y: y, z: z)
+        return Vector(vector: -v.vector3)
     }
     
     func magnitude() -> Double {
-        return sqrt((self.x * self.x) + (self.y * self.y) + (self.z * self.z) + (self.w * self.w))
+        return simd_length(self.vector3)
     }
 
     func normalize() -> Vector {
-        let x = self.x / self.magnitude()
-        let y = self.y / self.magnitude()
-        let z = self.z / self.magnitude()
-        return Vector(x: x, y: y, z: z)
+        return Vector(vector: simd_normalize(self.vector3))
     }
     
     func dot(_ other: Vector) -> Double {
-        return  self.x * other.x +
-                self.y * other.y +
-                self.z * other.z +
-                self.w * other.w
+        return simd_dot(self.vector3, other.vector3)
     }
     
     func cross(_ other: Vector) -> Vector {
-        let x = self.y * other.z - self.z * other.y
-        let y = self.z * other.x - self.x * other.z
-        let z = self.x * other.y - self.y * other.x
-        return Vector(x: x, y: y, z: z)
+        return Vector(vector: simd_cross(self.vector3, other.vector3))
     }
     
     func reflect(normal: Vector) -> Vector {
-        return (self - normal * 2 * self.dot(normal)).asVector()
+        return Vector(vector: simd_reflect(self.vector3, normal.vector3))
     }
 }

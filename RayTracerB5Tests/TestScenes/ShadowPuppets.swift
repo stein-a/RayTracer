@@ -15,7 +15,7 @@ class ShadowPuppets: XCTestCase {
         let world = World()
         
         let camera = Camera(hsize: 800, vsize: 400, field_of_view: .pi/6)
-        camera.transform = Matrix.viewTransform(from: Point(x: 40, y: 0, z: -70),
+        camera.transform = Matrix4.viewTransform(from: Point(x: 40, y: 0, z: -70),
                                                 to: Point(x: 0, y: 0, z: -5),
                                                 up: Vector(x: 0, y: 1, z: 0))
         
@@ -77,53 +77,53 @@ class ShadowPuppets: XCTestCase {
         sphere.material.ambient = 0
         sphere.material.diffuse = 0.5
         sphere.material.specular = 0
-        sphere.transform =  Matrix.translation(x: 0, y: 0, z: 20) *
-            Matrix.scaling(x: 200, y: 200, z: 0.01)
+        sphere.transform =  Matrix4.translation(x: 0, y: 0, z: 20) *
+            Matrix4.scaling(x: 200, y: 200, z: 0.01)
         world.objects.append(sphere)
         
         let wrist = Sphere()
         wrist.material = wristMaterial
-        wrist.transform =   Matrix.rotation_z(r: .pi/4) *
-            Matrix.translation(x: -4, y: 0, z: -21) *
-            Matrix.scaling(x: 3, y: 3, z: 3)
+        wrist.transform =   Matrix4.rotation_z(r: .pi/4) *
+            Matrix4.translation(x: -4, y: 0, z: -21) *
+            Matrix4.scaling(x: 3, y: 3, z: 3)
         world.objects.append(wrist)
         
         let palm = Sphere()
         palm.material = palmMaterial
-        palm.transform =    Matrix.translation(x: 0, y: 0, z: -15) *
-            Matrix.scaling(x: 4, y: 3, z: 3)
+        palm.transform =    Matrix4.translation(x: 0, y: 0, z: -15) *
+            Matrix4.scaling(x: 4, y: 3, z: 3)
         world.objects.append(palm)
         
         let thumb = Sphere()
         thumb.material = thumbMaterial
-        thumb.transform =   Matrix.translation(x: -2, y: 2, z: -16) *
-            Matrix.scaling(x: 1, y: 3, z: 1)
+        thumb.transform =   Matrix4.translation(x: -2, y: 2, z: -16) *
+            Matrix4.scaling(x: 1, y: 3, z: 1)
         world.objects.append(thumb)
         
         let index = Sphere()
         index.material = indexMaterial
-        index.transform =   Matrix.translation(x: 3, y: 2, z: -22) *
-            Matrix.scaling(x: 3, y: 0.75, z: 0.75)
+        index.transform =   Matrix4.translation(x: 3, y: 2, z: -22) *
+            Matrix4.scaling(x: 3, y: 0.75, z: 0.75)
         world.objects.append(index)
         
         let middle = Sphere()
         middle.material = middleMaterial
-        middle.transform =  Matrix.translation(x: 4, y: 1, z: -19) *
-            Matrix.scaling(x: 3, y: 0.75, z: 0.75)
+        middle.transform =  Matrix4.translation(x: 4, y: 1, z: -19) *
+            Matrix4.scaling(x: 3, y: 0.75, z: 0.75)
         world.objects.append(middle)
         
         let ring = Sphere()
         ring.material = ringMaterial
-        ring.transform =    Matrix.translation(x: 4, y: 0, z: -18) *
-            Matrix.scaling(x: 3, y: 0.75, z: 0.75)
+        ring.transform =    Matrix4.translation(x: 4, y: 0, z: -18) *
+            Matrix4.scaling(x: 3, y: 0.75, z: 0.75)
         world.objects.append(ring)
         
         let pinky = Sphere()
         pinky.material = pinkyMaterial
-        pinky.transform =   Matrix.translation(x: 3, y: -1.5, z: -20) *
-            Matrix.rotation_z(r: -.pi/10) *
-            Matrix.translation(x: 1, y: 0, z: 0) *
-            Matrix.scaling(x: 2.5, y: 0.6, z: 0.6)
+        pinky.transform =   Matrix4.translation(x: 3, y: -1.5, z: -20) *
+            Matrix4.rotation_z(r: -.pi/10) *
+            Matrix4.translation(x: 1, y: 0, z: 0) *
+            Matrix4.scaling(x: 2.5, y: 0.6, z: 0.6)
         world.objects.append(pinky)
         
         let image = camera.render(world: world)

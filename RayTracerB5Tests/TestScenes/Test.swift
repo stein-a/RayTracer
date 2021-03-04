@@ -15,7 +15,7 @@ class Test: XCTestCase {
         let world = World()
         
         let camera = Camera(hsize: 800, vsize: 400, field_of_view: 1.152)
-        camera.transform = Matrix.viewTransform(
+        camera.transform = Matrix4.viewTransform(
                             from: Point(x: -2.6, y: 1.5, z: -3.9),
                             to: Point(x: -0.6, y: 1, z: -0.8),
                             up: Vector(x: 0, y: 1, z: 0))
@@ -25,27 +25,27 @@ class Test: XCTestCase {
         world.light = light
 
         let floor = Plane()
-        floor.transform = Matrix.rotation_y(r: .pi/10)
+        floor.transform = Matrix4.rotation_y(r: .pi/10)
         floor.material.pattern = ThreeDCheckerPattern(a: Color(r: 0.35, g: 0.35, b: 0.35), b: Color(r: 0.65, g: 0.65, b: 0.65))
         floor.material.specular = 0
         floor.material.reflectivity = 0.4
         world.objects.append(floor)
         
         let ceiling = Plane()
-        ceiling.transform = Matrix.translation(x: 0, y: 5, z: 0)
+        ceiling.transform = Matrix4.translation(x: 0, y: 5, z: 0)
         ceiling.material.color = Color(r: 0.8, g: 0.8, b: 0.8)
         ceiling.material.ambient = 0.3
         ceiling.material.specular = 0
         world.objects.append(ceiling)
         
         let northWall = Plane()
-        northWall.transform = Matrix.translation(x: 0, y: 0, z: 5) *
-            Matrix.rotation_x(r: .pi/2)
+        northWall.transform = Matrix4.translation(x: 0, y: 0, z: 5) *
+            Matrix4.rotation_x(r: .pi/2)
         northWall.material.pattern =
             StripePattern(a: Color(r: 0.45, g: 0.45, b: 0.45),
                           b: Color(r: 0.55, g: 0.55, b: 0.55))
-        northWall.material.pattern?.transform = Matrix.rotation_y(r: .pi/2) *
-            Matrix.scaling(x: 0.25, y: 0.25, z: 0.25)
+        northWall.material.pattern?.transform = Matrix4.rotation_y(r: .pi/2) *
+            Matrix4.scaling(x: 0.25, y: 0.25, z: 0.25)
         northWall.material.ambient = 0
         northWall.material.diffuse = 0.4
         northWall.material.specular = 0
@@ -53,13 +53,13 @@ class Test: XCTestCase {
         world.objects.append(northWall)
         
         let southWall = Plane()
-        southWall.transform = Matrix.translation(x: 0, y: 0, z: -5) *
-            Matrix.rotation_x(r: .pi/2)
+        southWall.transform = Matrix4.translation(x: 0, y: 0, z: -5) *
+            Matrix4.rotation_x(r: .pi/2)
         southWall.material.pattern =
             StripePattern(a: Color(r: 0.45, g: 0.45, b: 0.45),
                           b: Color(r: 0.55, g: 0.55, b: 0.55))
-        southWall.material.pattern?.transform = Matrix.rotation_y(r: .pi/2) *
-            Matrix.scaling(x: 0.25, y: 0.25, z: 0.25)
+        southWall.material.pattern?.transform = Matrix4.rotation_y(r: .pi/2) *
+            Matrix4.scaling(x: 0.25, y: 0.25, z: 0.25)
         southWall.material.ambient = 0
         southWall.material.diffuse = 0.4
         southWall.material.specular = 0
@@ -67,43 +67,43 @@ class Test: XCTestCase {
         world.objects.append(southWall)
         
         let back1 = Sphere()
-        back1.transform = Matrix.translation(x: 4.6, y: 0.4, z: 1) *
-            Matrix.scaling(x: 0.4, y: 0.4, z: 0.4)
+        back1.transform = Matrix4.translation(x: 4.6, y: 0.4, z: 1) *
+            Matrix4.scaling(x: 0.4, y: 0.4, z: 0.4)
         back1.material.color = Color(r: 0.8, g: 0.5, b: 0.3)
         back1.material.shininess = 50
         world.objects.append(back1)
         
         let back2 = Sphere()
-        back2.transform = Matrix.translation(x: 4.7, y: 0.3, z: 0.4) *
-            Matrix.scaling(x: 0.3, y: 0.3, z: 0.3)
+        back2.transform = Matrix4.translation(x: 4.7, y: 0.3, z: 0.4) *
+            Matrix4.scaling(x: 0.3, y: 0.3, z: 0.3)
         back2.material.color = Color(r: 0.9, g: 0.4, b: 0.5)
         back2.material.shininess = 50
         world.objects.append(back2)
         
         let back3 = Sphere()
-        back3.transform = Matrix.translation(x: -1, y: 0.5, z: 4.5) *
-            Matrix.scaling(x: 0.5, y: 0.5, z: 0.5)
+        back3.transform = Matrix4.translation(x: -1, y: 0.5, z: 4.5) *
+            Matrix4.scaling(x: 0.5, y: 0.5, z: 0.5)
         back3.material.color = Color(r: 0.4, g: 0.9, b: 0.6)
         back3.material.shininess = 50
         world.objects.append(back3)
         
         let back4 = Sphere()
-        back4.transform = Matrix.translation(x: -1.7, y: 0.3, z: 4.7) *
-            Matrix.scaling(x: 0.3, y: 0.3, z: 0.3)
+        back4.transform = Matrix4.translation(x: -1.7, y: 0.3, z: 4.7) *
+            Matrix4.scaling(x: 0.3, y: 0.3, z: 0.3)
         back4.material.color = Color(r: 0.4, g: 0.6, b: 0.9)
         back4.material.shininess = 50
         world.objects.append(back4)
         
         let red = Sphere()
-        red.transform = Matrix.translation(x: -0.6, y: 1, z: 0.6)
+        red.transform = Matrix4.translation(x: -0.6, y: 1, z: 0.6)
         red.material.color = Color(r: 1, g: 0.3, b: 0.2)
         red.material.specular = 0.4
         red.material.shininess = 5
         world.objects.append(red)
         
         let blue = Sphere()
-        blue.transform = Matrix.translation(x: 0.6, y: 0.7, z: -0.6) *
-            Matrix.scaling(x: 0.7, y: 0.7, z: 0.7)
+        blue.transform = Matrix4.translation(x: 0.6, y: 0.7, z: -0.6) *
+            Matrix4.scaling(x: 0.7, y: 0.7, z: 0.7)
         blue.material.color = Color(r: 0, g: 0, b: 0.2)
         blue.material.ambient = 0
         blue.material.diffuse = 0.4
@@ -115,8 +115,8 @@ class Test: XCTestCase {
         world.objects.append(blue)
         
         let green = Sphere()
-        green.transform = Matrix.translation(x: -0.7, y: 0.5, z: -0.8) *
-            Matrix.scaling(x: 0.5, y: 0.5, z: 0.5)
+        green.transform = Matrix4.translation(x: -0.7, y: 0.5, z: -0.8) *
+            Matrix4.scaling(x: 0.5, y: 0.5, z: 0.5)
         green.material.color = Color(r: 0, g: 0.2, b: 0)
         green.material.ambient = 0
         green.material.diffuse = 0.4

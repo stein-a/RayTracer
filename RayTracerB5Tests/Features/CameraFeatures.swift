@@ -25,7 +25,7 @@ class CameraFeatures: XCTestCase {
         XCTAssertTrue(c.hsize == hsize)
         XCTAssertTrue(c.vsize == vsize)
         XCTAssertTrue(c.field_of_view == field_of_view)
-        XCTAssertTrue(c.transform == Matrix.identity())
+        XCTAssertTrue(c.transform == Matrix4.identity())
     }
     
     // Scenario: The pixel size for a horizontal canvas
@@ -70,7 +70,7 @@ class CameraFeatures: XCTestCase {
     // Then r.origin = point(0, 2, -5) And r.direction = vector(√2/2, 0, -√2/2)
     func testConstructARayWhenTheCameraIsTransformed() {
         let c = Camera(hsize: 201, vsize: 101, field_of_view: .pi/2)
-        c.transform = Matrix.rotation_y(r: .pi/4) * Matrix.translation(x: 0, y: -2, z: 5)
+        c.transform = Matrix4.rotation_y(r: .pi/4) * Matrix4.translation(x: 0, y: -2, z: 5)
         let r = c.ray_for_pixel(px: 100, py: 50)
         XCTAssertEqual(r.origin, Point(x: 0, y: 2, z: -5))
         XCTAssertEqual(r.direction.x, (sqrt(2))/2, accuracy: epsilon)
@@ -90,7 +90,7 @@ class CameraFeatures: XCTestCase {
         let from = Point(x: 0, y: 0, z: -5)
         let to = Point(x: 0, y: 0, z: 0)
         let up = Vector(x: 0, y: 1, z: 0)
-        c.transform = Matrix.viewTransform(from: from, to: to, up: up)
+        c.transform = Matrix4.viewTransform(from: from, to: to, up: up)
         let image = c.render(world: w)
         
         XCTAssertEqual(image.pixel_at(x: 5, y: 5).red, 0.38066, accuracy: epsilon)

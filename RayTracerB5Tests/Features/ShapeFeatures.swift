@@ -15,7 +15,7 @@ class ShapeFeatures: XCTestCase {
     // Given s ← test_shape() Then s.transform = identity_matrix
     func testTheDefaultTransformation() {
         let s = Shape.testShape()
-        XCTAssertEqual(s.transform, Matrix.identity())
+        XCTAssertEqual(s.transform, Matrix4.identity())
     }
     
     // Scenario: Assigning a transformation
@@ -24,8 +24,8 @@ class ShapeFeatures: XCTestCase {
     // Then s.transform = translation(2, 3, 4)
     func testAssigningATransformation() {
         let s = Shape.testShape()
-        s.transform = Matrix.translation(x: 2, y: 3, z: 4)
-        XCTAssertEqual(s.transform, Matrix.translation(x: 2, y: 3, z: 4))
+        s.transform = Matrix4.translation(x: 2, y: 3, z: 4)
+        XCTAssertEqual(s.transform, Matrix4.translation(x: 2, y: 3, z: 4))
     }
     
     // Scenario: The default material
@@ -54,7 +54,7 @@ class ShapeFeatures: XCTestCase {
     func testIntersectingAScaledShapeWithARay() {
         let r = Ray(orig: Point(x: 0, y: 0, z: -5), dir: Vector(x: 0, y: 0, z: 1))
         let s = Shape.testShape()
-        s.transform = Matrix.scaling(x: 2, y: 2, z: 2)
+        s.transform = Matrix4.scaling(x: 2, y: 2, z: 2)
         _ = s.intersect(ray: r)
         XCTAssertEqual(s.savedRay!.origin, Point(x: 0, y: 0, z: -2.5))
         XCTAssertEqual(s.savedRay?.direction, Vector(x: 0, y: 0, z: 0.5))
@@ -68,7 +68,7 @@ class ShapeFeatures: XCTestCase {
     func testIntersectingATranslatedShapeWithARay() {
         let r = Ray(orig: Point(x: 0, y: 0, z: -5), dir: Vector(x: 0, y: 0, z: 1))
         let s = Shape.testShape()
-        s.transform = Matrix.translation(x: 5, y: 0, z: 0)
+        s.transform = Matrix4.translation(x: 5, y: 0, z: 0)
         _ = s.intersect(ray: r)
         XCTAssertEqual(s.savedRay!.origin, Point(x: -5, y: 0, z: -5))
         XCTAssertEqual(s.savedRay!.direction, Vector(x: 0, y: 0, z: 1))
@@ -80,7 +80,7 @@ class ShapeFeatures: XCTestCase {
     // Then n = vector(0, 0.70711, -0.70711)
     func testComputingTheNormalOnATranslatedShape() {
         let s = Shape.testShape()
-        s.transform = Matrix.translation(x: 0, y: 1, z: 0)
+        s.transform = Matrix4.translation(x: 0, y: 1, z: 0)
         let n = s.normalAt(p: Point(x: 0, y: 1.70711, z: -0.70711), hit: Intersection(t: 0, object: s))
         XCTAssertEqual(n, Vector(x: 0, y: 0.70711, z: -0.70711))
     }
@@ -91,7 +91,7 @@ class ShapeFeatures: XCTestCase {
     // Then n = vector(0, 0.97014, -0.24254)
     func testComputingTheNormalOnATransformedShape() {
         let s = Shape.testShape()
-        let m = Matrix.scaling(x: 1, y: 0.5, z: 1) * Matrix.rotation_z(r: .pi/5)
+        let m = Matrix4.scaling(x: 1, y: 0.5, z: 1) * Matrix4.rotation_z(r: .pi/5)
         s.transform = m
         let n = s.normalAt(p: Point(x: 0, y: sqrt(2)/2, z: -sqrt(2)/2), hit: Intersection(t: 0, object: s))
         XCTAssertEqual(n, Vector(x: 0, y: 0.97014, z: -0.24254))
@@ -113,12 +113,12 @@ class ShapeFeatures: XCTestCase {
     // When p ← world_to_object(s, point(-2, 0, -10)) Then p = point(0, 0, -1)
     func testConvertingAPointFromWorldToObjectSpace() {
         let g1 = Group()
-        g1.transform = Matrix.rotation_y(r: .pi/2)
+        g1.transform = Matrix4.rotation_y(r: .pi/2)
         let g2 = Group()
-        g2.transform = Matrix.scaling(x: 2, y: 2, z: 2)
+        g2.transform = Matrix4.scaling(x: 2, y: 2, z: 2)
         g1.addChild(shape: g2)
         let s = Sphere()
-        s.transform = Matrix.translation(x: 5, y: 0, z: 0)
+        s.transform = Matrix4.translation(x: 5, y: 0, z: 0)
         g2.addChild(shape: s)
         XCTAssertEqual(s.worldToObject(p: Point(x: -2, y: 0, z: -10)),
                        Point(x: 0, y: 0, z: -1))
@@ -134,12 +134,12 @@ class ShapeFeatures: XCTestCase {
     // Then n = vector(0.2857, 0.4286, -0.8571)
     func testConvertingANormalFromObjectToWorldSpace() {
         let g1 = Group()
-        g1.transform = Matrix.rotation_y(r: .pi/2)
+        g1.transform = Matrix4.rotation_y(r: .pi/2)
         let g2 = Group()
-        g2.transform = Matrix.scaling(x: 1, y: 2, z: 3)
+        g2.transform = Matrix4.scaling(x: 1, y: 2, z: 3)
         g1.addChild(shape: g2)
         let s = Sphere()
-        s.transform = Matrix.translation(x: 5, y: 0, z: 0)
+        s.transform = Matrix4.translation(x: 5, y: 0, z: 0)
         g2.addChild(shape: s)
         let n = Vector(x: sqrt(3)/3, y: sqrt(3)/3, z: sqrt(3)/3)
         XCTAssertEqual(s.normalToWorld(normal: n),
@@ -156,12 +156,12 @@ class ShapeFeatures: XCTestCase {
     // Then n = vector(0.2857, 0.4286, -0.8571)
     func testFindingTheNormalOnAChildObject() {
         let g1 = Group()
-        g1.transform = Matrix.rotation_y(r: .pi/2)
+        g1.transform = Matrix4.rotation_y(r: .pi/2)
         let g2 = Group()
-        g2.transform = Matrix.scaling(x: 1, y: 2, z: 3)
+        g2.transform = Matrix4.scaling(x: 1, y: 2, z: 3)
         g1.addChild(shape: g2)
         let s = Sphere()
-        s.transform = Matrix.translation(x: 5, y: 0, z: 0)
+        s.transform = Matrix4.translation(x: 5, y: 0, z: 0)
         g2.addChild(shape: s)
         let n = s.normalAt(p: Point(x: 1.7321, y: 1.1547, z: -5.5774), hit: Intersection(t: 0, object: s))
         XCTAssertEqual(n, Vector(x: 0.2857, y: 0.4286, z: -0.8571))

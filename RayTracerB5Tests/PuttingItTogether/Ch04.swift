@@ -18,7 +18,7 @@ class Ch04: XCTestCase {
         c.write_pixel(x: 400, y: 700, color: Color(r: 1, g: 1, b: 1))
         
         for idx in 1...11 {
-            let r = Matrix.rotation_y(r: .pi/6 * Double(idx))
+            let r = Matrix4.rotation_y(r: .pi/6 * Double(idx))
             let pos = r * twelve
             c.write_pixel(x: 400 + Int(300 * pos.x), y: 400 + Int(300 * pos.z), color: Color(r: 1, g: 1, b: 1))
         }

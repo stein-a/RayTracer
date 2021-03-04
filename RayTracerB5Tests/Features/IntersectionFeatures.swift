@@ -149,7 +149,7 @@ class IntersectionFeatures: XCTestCase {
         let EPSILON = 0.00001
         let r = Ray(orig: Point(x: 0, y: 0, z: -5), dir: Vector(x: 0, y: 0, z: 1))
         let shape = Sphere()
-        shape.transform = Matrix.translation(x: 0, y: 0, z: 1)
+        shape.transform = Matrix4.translation(x: 0, y: 0, z: 1)
         let i = Intersection(t: 5, object: shape)
         let comps = i.prepare(with: r)
         XCTAssertLessThan(comps.overPoint.z, Double(-EPSILON/2))
@@ -190,13 +190,13 @@ class IntersectionFeatures: XCTestCase {
     //     | 5     | 1.5 | 1.0 |
     func testFindingN1AndN2ForVariousIntersections() {
         let A = Sphere.glassSphere()
-        A.transform = Matrix.scaling(x: 2, y: 2, z: 2)
+        A.transform = Matrix4.scaling(x: 2, y: 2, z: 2)
         A.material.refractiveIndex = 1.5
         let B = Sphere.glassSphere()
-        B.transform = Matrix.translation(x: 0, y: 0, z: -0.25)
+        B.transform = Matrix4.translation(x: 0, y: 0, z: -0.25)
         B.material.refractiveIndex = 2.0
         let C = Sphere.glassSphere()
-        C.transform = Matrix.translation(x: 0, y: 0, z: 0.25)
+        C.transform = Matrix4.translation(x: 0, y: 0, z: 0.25)
         C.material.refractiveIndex = 2.5
         let r = Ray(orig: Point(x: 0, y: 0, z: -4), dir: Vector(x: 0, y: 0, z: 1))
         let i0 = Intersection(t: 2, object: A)
@@ -236,7 +236,7 @@ class IntersectionFeatures: XCTestCase {
     func testTheUnderPointIsOffsetBelowTheSurface() {
         let r = Ray(orig: Point(x: 0, y: 0, z: -5), dir: Vector(x: 0, y: 0, z: 1))
         let shape = Sphere.glassSphere()
-        shape.transform = Matrix.translation(x: 0, y: 0, z: 1)
+        shape.transform = Matrix4.translation(x: 0, y: 0, z: 1)
         let i = Intersection(t: 5, object: shape)
         let xs = Intersections([i])
         let comps = i.prepare(with: r, xs: xs)

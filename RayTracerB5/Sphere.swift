@@ -38,7 +38,7 @@ class Sphere: Shape {
     
     class func glassSphere() -> Sphere {
         let s = Sphere()
-        s.transform = Matrix.identity()
+        s.transform = Matrix4.identity()
         s.material.transparency = 1.0
         s.material.refractiveIndex = 1.5
         return s

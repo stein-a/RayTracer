@@ -10,16 +10,16 @@ import Foundation
 
 class GeneralPattern {
  
-    var invTransform: Matrix
-    var transform: Matrix {
+    var invTransform: Matrix4
+    var transform: Matrix4 {
         didSet {
             invTransform = transform.inverse()
         }
     }
     
     init() {
-        self.transform = Matrix.identity()
-        self.invTransform = Matrix.identity()
+        self.transform = Matrix4.identity()
+        self.invTransform = Matrix4.identity()
     }
     
     func color(at point: Point) -> Color {

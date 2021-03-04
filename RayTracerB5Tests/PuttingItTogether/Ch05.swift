@@ -32,7 +32,7 @@ class Ch05: XCTestCase {
                 let dir = (position - ray_origin).normalize()
                 let r = Ray(orig: ray_origin, dir: dir)
                 let s = Sphere()
-                // s.transform = Matrix.scaling(x: 1, y: 0.5, z: 1)
+                // s.transform = Matrix4.scaling(x: 1, y: 0.5, z: 1)
                 let xs = s.intersect(ray: r)
                 
                 if xs.hit() != nil {

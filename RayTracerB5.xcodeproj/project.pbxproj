@@ -19,8 +19,6 @@
 		D638411321C13168002BB6C6 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638411221C13168002BB6C6 /* Color.swift */; };
 		D638411521C131BA002BB6C6 /* CanvasFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638411421C131BA002BB6C6 /* CanvasFeatures.swift */; };
 		D638411721C13243002BB6C6 /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638411621C13243002BB6C6 /* Canvas.swift */; };
-		D638411921C1328B002BB6C6 /* MatrixFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638411821C1328B002BB6C6 /* MatrixFeatures.swift */; };
-		D638411B21C13311002BB6C6 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638411A21C13311002BB6C6 /* Matrix.swift */; };
 		D638411D21C1338B002BB6C6 /* TransformationFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638411C21C1338B002BB6C6 /* TransformationFeatures.swift */; };
 		D638411F21C13492002BB6C6 /* RayFeatures.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638411E21C13492002BB6C6 /* RayFeatures.swift */; };
 		D638412221C1352D002BB6C6 /* Sphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = D638412021C1352D002BB6C6 /* Sphere.swift */; };
@@ -77,6 +75,9 @@
 		D68121AC258F9E3A00AD12CF /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68121AB258F9E3A00AD12CF /* Environment.swift */; };
 		D68121B0258F9E4700AD12CF /* Projectile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D68121AF258F9E4700AD12CF /* Projectile.swift */; };
 		D698DFCE21DE16250057E604 /* Cylinders.swift in Sources */ = {isa = PBXBuildFile; fileRef = D698DFCD21DE16250057E604 /* Cylinders.swift */; };
+		D69B21ED25F137160000E071 /* Matrix4.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B21EC25F137160000E071 /* Matrix4.swift */; };
+		D69B21F125F143330000E071 /* Matrix4Features.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B21F025F143330000E071 /* Matrix4Features.swift */; };
+		D69B21F525F19ADC0000E071 /* Transformation4Features.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69B21F425F19ADC0000E071 /* Transformation4Features.swift */; };
 		D6D0472623D5B59B00B08576 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D0472523D5B59B00B08576 /* Test.swift */; };
 		D6D74ED621E356F100FD3CB7 /* ObjFiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D74ED521E356F100FD3CB7 /* ObjFiles.swift */; };
 		D6D74EDA21E382CF00FD3CB7 /* bigteapot.obj in Resources */ = {isa = PBXBuildFile; fileRef = D6D74ED921E382CF00FD3CB7 /* bigteapot.obj */; };
@@ -114,8 +115,6 @@
 		D638411221C13168002BB6C6 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		D638411421C131BA002BB6C6 /* CanvasFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasFeatures.swift; sourceTree = "<group>"; };
 		D638411621C13243002BB6C6 /* Canvas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
-		D638411821C1328B002BB6C6 /* MatrixFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixFeatures.swift; sourceTree = "<group>"; };
-		D638411A21C13311002BB6C6 /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
 		D638411C21C1338B002BB6C6 /* TransformationFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformationFeatures.swift; sourceTree = "<group>"; };
 		D638411E21C13492002BB6C6 /* RayFeatures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RayFeatures.swift; sourceTree = "<group>"; };
 		D638412021C1352D002BB6C6 /* Sphere.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sphere.swift; sourceTree = "<group>"; };
@@ -173,6 +172,9 @@
 		D68121AB258F9E3A00AD12CF /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		D68121AF258F9E4700AD12CF /* Projectile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Projectile.swift; sourceTree = "<group>"; };
 		D698DFCD21DE16250057E604 /* Cylinders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cylinders.swift; sourceTree = "<group>"; };
+		D69B21EC25F137160000E071 /* Matrix4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix4.swift; sourceTree = "<group>"; };
+		D69B21F025F143330000E071 /* Matrix4Features.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix4Features.swift; sourceTree = "<group>"; };
+		D69B21F425F19ADC0000E071 /* Transformation4Features.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transformation4Features.swift; sourceTree = "<group>"; };
 		D6D0472523D5B59B00B08576 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		D6D74ED521E356F100FD3CB7 /* ObjFiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjFiles.swift; sourceTree = "<group>"; };
 		D6D74ED921E382CF00FD3CB7 /* bigteapot.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bigteapot.obj; sourceTree = "<group>"; };
@@ -245,7 +247,7 @@
 				D638412421C135BA002BB6C6 /* Shape.swift */,
 				D638412121C1352D002BB6C6 /* Ray.swift */,
 				D638412021C1352D002BB6C6 /* Sphere.swift */,
-				D638411A21C13311002BB6C6 /* Matrix.swift */,
+				D69B21EC25F137160000E071 /* Matrix4.swift */,
 				D638411621C13243002BB6C6 /* Canvas.swift */,
 				D638411221C13168002BB6C6 /* Color.swift */,
 				D638410C21C13005002BB6C6 /* Point.swift */,
@@ -299,7 +301,8 @@
 				D638413C21C13673002BB6C6 /* SphereFeatures.swift */,
 				D638411E21C13492002BB6C6 /* RayFeatures.swift */,
 				D638411C21C1338B002BB6C6 /* TransformationFeatures.swift */,
-				D638411821C1328B002BB6C6 /* MatrixFeatures.swift */,
+				D69B21F425F19ADC0000E071 /* Transformation4Features.swift */,
+				D69B21F025F143330000E071 /* Matrix4Features.swift */,
 				D638411421C131BA002BB6C6 /* CanvasFeatures.swift */,
 				D638410121C12EA6002BB6C6 /* TupleFeatures.swift */,
 			);
@@ -456,7 +459,6 @@
 				D638416E21C3FF5F002BB6C6 /* Triangle.swift in Sources */,
 				D638413B21C1363C002BB6C6 /* Intersect.swift in Sources */,
 				D638412D21C135E9002BB6C6 /* Material.swift in Sources */,
-				D638411B21C13311002BB6C6 /* Matrix.swift in Sources */,
 				D638413621C1363C002BB6C6 /* StripePattern.swift in Sources */,
 				D638410F21C13005002BB6C6 /* Point.swift in Sources */,
 				D638411021C13005002BB6C6 /* Tuple.swift in Sources */,
@@ -471,6 +473,7 @@
 				D638413921C1363C002BB6C6 /* GradientPattern.swift in Sources */,
 				D638415D21C16617002BB6C6 /* Cylinder.swift in Sources */,
 				D638411321C13168002BB6C6 /* Color.swift in Sources */,
+				D69B21ED25F137160000E071 /* Matrix4.swift in Sources */,
 				D638412821C135BA002BB6C6 /* Shape.swift in Sources */,
 				D63840F121C12EA3002BB6C6 /* AppDelegate.swift in Sources */,
 				D68121B0258F9E4700AD12CF /* Projectile.swift in Sources */,
@@ -507,6 +510,7 @@
 				D638414F21C1422F002BB6C6 /* PlaneFeatures.swift in Sources */,
 				D638416121C16AF6002BB6C6 /* GroupFeatures.swift in Sources */,
 				D638415F21C1692C002BB6C6 /* ConeFeatures.swift in Sources */,
+				D69B21F525F19ADC0000E071 /* Transformation4Features.swift in Sources */,
 				D638414921C13FF1002BB6C6 /* CameraFeatures.swift in Sources */,
 				D638415321C142CB002BB6C6 /* PatternFeatures.swift in Sources */,
 				D6D74ED621E356F100FD3CB7 /* ObjFiles.swift in Sources */,
@@ -514,6 +518,7 @@
 				D6F4282D21C803CB0045C236 /* CSGFeatures.swift in Sources */,
 				D65AA6AD21D24665001C1F02 /* Ch08.swift in Sources */,
 				D65AA6A721D243A2001C1F02 /* Ch05.swift in Sources */,
+				D69B21F125F143330000E071 /* Matrix4Features.swift in Sources */,
 				D65AA6AB21D244E3001C1F02 /* Ch07.swift in Sources */,
 				D65AA6A521D24325001C1F02 /* Ch04.swift in Sources */,
 				D60FBFDB21E009B3007CFBFB /* Cubes.swift in Sources */,
@@ -527,7 +532,6 @@
 				D638411F21C13492002BB6C6 /* RayFeatures.swift in Sources */,
 				D638415921C16572002BB6C6 /* CylinderFeatures.swift in Sources */,
 				D65AA6A921D24423001C1F02 /* Ch06.swift in Sources */,
-				D638411921C1328B002BB6C6 /* MatrixFeatures.swift in Sources */,
 				D698DFCE21DE16250057E604 /* Cylinders.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

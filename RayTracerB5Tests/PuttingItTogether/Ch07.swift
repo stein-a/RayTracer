@@ -13,37 +13,37 @@ class Ch07: XCTestCase {
 
     func testPuttingItTogether() {
         let floor = Sphere()
-        floor.transform = Matrix.scaling(x: 10, y: 0.01, z: 10)
+        floor.transform = Matrix4.scaling(x: 10, y: 0.01, z: 10)
         floor.material = Material()
         floor.material.color = Color(r: 1, g: 0.9, b: 0.9)
         floor.material.specular = 0
         
         let left_wall = Sphere()
-        left_wall.transform = Matrix.translation(x: 0, y: 0, z: 5) *
-            Matrix.rotation_y(r: -.pi/4) * Matrix.rotation_x(r: .pi/2) * Matrix.scaling(x: 10, y: 0.01, z: 10)
+        left_wall.transform = Matrix4.translation(x: 0, y: 0, z: 5) *
+            Matrix4.rotation_y(r: -.pi/4) * Matrix4.rotation_x(r: .pi/2) * Matrix4.scaling(x: 10, y: 0.01, z: 10)
         left_wall.material = floor.material
         
         let right_wall = Sphere()
-        right_wall.transform = Matrix.translation(x: 0, y: 0, z: 5) *
-            Matrix.rotation_y(r: .pi/4) * Matrix.rotation_x(r: .pi/2) * Matrix.scaling(x: 10, y: 0.01, z: 10)
+        right_wall.transform = Matrix4.translation(x: 0, y: 0, z: 5) *
+            Matrix4.rotation_y(r: .pi/4) * Matrix4.rotation_x(r: .pi/2) * Matrix4.scaling(x: 10, y: 0.01, z: 10)
         right_wall.material = floor.material
         
         let middle = Sphere()
-        middle.transform = Matrix.translation(x: -0.5, y: 1, z: 0.5)
+        middle.transform = Matrix4.translation(x: -0.5, y: 1, z: 0.5)
         middle.material = Material()
         middle.material.color = Color(r: 0.1, g: 1, b: 0.5)
         middle.material.diffuse = 0.7
         middle.material.specular = 0.3
         
         let right = Sphere()
-        right.transform = Matrix.translation(x: 1.5, y: 0.5, z: -0.5) * Matrix.scaling(x: 0.5, y: 0.5, z: 0.5)
+        right.transform = Matrix4.translation(x: 1.5, y: 0.5, z: -0.5) * Matrix4.scaling(x: 0.5, y: 0.5, z: 0.5)
         right.material = Material()
         right.material.color = Color(r: 0.5, g: 1, b: 0.1)
         right.material.diffuse = 0.7
         right.material.specular = 0.3
         
         let left = Sphere()
-        left.transform = Matrix.translation(x: -1.5, y: 0.5, z: -0.5) * Matrix.scaling(x: 0.3, y: 0.3, z: 0.3)
+        left.transform = Matrix4.translation(x: -1.5, y: 0.5, z: -0.5) * Matrix4.scaling(x: 0.3, y: 0.3, z: 0.3)
         left.material = Material()
         left.material.color = Color(r: 1, g: 0, b: 0)
         left.material.diffuse = 0.7
@@ -59,7 +59,7 @@ class Ch07: XCTestCase {
         world.objects.append(left)
         
         let camera = Camera(hsize: 100, vsize: 50, field_of_view: .pi/3)
-        camera.transform = Matrix.viewTransform(from: Point(x: 0, y: 1.5, z: -5),
+        camera.transform = Matrix4.viewTransform(from: Point(x: 0, y: 1.5, z: -5),
                                                 to: Point(x: 0, y: 1, z: 0), up: Vector(x: 0, y: 1, z: 0))
         let image = camera.render(world: world)
         

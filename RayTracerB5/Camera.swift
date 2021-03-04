@@ -17,8 +17,8 @@ class Camera {
     var half_width : Double
     var half_height : Double
     
-    var invTransform : Matrix
-    var transform : Matrix {
+    var invTransform : Matrix4
+    var transform : Matrix4 {
         didSet {
             invTransform = transform.inverse()
         }
@@ -41,8 +41,8 @@ class Camera {
         }
         self.pixel_size = (half_width * 2) / hsize
         print("Pixel_size: \(self.pixel_size)")
-        self.transform = Matrix.identity()
-        self.invTransform = Matrix.identity()
+        self.transform = Matrix4.identity()
+        self.invTransform = Matrix4.identity()
     }
     
     func ray_for_pixel(px: Int, py: Int) -> Ray {

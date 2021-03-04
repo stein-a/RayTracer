@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import simd
 
 class Tuple : Equatable, CustomStringConvertible {
 
@@ -14,6 +15,7 @@ class Tuple : Equatable, CustomStringConvertible {
     var y: Double
     var z: Double
     var w: Double
+    var vector4: simd_double4
 
     var description: String {
         return "x=\(x), y=\(y), z=\(z), w=\(w)"
@@ -25,6 +27,7 @@ class Tuple : Equatable, CustomStringConvertible {
         self.y = y
         self.z = z
         self.w = w
+        self.vector4 = simd_double4(x, y, z, w)
     }
     
     init(p: Point) {
@@ -32,6 +35,7 @@ class Tuple : Equatable, CustomStringConvertible {
         self.y = p.y
         self.z = p.z
         self.w = 1.0
+        self.vector4 = simd_double4(x, y, z, 1.0)
     }
 
     init(v: Vector) {
@@ -39,6 +43,15 @@ class Tuple : Equatable, CustomStringConvertible {
         self.y = v.y
         self.z = v.z
         self.w = 0.0
+        self.vector4 = simd_double4(x, y, z, 0.0)
+    }
+    
+    init(vector: simd_double4) {
+        self.x = vector.x
+        self.y = vector.y
+        self.z = vector.z
+        self.w = vector.w
+        self.vector4 = vector
     }
 
     func isPoint() -> Bool {
@@ -70,43 +83,23 @@ class Tuple : Equatable, CustomStringConvertible {
     }
     
     static func + (lhs: Tuple, rhs: Tuple) -> Tuple {
-        let x = lhs.x + rhs.x
-        let y = lhs.y + rhs.y
-        let z = lhs.z + rhs.z
-        let w = lhs.w + rhs.w
-        return Tuple(x: x, y: y, z: z, w: w)
+        return Tuple(vector: lhs.vector4 + rhs.vector4)
     }
     
     static func - (lhs: Tuple, rhs: Tuple) -> Tuple {
-        let x = lhs.x - rhs.x
-        let y = lhs.y - rhs.y
-        let z = lhs.z - rhs.z
-        let w = lhs.w - rhs.w
-        return Tuple(x: x, y: y, z: z, w: w)
+        return Tuple(vector: lhs.vector4 - rhs.vector4)
     }
 
     static func * (lhs: Tuple, rhs: Double) -> Tuple {
-        let x = lhs.x * rhs
-        let y = lhs.y * rhs
-        let z = lhs.z * rhs
-        let w = lhs.w * rhs
-        return Tuple(x: x, y: y, z: z, w: w)
+        return Tuple(vector: lhs.vector4 * rhs)
     }
 
     static func / (lhs: Tuple, rhs: Double) -> Tuple {
-        let x = lhs.x / rhs
-        let y = lhs.y / rhs
-        let z = lhs.z / rhs
-        let w = lhs.w / rhs
-        return Tuple(x: x, y: y, z: z, w: w)
+        return Tuple(vector: lhs.vector4 / rhs)
     }
 
     static prefix func -(_ t: Tuple) -> Tuple {
-        let x = -t.x
-        let y = -t.y
-        let z = -t.z
-        let w = -t.w
-        return Tuple(x: x, y: y, z: z, w: w)
+        return Tuple(vector: -t.vector4)
     }
 }
 

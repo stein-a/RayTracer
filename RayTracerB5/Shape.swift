@@ -10,9 +10,9 @@ import Foundation
 
 class Shape: CustomStringConvertible, Equatable {
 
-    var transpInvTransform: Matrix
-    var invTransform: Matrix
-    var transform: Matrix {
+    var transpInvTransform: Matrix4
+    var invTransform: Matrix4
+    var transform: Matrix4 {
         didSet {
             invTransform = transform.inverse()
             transpInvTransform = invTransform^
@@ -30,10 +30,10 @@ class Shape: CustomStringConvertible, Equatable {
     }
 
     init() {
-        self.transform = Matrix.identity()
+        self.transform = Matrix4.identity()
         self.material = Material()
-        self.invTransform = Matrix.identity()
-        self.transpInvTransform = Matrix.identity()
+        self.invTransform = Matrix4.identity()
+        self.transpInvTransform = Matrix4.identity()
     }
     
     func intersect(ray: Ray) -> Intersections {

@@ -1,5 +1,5 @@
 //
-//  TransformationFeatures.swift
+//  Transformation4Features.swift
 //  RayTracerB5Tests
 //
 //  Created by Stein Alver on 12/12/2018.
@@ -9,9 +9,7 @@
 import XCTest
 @testable import RayTracerB5
 
-let epsilon: Double = 0.0001
-
-class TransformationFeatures: XCTestCase {
+class Transformation4Features: XCTestCase {
 
     // Scenario: Multiplying by a translation matrix
     // Given transform ← translation(5, -3, 2) And p ← point(-3, 4, 5)

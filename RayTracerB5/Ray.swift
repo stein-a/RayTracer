@@ -21,7 +21,7 @@ class Ray {
         return (self.origin + self.direction * time).asPoint()
     }
     
-    func transform(m: Matrix) -> Ray {
+    func transform(m: Matrix4) -> Ray {
         let new_origin = (m * self.origin).asPoint()
         let new_direction = (m * self.direction).asVector()
         return Ray(orig: new_origin, dir: new_direction)

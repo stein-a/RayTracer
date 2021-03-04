@@ -15,7 +15,7 @@ class Cylinders: XCTestCase {
         let world = World()
         
         let camera = Camera(hsize: 800, vsize: 400, field_of_view: .pi/10)
-        camera.transform = Matrix.viewTransform(
+        camera.transform = Matrix4.viewTransform(
             from: Point(x: 8, y: 3.5, z: -9),
             to: Point(x: 0, y: 0.3, z: 0),
             up: Vector(x: 0, y: 1, z: 0))
@@ -29,8 +29,8 @@ class Cylinders: XCTestCase {
             ThreeDCheckerPattern(a: Color(r: 0.5, g: 0.5, b: 0.5),
                                  b: Color(r: 0.75, g: 0.75, b: 0.75))
         floor.material.pattern!.transform =
-                        Matrix.rotation_y(r: 0.3) *
-                        Matrix.scaling(x: 0.25, y: 0.25, z: 0.25)
+                        Matrix4.rotation_y(r: 0.3) *
+                        Matrix4.scaling(x: 0.25, y: 0.25, z: 0.25)
         floor.material.ambient = 0.2
         floor.material.diffuse = 0.9
         floor.material.specular = 0
@@ -40,8 +40,8 @@ class Cylinders: XCTestCase {
         cyl1.minimum = 0
         cyl1.maximum = 0.75
         cyl1.closed = true
-        cyl1.transform = Matrix.translation(x: -1, y: 0, z: 1) *
-                        Matrix.scaling(x: 0.5, y: 1, z: 0.5)
+        cyl1.transform = Matrix4.translation(x: -1, y: 0, z: 1) *
+                        Matrix4.scaling(x: 0.5, y: 1, z: 0.5)
         cyl1.material.color = Color(r: 0, g: 0, b: 0.6)
         cyl1.material.diffuse = 0.1
         cyl1.material.specular = 0.9
@@ -53,8 +53,8 @@ class Cylinders: XCTestCase {
         con1.minimum = 0
         con1.maximum = 0.2
         con1.closed = false
-        con1.transform = Matrix.translation(x: 1, y: 0, z: 0) *
-                        Matrix.scaling(x: 0.8, y: 1, z: 0.8)
+        con1.transform = Matrix4.translation(x: 1, y: 0, z: 0) *
+                        Matrix4.scaling(x: 0.8, y: 1, z: 0.8)
         con1.material.color = Color(r: 1, g: 1, b: 0.3)
         con1.material.ambient = 0.1
         con1.material.diffuse = 0.8
@@ -66,8 +66,8 @@ class Cylinders: XCTestCase {
         con2.minimum = 0
         con2.maximum = 0.3
         con2.closed = false
-        con2.transform = Matrix.translation(x: 1, y: 0, z: 0) *
-            Matrix.scaling(x: 0.6, y: 1, z: 0.6)
+        con2.transform = Matrix4.translation(x: 1, y: 0, z: 0) *
+            Matrix4.scaling(x: 0.6, y: 1, z: 0.6)
         con2.material.color = Color(r: 1, g: 0.9, b: 0.4)
         con2.material.ambient = 0.1
         con2.material.diffuse = 0.8
@@ -79,8 +79,8 @@ class Cylinders: XCTestCase {
         con3.minimum = 0
         con3.maximum = 0.4
         con3.closed = false
-        con3.transform = Matrix.translation(x: 1, y: 0, z: 0) *
-            Matrix.scaling(x: 0.4, y: 1, z: 0.4)
+        con3.transform = Matrix4.translation(x: 1, y: 0, z: 0) *
+            Matrix4.scaling(x: 0.4, y: 1, z: 0.4)
         con3.material.color = Color(r: 1, g: 0.8, b: 0.5)
         con3.material.ambient = 0.1
         con3.material.diffuse = 0.8
@@ -92,8 +92,8 @@ class Cylinders: XCTestCase {
         con4.minimum = 0
         con4.maximum = 0.5
         con4.closed = false
-        con4.transform = Matrix.translation(x: 1, y: 0, z: 0) *
-            Matrix.scaling(x: 0.2, y: 1, z: 0.2)
+        con4.transform = Matrix4.translation(x: 1, y: 0, z: 0) *
+            Matrix4.scaling(x: 0.2, y: 1, z: 0.2)
         con4.material.color = Color(r: 1, g: 0.7, b: 0.6)
         con4.material.ambient = 0.1
         con4.material.diffuse = 0.8
@@ -105,8 +105,8 @@ class Cylinders: XCTestCase {
         dec1.minimum = 0
         dec1.maximum = 0.3
         dec1.closed = true
-        dec1.transform = Matrix.translation(x: 0, y: 0, z: -0.75) *
-            Matrix.scaling(x: 0.05, y: 1, z: 0.05)
+        dec1.transform = Matrix4.translation(x: 0, y: 0, z: -0.75) *
+            Matrix4.scaling(x: 0.05, y: 1, z: 0.05)
         dec1.material.color = Color(r: 1, g: 0, b: 0)
         dec1.material.ambient = 0.1
         dec1.material.diffuse = 0.9
@@ -118,10 +118,10 @@ class Cylinders: XCTestCase {
         dec2.minimum = 0
         dec2.maximum = 0.3
         dec2.closed = true
-        dec2.transform = Matrix.translation(x: 0, y: 0, z: -2.25) *
-            Matrix.rotation_y(r: -0.15) *
-            Matrix.translation(x: 0, y: 0, z: 1.5) *
-            Matrix.scaling(x: 0.05, y: 1, z: 0.05)
+        dec2.transform = Matrix4.translation(x: 0, y: 0, z: -2.25) *
+            Matrix4.rotation_y(r: -0.15) *
+            Matrix4.translation(x: 0, y: 0, z: 1.5) *
+            Matrix4.scaling(x: 0.05, y: 1, z: 0.05)
         dec2.material.color = Color(r: 1, g: 1, b: 0)
         dec2.material.ambient = 0.1
         dec2.material.diffuse = 0.9
@@ -133,10 +133,10 @@ class Cylinders: XCTestCase {
         dec3.minimum = 0
         dec3.maximum = 0.3
         dec3.closed = true
-        dec3.transform = Matrix.translation(x: 0, y: 0, z: -2.25) *
-            Matrix.rotation_y(r: -0.3) *
-            Matrix.translation(x: 0, y: 0, z: 1.5) *
-            Matrix.scaling(x: 0.05, y: 1, z: 0.05)
+        dec3.transform = Matrix4.translation(x: 0, y: 0, z: -2.25) *
+            Matrix4.rotation_y(r: -0.3) *
+            Matrix4.translation(x: 0, y: 0, z: 1.5) *
+            Matrix4.scaling(x: 0.05, y: 1, z: 0.05)
         dec3.material.color = Color(r: 0, g: 1, b: 0)
         dec3.material.ambient = 0.1
         dec3.material.diffuse = 0.9
@@ -148,10 +148,10 @@ class Cylinders: XCTestCase {
         dec4.minimum = 0
         dec4.maximum = 0.3
         dec4.closed = true
-        dec4.transform = Matrix.translation(x: 0, y: 0, z: -2.25) *
-            Matrix.rotation_y(r: -0.45) *
-            Matrix.translation(x: 0, y: 0, z: 1.5) *
-            Matrix.scaling(x: 0.05, y: 1, z: 0.05)
+        dec4.transform = Matrix4.translation(x: 0, y: 0, z: -2.25) *
+            Matrix4.rotation_y(r: -0.45) *
+            Matrix4.translation(x: 0, y: 0, z: 1.5) *
+            Matrix4.scaling(x: 0.05, y: 1, z: 0.05)
         dec4.material.color = Color(r: 0, g: 1, b: 1)
         dec4.material.ambient = 0.1
         dec4.material.diffuse = 0.9
@@ -163,8 +163,8 @@ class Cylinders: XCTestCase {
         gcyl.minimum = 0.0001
         gcyl.maximum = 0.5
         gcyl.closed = true
-        gcyl.transform = Matrix.translation(x: 0, y: 0, z: -1.5) *
-                        Matrix.scaling(x: 0.33, y: 1, z: 0.33)
+        gcyl.transform = Matrix4.translation(x: 0, y: 0, z: -1.5) *
+                        Matrix4.scaling(x: 0.33, y: 1, z: 0.33)
         gcyl.material.color = Color(r: 0.25, g: 0, b: 0)
         gcyl.material.diffuse = 0.1
         gcyl.material.specular = 0.9

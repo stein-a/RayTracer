@@ -79,7 +79,7 @@ class PatternFeatures: XCTestCase {
     // When c ← stripe_at_object(pattern, object, point(1.5, 0, 0)) Then c = white
     func testStripesWithAnObjectTransformation() {
         let object = Sphere()
-        object.transform = Matrix.scaling(x: 2, y: 2, z: 2)
+        object.transform = Matrix4.scaling(x: 2, y: 2, z: 2)
         let black = Color(r: 0, g: 0, b: 0)
         let white = Color(r: 1, g: 1, b: 1)
         let pattern = StripePattern(a: white, b: black)
@@ -96,7 +96,7 @@ class PatternFeatures: XCTestCase {
         let black = Color(r: 0, g: 0, b: 0)
         let white = Color(r: 1, g: 1, b: 1)
         let pattern = StripePattern(a: white, b: black)
-        pattern.transform = Matrix.scaling(x: 2, y: 2, z: 2)
+        pattern.transform = Matrix4.scaling(x: 2, y: 2, z: 2)
         let c = pattern.color(at: object, point: Point(x: 1.5, y: 0, z: 0))
         XCTAssertEqual(c, white)
     }
@@ -108,11 +108,11 @@ class PatternFeatures: XCTestCase {
     // When c ← stripe_at_object(pattern, object, point(2.5, 0, 0)) Then c = white
     func testStripesWithAnBothObjectAndPatternTransformation() {
         let object = Sphere()
-        object.transform = Matrix.scaling(x: 2, y: 2, z: 2)
+        object.transform = Matrix4.scaling(x: 2, y: 2, z: 2)
         let black = Color(r: 0, g: 0, b: 0)
         let white = Color(r: 1, g: 1, b: 1)
         let pattern = StripePattern(a: white, b: black)
-        pattern.transform = Matrix.translation(x: 0.5, y: 0, z: 0)
+        pattern.transform = Matrix4.translation(x: 0.5, y: 0, z: 0)
         let c = pattern.color(at: object, point: Point(x: 2.5, y: 0, z: 0))
         XCTAssertEqual(c, white)
     }
@@ -124,7 +124,7 @@ class PatternFeatures: XCTestCase {
     // Then c = color(1, 1.5, 2)
     func testAPatternWithAnObjectTransformation() {
         let shape = Sphere()
-        shape.transform = Matrix.scaling(x: 2, y: 2, z: 2)
+        shape.transform = Matrix4.scaling(x: 2, y: 2, z: 2)
         let pattern = GeneralPattern()
         let c = pattern.color(at: shape, point: Point(x: 2, y: 3, z: 4))
         XCTAssertEqual(c, Color(r: 1, g: 1.5, b: 2))
@@ -138,7 +138,7 @@ class PatternFeatures: XCTestCase {
     func testAPatternWithAPatternTransformation() {
         let shape = Sphere()
         let pattern = GeneralPattern()
-        pattern.transform = Matrix.scaling(x: 2, y: 2, z: 2)
+        pattern.transform = Matrix4.scaling(x: 2, y: 2, z: 2)
         let c = pattern.color(at: shape, point: Point(x: 2, y: 3, z: 4))
         XCTAssertEqual(c, Color(r: 1, g: 1.5, b: 2))
     }
@@ -151,9 +151,9 @@ class PatternFeatures: XCTestCase {
     // Then c = color(0.75, 0.5, 0.25)
     func testAPatternWithBothObjectAndPatternTransformation() {
         let shape = Sphere()
-        shape.transform = Matrix.scaling(x: 2, y: 2, z: 2)
+        shape.transform = Matrix4.scaling(x: 2, y: 2, z: 2)
         let pattern = GeneralPattern()
-        pattern.transform = Matrix.translation(x: 0.5, y: 1, z: 1.5)
+        pattern.transform = Matrix4.translation(x: 0.5, y: 1, z: 1.5)
         let c = pattern.color(at: shape, point: Point(x: 2.5, y: 3, z: 3.5))
         XCTAssertEqual(c, Color(r: 0.75, g: 0.5, b: 0.25))
     }

@@ -37,7 +37,7 @@ class WorldFeatures: XCTestCase {
         s1.material.diffuse = 0.7
         s1.material.specular = 0.2
         let s2 = Sphere()
-        s2.transform = Matrix.scaling(x: 0.5, y: 0.5, z: 0.5)
+        s2.transform = Matrix4.scaling(x: 0.5, y: 0.5, z: 0.5)
         let w = World.defaultWorld()
         XCTAssertEqual(w.light!, light)
         XCTAssertEqual(w.objects[0], s1)
@@ -173,7 +173,7 @@ class WorldFeatures: XCTestCase {
         let s1 = Sphere()
         w.objects.append(s1)
         let s2 = Sphere()
-        s2.transform = Matrix.translation(x: 0, y: 0, z: 10)
+        s2.transform = Matrix4.translation(x: 0, y: 0, z: 10)
         w.objects.append(s2)
         let r = Ray(orig: Point(x: 0, y: 0, z: 5), dir: Vector(x: 0, y: 0, z: 1))
         let i = Intersection(t: 4, object: s2)
@@ -212,7 +212,7 @@ class WorldFeatures: XCTestCase {
         let w = World.defaultWorld()
         let shape = Plane()
         shape.material.reflectivity = 0.5
-        shape.transform = Matrix.translation(x: 0, y: -1, z: 0)
+        shape.transform = Matrix4.translation(x: 0, y: -1, z: 0)
         w.objects.append(shape)
         let r = Ray(orig: Point(x: 0, y: 0, z: -3), dir: Vector(x: 0, y: -sqrt(2)/2, z: sqrt(2)/2))
         let i = Intersection(t: sqrt(2), object: shape)
@@ -225,7 +225,7 @@ class WorldFeatures: XCTestCase {
         let w = World.defaultWorld()
         let shape = Plane()
         shape.material.reflectivity = 0.5
-        shape.transform = Matrix.translation(x: 0, y: -1, z: 0)
+        shape.transform = Matrix4.translation(x: 0, y: -1, z: 0)
         w.objects.append(shape)
         let r = Ray(orig: Point(x: 0, y: 0, z: -3), dir: Vector(x: 0, y: -sqrt(2)/2, z: sqrt(2)/2))
         let i = Intersection(t: sqrt(2), object: shape)
@@ -247,11 +247,11 @@ class WorldFeatures: XCTestCase {
         w.light = PointLight(pos: Point(x: 0, y: 0, z: 0), int: Color(r: 1, g: 1, b: 1))
         let lower = Plane()
         lower.material.reflectivity = 1
-        lower.transform = Matrix.translation(x: 0, y: -1, z: 0)
+        lower.transform = Matrix4.translation(x: 0, y: -1, z: 0)
         w.objects.append(lower)
         let upper = Plane()
         upper.material.reflectivity = 1
-        upper.transform = Matrix.translation(x: 0, y: 1, z: 0)
+        upper.transform = Matrix4.translation(x: 0, y: 1, z: 0)
         w.objects.append(upper)
         let r = Ray(orig: Point(x: 0, y: 0, z: 0), dir: Vector(x: 0, y: 1, z: 0))
         let color = w.colorAt(ray: r)
@@ -269,7 +269,7 @@ class WorldFeatures: XCTestCase {
         let w = World.defaultWorld()
         let shape = Plane()
         shape.material.reflectivity = 0.5
-        shape.transform = Matrix.translation(x: 0, y: -1, z: 0)
+        shape.transform = Matrix4.translation(x: 0, y: -1, z: 0)
         w.objects.append(shape)
         let r = Ray(orig: Point(x: 0, y: 0, z: -3),
                     dir: Vector(x: 0, y: -sqrt(2)/2, z: sqrt(2)/2))
@@ -388,14 +388,14 @@ class WorldFeatures: XCTestCase {
     func testShadeHitWithATransparentMaterial() {
         let w = World.defaultWorld()
         let floor = Plane()
-        floor.transform = Matrix.translation(x: 0, y: -1, z: 0)
+        floor.transform = Matrix4.translation(x: 0, y: -1, z: 0)
         floor.material.transparency = 0.5
         floor.material.refractiveIndex = 1.5
         w.objects.append(floor)
         let ball = Sphere()
         ball.material.color = Color(r: 1, g: 0, b: 0)
         ball.material.ambient = 0.5
-        ball.transform = Matrix.translation(x: 0, y: -3.5, z: -0.5)
+        ball.transform = Matrix4.translation(x: 0, y: -3.5, z: -0.5)
         w.objects.append(ball)
         let r = Ray(orig: Point(x: 0, y: 0, z: -3),
                     dir: Vector(x: 0, y: -sqrt(2)/2, z: sqrt(2)/2))
@@ -423,7 +423,7 @@ class WorldFeatures: XCTestCase {
         let r = Ray(orig: Point(x: 0, y: 0, z: -3),
                     dir: Vector(x: 0, y: -sqrt(2)/2, z: sqrt(2)/2))
         let floor = Plane()
-        floor.transform = Matrix.translation(x: 0, y: -1, z: 0)
+        floor.transform = Matrix4.translation(x: 0, y: -1, z: 0)
         floor.material.reflectivity = 0.5
         floor.material.transparency = 0.5
         floor.material.refractiveIndex = 1.5
@@ -431,7 +431,7 @@ class WorldFeatures: XCTestCase {
         let ball = Sphere()
         ball.material.color = Color(r: 1, g: 0, b: 0)
         ball.material.ambient = 0.5
-        ball.transform = Matrix.translation(x: 0, y: -3.5, z: -0.5)
+        ball.transform = Matrix4.translation(x: 0, y: -3.5, z: -0.5)
         w.objects.append(ball)
         let i0 = Intersection(t: sqrt(2), object: floor)
         let xs = Intersections([i0])

@@ -155,7 +155,7 @@ class World {
         w.objects.append(s1)
         
         let s2 = Sphere()
-        s2.transform = Matrix.scaling(x: 0.5, y: 0.5, z: 0.5)
+        s2.transform = Matrix4.scaling(x: 0.5, y: 0.5, z: 0.5)
         w.objects.append(s2)
         
         return w

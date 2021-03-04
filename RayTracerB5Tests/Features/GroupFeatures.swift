@@ -15,7 +15,7 @@ class GroupFeatures: XCTestCase {
     // Given g ← group() Then g.transform = identity_matrix And g is empty
     func testCreatingANewGroup() {
         let g = Group()
-        XCTAssertEqual(g.transform, Matrix.identity())
+        XCTAssertEqual(g.transform, Matrix4.identity())
         XCTAssertTrue(g.isEmpty())
     }
  
@@ -55,8 +55,8 @@ class GroupFeatures: XCTestCase {
         let s1 = Sphere()
         let s2 = Sphere()
         let s3 = Sphere()
-        s2.transform = Matrix.translation(x: 0, y: 0, z: -3)
-        s3.transform = Matrix.translation(x: 5, y: 0, z: 0)
+        s2.transform = Matrix4.translation(x: 0, y: 0, z: -3)
+        s3.transform = Matrix4.translation(x: 5, y: 0, z: 0)
         g.addChild(shape: s1)
         g.addChild(shape: s2)
         g.addChild(shape: s3)
@@ -77,9 +77,9 @@ class GroupFeatures: XCTestCase {
     // And xs ← intersect(g, r) Then xs.count = 2
     func testIntersectingATransformedGroup() {
         let g = Group()
-        g.transform = Matrix.scaling(x: 2, y: 2, z: 2)
+        g.transform = Matrix4.scaling(x: 2, y: 2, z: 2)
         let s = Sphere()
-        s.transform = Matrix.translation(x: 5, y: 0, z: 0)
+        s.transform = Matrix4.translation(x: 5, y: 0, z: 0)
         g.addChild(shape: s)
         let r = Ray(orig: Point(x: 10, y: 0, z: -10),
                     dir: Vector(x: 0, y: 0, z: 1))

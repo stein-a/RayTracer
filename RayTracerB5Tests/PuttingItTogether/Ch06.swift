@@ -23,7 +23,7 @@ class Ch06: XCTestCase {
         
         let sc = Color(r: 1, g: 0.2, b: 1)
         let s = Sphere()
-        // s.transform = Matrix.scaling(x: 1, y: 0.5, z: 1)
+        // s.transform = Matrix4.scaling(x: 1, y: 0.5, z: 1)
         s.material.color = sc
         
         let light_position = Point(x: -10, y: 10, z: -10)

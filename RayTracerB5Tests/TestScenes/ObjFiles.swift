@@ -15,7 +15,7 @@ class ObjFiles: XCTestCase {
         let world = World()
         
         let camera = Camera(hsize: 200, vsize: 200, field_of_view: .pi/2)
-        camera.transform = Matrix.viewTransform(
+        camera.transform = Matrix4.viewTransform(
             from: Point(x: -10, y: -20, z: -10),
             to: Point(x: 20, y: 20, z: 20),
             up: Vector(x: 0, y: 1, z: 0))
@@ -28,9 +28,9 @@ class ObjFiles: XCTestCase {
         let parser = Parser()
         parser.parseObj(file: file)
         let g = parser.ObjToGroup()
-//        g.transform =   Matrix.rotation_z(r: .pi/2) *
-        g.transform =   Matrix.rotation_y(r: .pi/4) *
-                        Matrix.rotation_x(r: .pi/2)
+//        g.transform =   Matrix4.rotation_z(r: .pi/2) *
+        g.transform =   Matrix4.rotation_y(r: .pi/4) *
+                        Matrix4.rotation_x(r: .pi/2)
         g.material.color = Color(r: 1, g: 0, b: 0)
         g.material.shininess = 300
         g.material.reflectivity = 0.8
