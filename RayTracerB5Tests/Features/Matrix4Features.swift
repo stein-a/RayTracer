@@ -8,6 +8,7 @@
 
 import Foundation
 import simd
+import os
 
 import XCTest
 @testable import RayTracerB5
@@ -249,6 +250,16 @@ class Matrix4Features: XCTestCase {
         let C = A * B
         let D = C * B.inverse()
         XCTAssertEqual(D, A)
+    }
+    
+    func testMatrix4Description() {
+        let A = Matrix4(row0: simd_double4(3, -9, 7, 3),
+                        row1: simd_double4(3, -8, 2, -9),
+                        row2: simd_double4(-4, 4, 4, 1),
+                        row3: simd_double4(-6, 5, -1, 1))
+
+        let logger = Logger()
+        logger.log("Logging a Matrix4 description: \(A.description)")
     }
 
 }
