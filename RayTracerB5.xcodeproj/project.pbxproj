@@ -171,6 +171,7 @@
 		D65AA6B721D24DBF001C1F02 /* triangles.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = triangles.obj; sourceTree = "<group>"; };
 		D68121AB258F9E3A00AD12CF /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		D68121AF258F9E4700AD12CF /* Projectile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Projectile.swift; sourceTree = "<group>"; };
+		D690CCBE29C71F17000B1B50 /* Chapters.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = Chapters.xctestplan; sourceTree = "<group>"; };
 		D698DFCD21DE16250057E604 /* Cylinders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cylinders.swift; sourceTree = "<group>"; };
 		D69B21EC25F137160000E071 /* Matrix4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix4.swift; sourceTree = "<group>"; };
 		D69B21F025F143330000E071 /* Matrix4Features.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix4Features.swift; sourceTree = "<group>"; };
@@ -327,6 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				D65AA69C21D24153001C1F02 /* Ch01.swift */,
+				D690CCBE29C71F17000B1B50 /* Chapters.xctestplan */,
 				D65AA6A221D2428D001C1F02 /* Ch02.swift */,
 				D65AA6A421D24325001C1F02 /* Ch04.swift */,
 				D65AA6A621D243A2001C1F02 /* Ch05.swift */,
@@ -393,7 +395,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1220;
+				LastUpgradeCheck = 1420;
 				ORGANIZATIONNAME = "Stein Alver";
 				TargetAttributes = {
 					D63840EC21C12EA3002BB6C6 = {
@@ -593,6 +595,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -610,7 +613,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -655,6 +658,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -666,7 +670,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -683,6 +687,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 3PH8WYUFZR;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = RayTracerB5/Info.plist;
@@ -690,7 +695,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				PRODUCT_BUNDLE_IDENTIFIER = no.salver.RayTracerB5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -705,6 +710,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 3PH8WYUFZR;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = RayTracerB5/Info.plist;
@@ -712,7 +718,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 11.1;
+				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				PRODUCT_BUNDLE_IDENTIFIER = no.salver.RayTracerB5;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -726,6 +732,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 3PH8WYUFZR;
 				INFOPLIST_FILE = RayTracerB5Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -747,6 +754,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 3PH8WYUFZR;
 				INFOPLIST_FILE = RayTracerB5Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

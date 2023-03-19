@@ -24,7 +24,7 @@ class ObjFiles: XCTestCase {
                                int: Color(r: 1, g: 1, b: 1))
         world.light = light
         
-        let file = try! String.init(contentsOfFile: "/Users/salver/development/Raytracing/RayTracerB5/RayTracerB5Tests/OBJfiles/bigteapot.obj")
+        let file = try! String.init(contentsOfFile: "/Users/salver/development/Raytracer/RayTracer/RayTracerB5Tests/OBJfiles/bigteapot.obj")
         let parser = Parser()
         parser.parseObj(file: file)
         let g = parser.ObjToGroup()

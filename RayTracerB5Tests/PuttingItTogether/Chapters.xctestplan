@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "B14BC8EC-69FF-4A3C-84BA-B6912056A1B9",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:RayTracerB5.xcodeproj",
+        "identifier" : "D63840FC21C12EA6002BB6C6",
+        "name" : "RayTracerB5Tests"
+      }
+    }
+  ],
+  "version" : 1
+}
