@@ -5,6 +5,7 @@
 //  Created by Stein Alver on 25/12/2018.
 //  Copyright © 2018 Stein Alver. All rights reserved.
 //
+//  Test av github push
 
 import XCTest
 @testable import RayTracerB5
