@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1420"
+   LastUpgradeVersion = "1620"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -32,7 +32,27 @@
             reference = "container:RayTracerB5Tests/PuttingItTogether/Chapters.xctestplan"
             default = "YES">
          </TestPlanReference>
+         <TestPlanReference
+            reference = "container:RayTracerB5Tests/TestScenes/Scenes.xctestplan">
+         </TestPlanReference>
       </TestPlans>
+      <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D63840FC21C12EA6002BB6C6"
+               BuildableName = "RayTracerB5Tests.xctest"
+               BlueprintName = "RayTracerB5Tests"
+               ReferencedContainer = "container:RayTracerB5.xcodeproj">
+            </BuildableReference>
+            <SelectedTests>
+               <Test
+                  Identifier = "Cylinders/testCylinders()">
+               </Test>
+            </SelectedTests>
+         </TestableReference>
+      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"

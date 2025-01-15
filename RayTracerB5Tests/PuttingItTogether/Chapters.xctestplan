@@ -13,6 +13,20 @@
   },
   "testTargets" : [
     {
+      "skippedTests" : [
+        "Cubes",
+        "Cubes\/testTable()",
+        "Cylinders",
+        "Cylinders\/testCylinders()",
+        "Fresnel",
+        "Fresnel\/testFresnel()",
+        "ObjFiles",
+        "ObjFiles\/testTeapot()",
+        "ReflectRefract",
+        "ReflectRefract\/testReflectRefract()",
+        "ShadowPuppets",
+        "ShadowPuppets\/testShadowPuppets()"
+      ],
       "target" : {
         "containerPath" : "container:RayTracerB5.xcodeproj",
         "identifier" : "D63840FC21C12EA6002BB6C6",

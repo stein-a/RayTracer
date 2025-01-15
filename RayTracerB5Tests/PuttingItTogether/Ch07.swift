@@ -58,7 +58,7 @@ class Ch07: XCTestCase {
         world.objects.append(right)
         world.objects.append(left)
         
-        let camera = Camera(hsize: 100, vsize: 50, field_of_view: .pi/3)
+        let camera = Camera(hsize: 1000, vsize: 500 , field_of_view: .pi/3)
         camera.transform = Matrix4.viewTransform(from: Point(x: 0, y: 1.5, z: -5),
                                                 to: Point(x: 0, y: 1, z: 0), up: Vector(x: 0, y: 1, z: 0))
         let image = camera.render(world: world)
