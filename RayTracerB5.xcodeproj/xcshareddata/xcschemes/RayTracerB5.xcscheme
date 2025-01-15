@@ -52,6 +52,21 @@
                </Test>
             </SelectedTests>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D63840FC21C12EA6002BB6C6"
+               BuildableName = "RayTracerB5Tests.xctest"
+               BlueprintName = "RayTracerB5Tests"
+               ReferencedContainer = "container:RayTracerB5.xcodeproj">
+            </BuildableReference>
+            <SelectedTests>
+               <Test
+                  Identifier = "Cubes/testTable()">
+               </Test>
+            </SelectedTests>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

@@ -12,7 +12,22 @@
     "testTimeoutsEnabled" : true
   },
   "testTargets" : [
-
+    {
+      "selectedTests" : [
+        "Cubes\/testTable()",
+        "Cylinders\/testCylinders()",
+        "Fresnel\/testFresnel()",
+        "ObjFiles\/testTeapot()",
+        "ReflectRefract\/testReflectRefract()",
+        "ShadowPuppets\/testShadowPuppets()",
+        "Test\/testTest()"
+      ],
+      "target" : {
+        "containerPath" : "container:RayTracerB5.xcodeproj",
+        "identifier" : "D63840FC21C12EA6002BB6C6",
+        "name" : "RayTracerB5Tests"
+      }
+    }
   ],
   "version" : 1
 }
